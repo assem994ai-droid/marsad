@@ -331,6 +331,24 @@ h5.clickable:hover{color:var(--accent); text-decoration:underline; text-underlin
 .btn-sheet{background:var(--accent-soft); color:var(--accent); border:1px solid var(--accent); border-radius:7px; padding:4px 12px; font-family:var(--kufi); font-size:12.5px}
 .btn-sheet:hover{background:var(--accent); color:#fff}
 
+.addbox{background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:20px 22px; margin-bottom:24px; box-shadow:var(--shadow)}
+.addbox h4{font-family:var(--kufi); font-size:15px; margin:0 0 4px; font-weight:700}
+.addbox .hint{font-size:13px; color:var(--muted); margin:0 0 14px}
+.addrow{display:flex; gap:10px; flex-wrap:wrap}
+.addrow input{flex:1; min-width:240px; border:1px solid var(--line); border-radius:8px; background:var(--surface-2); padding:11px 14px; font-family:var(--body); font-size:14.5px; color:var(--ink); direction:ltr; text-align:left}
+.addrow input:focus{outline:2px solid var(--accent); outline-offset:-1px}
+.addrow button{background:var(--accent); color:#fff; border:0; border-radius:8px; padding:11px 22px; font-family:var(--kufi); font-size:14px}
+.addrow button:hover{background:var(--accent-2)}
+.addrow button.sec{background:transparent; color:var(--accent); border:1px solid var(--accent)}
+.pend{margin-top:14px; display:flex; flex-direction:column; gap:7px}
+.pend div{display:flex; align-items:center; gap:10px; justify-content:space-between; background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:8px 12px; font-size:13.5px}
+.pend .k{font-family:var(--mono); font-size:11px; padding:1px 8px; border-radius:20px; border:1px solid var(--line); color:var(--muted)}
+.pend .k.tg{color:var(--accent); border-color:var(--accent)}
+.pend .rm{background:none; border:0; color:var(--red); font-size:16px; cursor:pointer; padding:0 4px}
+.savebar{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:14px; padding-top:14px; border-top:1px solid var(--line)}
+.savebar .ok{color:var(--accent); font-size:13px}
+.tok{font-family:var(--mono); font-size:11.5px; color:var(--muted)}
+
 .toast{position:fixed; bottom:26px; left:50%; transform:translate(-50%,18px); background:var(--ink); color:var(--surface); padding:12px 22px; border-radius:9px; font-family:var(--kufi); font-size:13.5px; opacity:0; pointer-events:none; transition:.24s; z-index:80; box-shadow:var(--shadow)}
 .toast.show{opacity:1; transform:translate(-50%,0)}
 .empty{border:1px dashed var(--line); border-radius:9px; padding:34px; text-align:center; color:var(--muted); font-size:14px}
@@ -886,6 +904,109 @@ const ENDPOINTS=[
 {n:'World Bank API',e:'https://api.worldbank.org/v2/country/SYR/indicator/NY.GDP.MKTP.CD?format=json',k:'بلا مفتاح',d:'سلاسل زمنية للمؤشرات الكلية.'},
 {n:'Wayback Availability API',e:'https://archive.org/wayback/available?url=mfa.gov.tr&timestamp=20260818',k:'بلا مفتاح',d:'إثبات نص البيان قبل أي تعديل لاحق.'}];
 
+
+/* ============================================================
+   إضافة مصدر من داخل المنصة — يُحفظ في sources.json داخل المستودع
+   ============================================================ */
+const REPO=(()=>{ const m=location.hostname.match(/^([^.]+)\.github\.io$/); if(!m)return null;
+ const p=location.pathname.split('/').filter(Boolean);
+ return {owner:m[1], repo:p[0]||(m[1]+'.github.io')};})();
+const PEND=[];
+function tokGet(){ try{return localStorage.getItem('marsad_gh_token')||'';}catch(_){return window._tok||'';} }
+function tokSet(v){ try{localStorage.setItem('marsad_gh_token',v);}catch(_){window._tok=v;} }
+
+function normSource(raw){
+ let u=(raw||'').trim(); if(!u)return null;
+ u=u.replace(/^@/,'');
+ if(!/^https?:\/\//i.test(u)){
+   if(/^[A-Za-z0-9_]{4,32}$/.test(u)) return {type:'telegram', id:u};   /* اسم قناة مجرد */
+   u='https://'+u;
+ }
+ let url; try{url=new URL(u);}catch(_){return null;}
+ const host=url.hostname.replace(/^www\./,'');
+ if(host==='t.me'||host==='telegram.me'){
+   const parts=url.pathname.split('/').filter(Boolean);
+   const ch=(parts[0]==='s'?parts[1]:parts[0])||'';
+   if(!ch||/^\+/.test(ch))return null;                                   /* روابط الدعوة الخاصة لا تصلح */
+   return {type:'telegram', id:ch.replace(/^@/,'')};
+ }
+ return {type:'site', id:host, name:host, site:url.origin};
+}
+
+function addPend(){
+ const inp=document.getElementById('srcUrl'); if(!inp)return;
+ const n=normSource(inp.value);
+ if(!n){ toast('الرابط غير صالح. مثال: https://t.me/channel أو https://example.com'); return; }
+ if(PEND.some(x=>x.type===n.type&&x.id===n.id)){ toast('هذا المصدر مضاف بالفعل في القائمة'); return; }
+ if(n.type==='telegram'&&(LIVE.tg||[]).includes(n.id)){ toast('هذه القناة مسجّلة أصلاً في المصادر'); return; }
+ PEND.push(n); inp.value=''; render();
+ toast(n.type==='telegram'?`أُضيفت قناة ${n.id} — اضغط «احفظ في المصادر» لتثبيتها`:`أُضيف الموقع ${n.id} — اضغط «احفظ في المصادر» لتثبيته`);
+}
+function rmPend(i){ PEND.splice(i,1); render(); }
+
+const b64enc=str=>{const b=new TextEncoder().encode(str); let s=''; for(let i=0;i<b.length;i++)s+=String.fromCharCode(b[i]); return btoa(s);};
+const b64dec=b=>{const raw=atob(String(b).replace(/\s/g,'')); const arr=new Uint8Array(raw.length);
+ for(let i=0;i<raw.length;i++)arr[i]=raw.charCodeAt(i); return new TextDecoder().decode(arr);};
+
+async function saveSources(btn){
+ if(!PEND.length){ toast('لا مصادر جديدة لحفظها'); return; }
+ if(!REPO){ toast('الحفظ التلقائي يعمل على الموقع المنشور فقط — انسخ الأسماء وأضفها يدوياً'); return; }
+ let tok=tokGet();
+ if(!tok){ tok=prompt('الصق رمز GitHub (يُطلب مرة واحدة فقط ويُحفظ في متصفحك):'); if(!tok)return; tokSet(tok.trim()); }
+ const t0=btn.innerHTML; btn.disabled=true; btn.innerHTML='جارٍ الحفظ…';
+ const api=`https://api.github.com/repos/${REPO.owner}/${REPO.repo}/contents/sources.json`;
+ const H={Authorization:'Bearer '+tok.trim(),Accept:'application/vnd.github+json'};
+ try{
+  const r=await fetch(api,{headers:H});
+  if(r.status===401||r.status===403)throw new Error('الرمز غير صالح أو بلا صلاحية الكتابة');
+  if(!r.ok)throw new Error('تعذّر قراءة ملف المصادر (HTTP '+r.status+')');
+  const meta=await r.json();
+  const cfg=JSON.parse(b64dec(meta.content));
+  cfg.telegram=cfg.telegram||{channels:[]}; cfg.telegram.channels=cfg.telegram.channels||[];
+  cfg.sources=cfg.sources||[];
+  let tg=0,st=0;
+  for(const n of PEND){
+   if(n.type==='telegram'){ if(!cfg.telegram.channels.includes(n.id)){cfg.telegram.channels.push(n.id); tg++;} }
+   else{ if(!cfg.sources.some(x=>(x.site||'').includes(n.id))){
+      cfg.sources.push({id:n.id.replace(/[^a-z0-9]/gi,'-').toLowerCase(),name:n.name,org:n.id,
+        cat:'مضاف من المنصة',lang:'ar',weight:3,party:false,site:n.site,feeds:[]}); st++; }}
+  }
+  const put=await fetch(api,{method:'PUT',headers:{...H,'Content-Type':'application/json'},
+    body:JSON.stringify({message:`إضافة مصادر من المنصة (${tg} قناة، ${st} موقع)`,
+      content:b64enc(JSON.stringify(cfg,null,1)), sha:meta.sha})});
+  if(!put.ok)throw new Error('تعذّر الحفظ (HTTP '+put.status+')');
+  /* تشغيل دورة فوراً إن سمحت صلاحية الرمز */
+  fetch(`https://api.github.com/repos/${REPO.owner}/${REPO.repo}/actions/workflows/collect.yml/dispatches`,
+    {method:'POST',headers:{...H,'Content-Type':'application/json'},body:JSON.stringify({ref:'main'})}).catch(()=>{});
+  PEND.length=0; render();
+  toast(`حُفظت المصادر في المستودع (${tg} قناة، ${st} موقع) — ستدخل الجمع في الدورة التالية`);
+ }catch(e){
+  toast('تعذّر الحفظ: '+e.message);
+  if(/غير صالح/.test(e.message))tokSet('');
+ }
+ btn.disabled=false; btn.innerHTML=t0;
+}
+
+function addBoxHTML(){
+ const has=!!tokGet();
+ return `<div class="addbox">
+  <h4>إضافة مصدر جديد</h4>
+  <p class="hint">الصق رابط قناة تلجرام أو رابط موقع إخباري. النظام يتعرّف على النوع وحده، ويكتشف تغذية الموقع تلقائياً في أول دورة.</p>
+  <div class="addrow">
+   <input id="srcUrl" type="text" placeholder="https://t.me/channel   أو   https://example.com" aria-label="رابط المصدر">
+   <button data-addsrc="1">أضف</button>
+  </div>
+  ${PEND.length?`<div class="pend">${PEND.map((p,i)=>`<div>
+     <span><span class="k ${p.type==='telegram'?'tg':''}">${p.type==='telegram'?'تلجرام':'موقع'}</span> ${esc(p.id)}</span>
+     <button class="rm" data-rmsrc="${i}" title="إزالة">✕</button></div>`).join('')}</div>
+   <div class="savebar">
+    <button class="btn-gen" data-savesrc="1">احفظ في المصادر (${PEND.length})</button>
+    <span class="tok">${has?'الرمز محفوظ في متصفحك':'سيُطلب رمز GitHub مرة واحدة'}</span>
+   </div>`:''}
+  ${REPO?'':'<p class="tok" style="margin-top:10px">الحفظ التلقائي متاح على الموقع المنشور. هنا يمكنك تجربة الإضافة فقط.</p>'}
+ </div>`;
+}
+
 function viewSources(){
  const shown = state.scat==null?SOURCES:SOURCES.filter(s=>s.c===state.scat);
  const api=SOURCES.filter(s=>s.a==='API').length, nokey=SOURCES.filter(s=>!s.k).length;
@@ -893,6 +1014,7 @@ function viewSources(){
  const fb=(k,l)=>`<button class="${state.scat===k?'on':''}" data-scat="${k===null?'':k}">${l}</button>`;
  return `<p class="eyebrow">المصادر</p><h2 class="page">سجل المصادر المفتوحة</h2>
  <p class="page-sub">هذه هي المصادر التي يفحصها النظام في كل دورة. الأولوية للمصادر التي تتيح واجهة برمجية أو تغذية RSS، لأنها وحدها تسمح بالجمع الآلي المستقر.</p>
+ ${addBoxHTML()}
  <div class="src-head">
   <div class="card stat"><b>${SOURCES.length}</b><span>مصدراً مسجلاً</span></div>
   <div class="card stat"><b>${api}</b><span>بواجهة برمجية API</span></div>
@@ -1555,7 +1677,7 @@ function openBasis(key){const b=blockByKey(key); if(!b)return;
 function closeDrawer(re=true){state.focus=null;$('#drawer').classList.remove('open');document.body.classList.remove('drawer-open','focusing');if(re)render();}
 
 document.addEventListener('click',ev=>{
- const t=ev.target.closest('[data-view],[data-open],[data-basis],[data-lvl],[data-sf],[data-tf],[data-goev],[data-place],[data-country],[data-scat],[data-regen],[data-model],[data-sheet]');
+ const t=ev.target.closest('[data-view],[data-open],[data-basis],[data-lvl],[data-sf],[data-tf],[data-goev],[data-place],[data-country],[data-scat],[data-regen],[data-model],[data-sheet],[data-addsrc],[data-rmsrc],[data-savesrc]');
  if(!t)return; const D=t.dataset;
  if(D.view)return go(D.view);
  if(D.open)return go('file',D.open);
@@ -1569,6 +1691,9 @@ document.addEventListener('click',ev=>{
  if(D.goev){const e=byId(D.goev);
   if(state.view!=='file'||state.file!==e.f){state.view='file';state.file=e.f;render();}
   const el=document.getElementById('ev-'+e.id); if(el)el.scrollIntoView({behavior:'smooth',block:'center'}); return;}
+ if(D.addsrc){addPend(); return;}
+ if(D.rmsrc!==undefined){rmPend(+D.rmsrc); return;}
+ if(D.savesrc){saveSources(t); return;}
  if(D.scat!==undefined){state.scat=D.scat===''?null:+D.scat; return render();}
  if(D.place){selectPlace(D.place); return;}
  if(D.country){selectCountry(D.country); return;}
@@ -1579,6 +1704,7 @@ document.addEventListener('click',ev=>{
  if(D.model){modelSheet(D.model,t); return;}
 });
 document.addEventListener('keydown',e=>{
+ if(e.key==='Enter'&&e.target&&e.target.id==='srcUrl'){addPend(); return;}
  if(e.key==='Escape'&&state.focus)closeDrawer();
  if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('mk'))e.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));});
 document.addEventListener('input',e=>{if(e.target.id==='q'){state.q=e.target.value;$('#results').innerHTML=searchResults();}});

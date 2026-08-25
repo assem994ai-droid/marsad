@@ -22,6 +22,15 @@ jobs:
       - name: Install requirements
         run: pip install requests
 
+      - name: Verify sources when the list changes
+        run: |
+          if [ ! -f sources.verified.json ] || [ sources.json -nt sources.verified.json ]; then
+            echo "sources.json changed - running discovery"
+            python collector.py verify || true
+          else
+            echo "no change - skipping verify"
+          fi
+
       - name: Collect news
         run: python collector.py run --since 6h || true
 
