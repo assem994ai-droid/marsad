@@ -200,6 +200,54 @@ def parse_date(s):
     return datetime.now(timezone.utc)
 
 
+
+# ------------------------------------------------------- قنوات تلجرام العامة
+# تُقرأ من صفحة المعاينة العامة t.me/s/<القناة> — بلا مفتاح ولا حساب ولا بوت.
+# تعمل مع القنوات العامة فقط؛ القناة الخاصة تحتاج بوتاً عضواً فيها.
+TG_MSG = re.compile(
+    r'<div class="tgme_widget_message_text[^"]*"[^>]*>(.*?)</div>', re.S)
+TG_TIME = re.compile(r'<time datetime="([^"]+)"')
+TG_LINK = re.compile(r'<a class="tgme_widget_message_date" href="([^"]+)"')
+
+
+def strip_html(x):
+    x = re.sub(r"<br\s*/?>", " ", x)
+    x = re.sub(r"<[^>]+>", "", x)
+    x = (x.replace("&nbsp;", " ").replace("&amp;", "&")
+          .replace("&quot;", '"').replace("&#39;", "'")
+          .replace("&lt;", "<").replace("&gt;", ">"))
+    return re.sub(r"\s+", " ", x).strip()
+
+
+def fetch_telegram(channel, since):
+    """يعيد (عناصر، سبب). القناة تُكتب بلا @."""
+    ch = channel.lstrip("@").strip()
+    try:
+        r = get(f"https://t.me/s/{ch}")
+    except Exception as e:
+        return [], f"شبكة: {type(e).__name__}"
+    if r.status_code != 200:
+        return [], f"HTTP {r.status_code}"
+    html = r.text
+    if "tgme_widget_message" not in html:
+        return [], "قناة خاصة أو غير موجودة أو بلا معاينة عامة"
+    texts = TG_MSG.findall(html)
+    times = TG_TIME.findall(html)
+    links = TG_LINK.findall(html)
+    out = []
+    for i, raw in enumerate(texts):
+        body = strip_html(raw)
+        if len(body) < 40:                      # نتجاهل التعليقات القصيرة والإيموجي
+            continue
+        d = parse_date(times[i]) if i < len(times) else datetime.now(timezone.utc)
+        if d < since:
+            continue
+        title = body[:180]
+        out.append({"title": title, "link": links[i] if i < len(links) else f"https://t.me/{ch}",
+                    "summary": body[:600], "date": times[i] if i < len(times) else "",
+                    "dt": d, "source": f"تلجرام/{ch}", "weight": 3, "party": False})
+    return out, "ok"
+
 # --------------------------------------------------- التصنيف والإسناد والأهمية
 def match_entities(text, entities):
     text = text.lower()
@@ -211,12 +259,15 @@ def match_entities(text, entities):
 
 
 def match_place(text, places):
-    """ترميز جغرافي بالمطابقة النصية: يُفضَّل المرادف الأطول لتفادي المطابقات العامة."""
+    """ترميز جغرافي بمطابقة كلمة كاملة — كي لا تطابق «التنف» كلمةَ «التنفيذ»."""
     best = None
     text = text.lower()
     for p in places or []:
         for a in p.get("alias", [p["n"]]):
-            if a.lower() in text and (best is None or len(a) > best[0]):
+            a_l = a.lower()
+            if not re.search(r"(?<![\w\u0600-\u06FF])" + re.escape(a_l) + r"(?![\w\u0600-\u06FF])", text):
+                continue
+            if best is None or len(a) > best[0]:
                 best = (len(a), p)
     if not best:
         return {"n": "غير محدد"}
@@ -281,6 +332,10 @@ def cmd_verify(cfg):
         verified.append(rec)
         report.append((res["status"], s["name"], res.get("endpoint", ""), res.get("reason", "")))
         log(f"  {res['status']:12s} {s['name']}  ({res.get('reason','')})")
+    for ch in (cfg.get("telegram") or {}).get("channels", []):
+        items, why = fetch_telegram(ch, datetime.now(timezone.utc) - timedelta(days=3))
+        log(f"  {('يعمل' if why=='ok' else 'متعذر'):12s} تلجرام/{ch}  ({why} · {len(items)} رسالة)")
+
     with open(os.path.join(HERE, "sources.verified.json"), "w", encoding="utf-8") as f:
         json.dump({"checked": datetime.now(timezone.utc).isoformat(), "sources": verified}, f, ensure_ascii=False, indent=1)
     ok = sum(1 for r in report if r[0] == "يعمل")
@@ -334,6 +389,12 @@ def cmd_run(cfg, since_hours):
     if os.path.exists(vf):
         src_list = json.load(open(vf, encoding="utf-8"))["sources"]
         log("استُخدم sources.verified.json")
+
+    for ch in (cfg.get("telegram") or {}).get("channels", []):
+        items, why = fetch_telegram(ch, since)
+        health[f"telegram:{ch}"] = f"{why} · {len(items)} رسالة"
+        pool.extend(items)
+        time.sleep(0.4)
 
     for s in src_list:
         v = s.get("verified", {})

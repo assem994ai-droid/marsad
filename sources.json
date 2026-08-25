@@ -28,7 +28,9 @@
     "kobani",
     "hasakah",
     "border",
-    "east euphrates"
+    "east euphrates",
+    "نقطتين",
+    "تفاهم"
    ]
   },
   {
@@ -81,7 +83,14 @@
     "delisting",
     "currency",
     "imf",
-    "world bank"
+    "world bank",
+    "الإرهاب",
+    "تصنيف",
+    "رفع التصنيف",
+    "قائمة الدول",
+    "الخزانة",
+    "تجميد",
+    "أصول"
    ]
   },
   {
@@ -1054,5 +1063,14 @@
     "doha"
    ]
   }
- ]
+ ],
+ "telegram": {
+  "note": "قنوات تلجرام العامة فقط، بلا @. تُقرأ من صفحة المعاينة t.me/s/<القناة>. شغّل verify لتعرف أيها يعمل.",
+  "channels": [
+   "sanaagency",
+   "enabbaladi",
+   "syriatv",
+   "npasyria"
+  ]
+ }
 }
