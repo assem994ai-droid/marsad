@@ -1,16 +1,12 @@
-name: تحديث مرصد
+name: marsad-update
 
 on:
   schedule:
-    - cron: "*/30 * * * *"      # كل 30 دقيقة
-  workflow_dispatch:            # زر تشغيل يدوي من صفحة Actions
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
-
-concurrency:
-  group: marsad-collect
-  cancel-in-progress: false
 
 jobs:
   collect:
@@ -23,35 +19,22 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: تثبيت المتطلبات
+      - name: Install requirements
         run: pip install requests
 
-      - name: فحص المصادر (مرة كل يوم)
-        run: |
-          if [ ! -f sources.verified.json ] || [ $(( $(date +%s) - $(date -r sources.verified.json +%s 2>/dev/null || echo 0) )) -gt 86400 ]; then
-            python collector.py verify || true
-          fi
+      - name: Collect news
+        run: python collector.py run --since 6h || true
 
-      - name: الجمع
-        run: python collector.py run --since 2h || true
+      - name: Generate analysis sheets
+        run: python analyst.py || true
 
-      - name: توليد أوراق التحليل
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          if [ -n "$ANTHROPIC_API_KEY" ]; then
-            python analyst.py --model --min pivotal || python analyst.py
-          else
-            python analyst.py
-          fi
-
-      - name: النشر إلى الموقع
+      - name: Publish to website
         run: python publish.py
 
-      - name: حفظ النتائج
+      - name: Save results
         run: |
           git config user.name "marsad-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/ collector.state.json sources.verified.json 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "تحديث تلقائي $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git add -A data collector.state.json || true
+          git diff --staged --quiet || git commit -m "auto update"
           git push

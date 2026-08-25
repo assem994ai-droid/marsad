@@ -6,29 +6,31 @@
 <title>مرصد — منصة رصد الأحداث والإحاطة التحليلية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Noto+Kufi+Arabic:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#EEF1F5; --surface:#FFFFFF; --surface-2:#F6F8FA; --surface-3:#EAEEF3;
-  --ink:#0F1B2A; --ink-2:#33445A; --muted:#6B7A8D; --line:#DDE3EA;
-  --nav:#0D1E33; --nav-2:#152B47; --nav-line:#22405F; --nav-text:#AFC0D2;
-  --accent:#1A5FA8; --accent-2:#1D6DBF; --accent-soft:#E7F0FA;
-  --red:#B23A2C; --amber:#A8730E; --grey:#7C8A9B;
-  --land:#E6E9EC; --land-2:#DDE2E7; --sea:#DCE9F0; --focus-land:#F4F1E6;
-  --shadow:0 1px 2px rgba(15,27,42,.06), 0 8px 24px -18px rgba(15,27,42,.35);
-  --kufi:"Noto Kufi Arabic","Segoe UI",system-ui,"SF Arabic","Geeza Pro",Tahoma,sans-serif;
-  --body:"IBM Plex Sans Arabic",system-ui,"Segoe UI","SF Arabic",Tahoma,sans-serif;
+  --bg:#F2F5F2; --surface:#FFFFFF; --surface-2:#F5F8F5; --surface-3:#E8EEE9;
+  --ink:#122019; --ink-2:#33473D; --muted:#647A6E; --line:#DCE5DE;
+  --nav:#0A4A32; --nav-2:#0E5D3F; --nav-line:#1A7050; --nav-text:#B9D6C7;
+  --accent:#0E6B47; --accent-2:#12855A; --accent-soft:#E6F1EB;
+  --gold:#C6A04A; --gold-soft:#F6EFDD;
+  --red:#A32B22; --amber:#A8760F; --grey:#7C8A83;
+  --land:#E4EAE5; --land-2:#DAE2DC; --sea:#DCE9EC; --focus-land:#F4EFDF;
+  --shadow:0 1px 2px rgba(18,32,25,.06), 0 8px 24px -18px rgba(18,32,25,.35);
+  --kufi:"Tajawal","Noto Kufi Arabic","Segoe UI",system-ui,"SF Arabic","Geeza Pro",Tahoma,sans-serif;
+  --body:"Tajawal","IBM Plex Sans Arabic",system-ui,"Segoe UI","SF Arabic",Tahoma,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   --topH:58px; --railW:238px; --drawerW:410px;
 }
 html[data-theme="dark"]{
-  --bg:#0C1219; --surface:#141C26; --surface-2:#1A2430; --surface-3:#202C3A;
-  --ink:#E8EDF3; --ink-2:#BCC8D6; --muted:#8595A7; --line:#243243;
-  --nav:#080D14; --nav-2:#111C29; --nav-line:#1D2C3D; --nav-text:#9DB0C4;
-  --accent:#4E9BE6; --accent-2:#6BAEEE; --accent-soft:#132738;
-  --red:#E0705F; --amber:#D9A441; --grey:#8A98A8;
-  --land:#1C2733; --land-2:#22303E; --sea:#101C28; --focus-land:#2A3140;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -20px rgba(0,0,0,.8);
+  --bg:#08120D; --surface:#0F1B15; --surface-2:#14231B; --surface-3:#1B2E24;
+  --ink:#E6EFE9; --ink-2:#BACBC1; --muted:#83988C; --line:#1F3327;
+  --nav:#051009; --nav-2:#0C2418; --nav-line:#17402C; --nav-text:#9CBCA9;
+  --accent:#2F9B6F; --accent-2:#45B888; --accent-soft:#0F2A1E;
+  --gold:#D8B564; --gold-soft:#241D0F;
+  --red:#DE6B5C; --amber:#D3A03F; --grey:#87978D;
+  --land:#152219; --land-2:#1B2C21; --sea:#0B1A1D; --focus-land:#2A2A18;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px -20px rgba(0,0,0,.9);
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -37,12 +39,12 @@ button{font-family:inherit; cursor:pointer; color:inherit}
 :focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
 
 /* ===== top ===== */
-.top{position:sticky; top:0; z-index:50; height:var(--topH); background:var(--nav); border-bottom:1px solid var(--nav-line);
+.top{position:sticky; top:0; z-index:50; height:var(--topH); background:var(--nav); border-bottom:1px solid var(--nav-line); box-shadow:inset 0 3px 0 var(--gold);
   display:flex; align-items:center; gap:16px; padding:0 20px; color:var(--nav-text)}
 .logo{display:flex; align-items:center; gap:10px}
-.logo .glyph{width:26px; height:26px; border-radius:6px; background:var(--accent-2); display:grid; place-items:center; color:#fff; font-family:var(--kufi); font-size:13px; font-weight:700}
+.logo .glyph{width:28px; height:28px; border-radius:50%; background:transparent; border:1.5px solid var(--gold); display:grid; place-items:center; color:var(--gold); font-family:var(--kufi); font-size:13px; font-weight:700}
 .logo b{font-family:var(--kufi); font-size:17px; font-weight:600; color:#fff; letter-spacing:-.2px}
-.logo span{font-family:var(--mono); font-size:10px; color:#6E8299; letter-spacing:.14em}
+.logo span{font-family:var(--mono); font-size:9.5px; color:var(--gold); letter-spacing:.16em; opacity:.85}
 .sep{width:1px; height:26px; background:var(--nav-line)}
 .btn-refresh{background:var(--accent); border:0; border-radius:7px; color:#fff; padding:9px 16px; font-family:var(--kufi); font-size:13.5px; display:flex; align-items:center; gap:8px; transition:background .15s}
 .btn-refresh:hover{background:var(--accent-2)}
@@ -71,7 +73,7 @@ html[data-theme="dark"] .demo-tag{background:#231C10}
 .view{padding:34px 40px 90px; max-width:1120px; margin-inline:auto}
 
 .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.12em; color:var(--muted); margin:0 0 10px}
-h2.page{font-family:var(--kufi); font-size:26px; line-height:1.55; font-weight:600; margin:0 0 10px; letter-spacing:-.3px}
+h2.page{font-family:var(--kufi); font-size:25px; line-height:1.55; font-weight:600; margin:0 0 10px; letter-spacing:-.3px}
 .page-sub{color:var(--muted); margin:0 0 28px; font-size:14.5px; max-width:66ch}
 .rule{height:1px; background:var(--line); margin:30px 0}
 h3.sec{font-family:var(--kufi); font-size:15px; font-weight:600; margin:0 0 16px; display:flex; align-items:center; gap:14px}
@@ -98,7 +100,7 @@ h3.sec:after{content:""; flex:1; height:1px; background:var(--line)}
 
 /* ===== hero ===== */
 .hero{overflow:hidden}
-.hero-top{display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:13px 22px; background:var(--surface-2); border-bottom:1px solid var(--line); font-family:var(--mono); font-size:11.5px; color:var(--muted)}
+.hero-top{display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:13px 22px; background:var(--surface-2); border-top:3px solid var(--gold); border-bottom:1px solid var(--line); font-family:var(--mono); font-size:11.5px; color:var(--muted)}
 .hero-body{padding:24px 22px 20px}
 .hero-body h4{font-family:var(--kufi); font-size:20px; line-height:1.65; font-weight:600; margin:0 0 16px}
 .hero-foot{display:flex; flex-wrap:wrap; gap:10px 20px; padding:13px 22px; border-top:1px solid var(--line); font-family:var(--mono); font-size:12px; color:var(--muted)}
@@ -135,7 +137,7 @@ h3.sec:after{content:""; flex:1; height:1px; background:var(--line)}
 
 /* ===== file page ===== */
 .file-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:34px; align-items:start}
-.brief{padding:24px 26px 20px}
+.brief{padding:24px 26px 20px; border-top:3px solid var(--gold)}
 .brief-h{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap}
 .brief-h h3{font-family:var(--kufi); font-size:18px; font-weight:600; margin:0}
 .brief-h span{font-family:var(--mono); font-size:11.5px; color:var(--muted)}
@@ -219,6 +221,7 @@ mark{background:rgba(216,170,60,.34); color:inherit; padding:0 3px; border-radiu
 .src-head{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-bottom:24px}
 .stat{padding:16px 18px}
 .stat b{display:block; font-family:var(--mono); font-size:26px; font-weight:500; line-height:1.3; color:var(--accent)}
+.stat{border-top:2px solid var(--gold)}
 .stat span{font-size:12.5px; color:var(--muted)}
 .src-tbl{width:100%; border-collapse:collapse; font-size:13.5px; background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden}
 .src-tbl th{text-align:start; font-family:var(--kufi); font-size:11.5px; font-weight:500; color:var(--muted); padding:11px 14px; background:var(--surface-2); border-bottom:1px solid var(--line); white-space:nowrap}
@@ -356,7 +359,7 @@ h5.clickable:hover{color:var(--accent); text-decoration:underline; text-underlin
 <body>
 
 <header class="top">
-  <span class="logo"><span class="glyph">م</span><b>مرصد</b><span>EVENT DESK</span></span>
+  <span class="logo"><span class="glyph">★</span><b>مرصد</b><span>وحدة الرصد والتحليل</span></span>
   <span class="sep"></span>
   <button class="btn-refresh" id="refreshBtn"><span class="dot-live"></span> تحديث الآن</button>
   <div class="meta">
@@ -718,7 +721,7 @@ function viewMap(){
   return `<g class="mk ${state.place===n?'on':''}" data-place="${esc(n)}" tabindex="0" role="button" aria-label="${esc(n)}: ${list.length} حدثاً" transform="translate(${q.x.toFixed(2)},${q.y.toFixed(2)})"><title>${esc(n)} — ${list.length} حدثاً</title>
    <g class="mkin"><circle r="${(r+9).toFixed(1)}" style="fill:${col}" opacity=".18"/><circle class="core" r="${r.toFixed(1)}" style="fill:${col}"/>
    <text y="4.5" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#fff">${list.length}</text>
-   <text class="lbl" y="${(r+18).toFixed(1)}" text-anchor="middle" font-family="Noto Kufi Arabic,sans-serif" font-size="13" style="fill:var(--ink)">${esc(n)}</text></g></g>`;}).join('');
+   <text class="lbl" y="${(r+18).toFixed(1)}" text-anchor="middle" font-family="Tajawal,Noto Kufi Arabic,sans-serif" font-size="13" style="fill:var(--ink)">${esc(n)}</text></g></g>`;}).join('');
  const places=Object.keys(g).map(n=>`<button class="place-item ${state.place===n?'on':''}" data-place="${esc(n)}">${esc(n)}<span>${g[n].length} حدثاً</span></button>`).join('');
  const sel = state.place?placeHTML(state.place):(state.country?countryHTML(state.country):'<p style="margin:0;font-size:13px;color:var(--muted)">اختر دولة أو موقعاً من الخريطة.</p>');
  return `<p class="eyebrow">الخريطة</p><h2 class="page">توزيع الأحداث على خريطة العالم</h2>
@@ -1048,7 +1051,8 @@ const ANALYSIS={
    (واجهة مفتوحة بلا مفتاح). إن منعها المتصفح يبقى كل شيء كما هو.
    ============================================================ */
 const RT={
- q:['Syria','Syria sourcelang:arabic'],
+ q:['Syria','Syria sourcelang:arabic','Damascus OR Syrian government','Syria (sanctions OR reconstruction OR investment)',
+     'Syria (Turkey OR SDF OR ceasefire)'],
  kw:{'f-north':['انسحاب','وقف إطلاق','قسد','شرق الفرات','منبج','عين العرب','تل رفعت','الحسكة','القامشلي','الحدود',
       'sdf','ceasefire','northern syria','withdraw','manbij','kobani','hasakah','border','euphrates'],
      'f-track':['أنقرة','تركيا','التركي','مباحثات','لقاء','وساطة','تطبيع','وفد','محادثات',
@@ -1107,7 +1111,7 @@ function jsonp(base){
 }
 async function gdelt(q){
  const base='https://api.gdeltproject.org/api/v2/doc/doc?query='+encodeURIComponent(q)
-   +'&mode=ArtList&maxrecords=75&timespan=24h&sort=DateDesc';
+   +'&mode=ArtList&maxrecords=250&timespan=24h&sort=DateDesc';
  try{ const d=await jsonp(base); DIAG.lines.push('① JSONP ✓ نجح'); return d; }
  catch(e){ DIAG.lines.push('① JSONP ✗ '+e); }
  try{ const r=await fetch(base+'&format=json'); if(!r.ok)throw 'HTTP '+r.status;
@@ -1210,6 +1214,7 @@ function adopt(p){
  PATHS=PATHS; mapv.init=false;   /* إعادة ضبط إطار الخريطة على البيانات الجديدة */
  const tag=$('#modeTag'); if(tag){tag.className='mode live'; tag.textContent='بيانات مباشرة';}
  if(p.next_in!=null)secs=p.next_in;
+ const lb=$('#liveBtn'); if(lb&&LIVE.src!=='browser')lb.style.display='none';
  return true;
 }
 function boot(){
@@ -1585,11 +1590,21 @@ function pull(auto){const batch=INCOMING[state.wave]; state.events.forEach(e=>e.
   toast((auto?'التحديث التلقائي: ':'تم التحديث — ')+batch.length+' حدثاً جديداً');}
  else{stamp(); render(); toast('لا جديد في المصادر منذ آخر فحص');}}
 $('#refreshBtn').onclick=e=>{const b=e.currentTarget;
- if(LIVE.src==='pages'){const t0=b.innerHTML; b.disabled=true; b.innerHTML='<span class="dot-live"></span> جاري التحديث…';
-  api('data/site.json?t='+Date.now()).then(p=>{const n=state.events.length; adopt(p); LIVE.src='pages'; stamp(); render();
-    const d=state.events.length-n; toast(d>0?`وصل ${d} حدثاً جديداً`:'لا جديد منذ الدورة الأخيرة — يجمع النظام كل 30 دقيقة');})
-   .catch(()=>toast('تعذّر تحميل آخر نشرة'))
-   .then(()=>{b.disabled=false; b.innerHTML=t0;}); return;}
+ if(LIVE.src==='pages'){const t0=b.innerHTML; b.disabled=true; b.innerHTML='<span class="dot-live"></span> جاري الجمع الآن…';
+  const before=state.events.length;
+  api('data/site.json?t='+Date.now()).then(p=>{adopt(p); LIVE.src='pages';}).catch(()=>{})
+   .then(()=>fetchReal().catch(()=>[]))          /* جلب فوري مباشر فوق بيانات الخادم */
+   .then(fresh=>{
+     const known={}; state.events.forEach(e=>known[fpr(e.title)]=1);
+     const add=(fresh||[]).filter(e=>!known[fpr(e.title)]);
+     state.events.forEach(e=>e.isNew=false);
+     if(add.length){add.forEach(e=>e.isNew=true); state.events=add.concat(state.events);
+       Object.keys(GEN).forEach(k=>delete GEN[k]);}
+     stamp(); render();
+     const d=state.events.length-before;
+     toast(d>0?`تم الجمع الآن — ${d} خبراً جديداً (${add.length} منها مباشر)`:'اكتمل الفحص — لا جديد منذ آخر دورة');
+     b.disabled=false; b.innerHTML=t0;});
+  return;}
  if(REAL.on)return goLive(b);
  b.disabled=true; b.innerHTML='<span class="dot-live"></span> جاري فحص المصادر…';
  api('/api/refresh',{method:'POST'}).then(()=>{

@@ -491,10 +491,10 @@
    "api": {
     "type": "json",
     "auth": "none",
-    "url": "https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=75&format=json&timespan={timespan}",
+    "url": "https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=250&format=json&timespan={timespan}",
     "params": {
-     "query": "(Syria OR Syrian) (Turkey OR Turkish)",
-     "timespan": "2h"
+     "query": "Syria",
+     "timespan": "6h"
     },
     "path": "articles"
    }
