@@ -434,6 +434,7 @@ let FILES=[
  {id:'f-north',name:'شمال سوريا — الترتيبات الأمنية',scope:'خطوط التماس، الانتشار العسكري، تفاهمات وقف إطلاق النار',region:'شمال وشرق سوريا'},
  {id:'f-track',name:'مسار التطبيع التركي السوري',scope:'الاتصالات الرسمية، الوساطات، شروط كل طرف ومخرجات اللقاءات',region:'أنقرة — دمشق'},
  {id:'f-econ', name:'العقوبات والاقتصاد',scope:'الاستثناءات الإنسانية، قنوات التحويل، ملفات إعادة الإعمار',region:'إقليمي'},
+ {id:'f-gen',name:'عام — الشأن السوري',scope:'ما لا يندرج تحت ملف محدد بعد',region:'عام'},
  {id:'f-energy',name:'الطاقة وخطوط النقل',scope:'الكهرباء، المشتقات النفطية، حركة البضائع عبر المعابر',region:'الشمال والشرق'}];
 
 let E=[
@@ -1047,42 +1048,49 @@ const ANALYSIS={
    (واجهة مفتوحة بلا مفتاح). إن منعها المتصفح يبقى كل شيء كما هو.
    ============================================================ */
 const RT={
- q:['سوريا','(Syria OR Syrian)'],
- kw:{'f-north':['انسحاب','وقف إطلاق','قسد','شرق الفرات','منبج','عين العرب','تل رفعت','الحسكة','القامشلي','SDF','ceasefire','northern Syria','withdraw'],
-     'f-track':['أنقرة','تركيا','التركي','مباحثات','لقاء','وساطة','تطبيع','وفد','Turkey','Ankara','talks','normalization'],
-     'f-econ':['عقوبات','قيصر','استثناء','تحويلات','إعادة الإعمار','الليرة','مصرف','استثمار','اقتصاد','sanctions','Caesar','investment','economy','bank'],
-     'f-energy':['كهرباء','نفط','غاز','مشتقات','معبر','شاحنات','طاقة','energy','electricity','oil','gas','crossing']},
- ent:{'تركيا':['تركيا','التركية','أنقرة','Turkey','Turkish','Ankara'],
-      'سوريا':['سوريا','السورية','دمشق','Syria','Syrian','Damascus'],
-      'الولايات المتحدة':['الولايات المتحدة','الأمريكية','واشنطن','U.S.','US ','Washington','American'],
-      'روسيا':['روسيا','الروسية','موسكو','Russia','Moscow'],
-      'قسد':['قسد','قوات سوريا الديمقراطية','الإدارة الذاتية','SDF'],
-      'إيران':['إيران','الإيرانية','طهران','Iran','Tehran'],
-      'الاتحاد الأوروبي':['الاتحاد الأوروبي','بروكسل','European Union','EU '],
-      'إسرائيل':['إسرائيل','الإسرائيلية','Israel','Israeli'],
-      'الأمم المتحدة':['الأمم المتحدة','مجلس الأمن','United Nations','UN ']},
- pl:[['دمشق',33.51,36.29,'SY',['دمشق','Damascus']],['حلب',36.20,37.16,'SY',['حلب','Aleppo']],
-     ['حمص',34.73,36.72,'SY',['حمص','Homs']],['اللاذقية',35.52,35.79,'SY',['اللاذقية','Latakia']],
-     ['إدلب',35.93,36.63,'SY',['إدلب','Idlib']],['درعا',32.62,36.10,'SY',['درعا','Daraa']],
-     ['السويداء',32.71,36.57,'SY',['السويداء','Sweida']],['دير الزور',35.33,40.15,'SY',['دير الزور','Deir']],
-     ['الحسكة',36.50,40.75,'SY',['الحسكة','Hasakah']],['القامشلي',37.05,41.22,'SY',['القامشلي','Qamishli']],
-     ['الرقة',35.95,39.01,'SY',['الرقة','Raqqa']],['منبج',36.53,37.95,'SY',['منبج','Manbij']],
-     ['عين العرب',36.89,38.35,'SY',['عين العرب','كوباني','Kobani']],['أنقرة',39.93,32.85,'TR',['أنقرة','Ankara']],
-     ['إسطنبول',41.01,28.98,'TR',['إسطنبول','Istanbul']],['غازي عنتاب',37.07,37.38,'TR',['عنتاب','Gaziantep']],
-     ['بغداد',33.31,44.36,'IQ',['بغداد','Baghdad']],['بيروت',33.89,35.50,'LB',['بيروت','Beirut']],
-     ['موسكو',55.75,37.62,'RU',['موسكو','Moscow']],['واشنطن',38.90,-77.04,'US',['واشنطن','Washington']],
-     ['بروكسل',50.85,4.35,'BE',['بروكسل','Brussels']],['طهران',35.69,51.39,'IR',['طهران','Tehran']],
-     ['عمّان',31.95,35.93,'JO',['عمّان','Amman']],['الدوحة',25.29,51.53,'QA',['الدوحة','Doha']]],
- kinds:[['تصريح رسمي',['تصريح','بيان','أعلن','أكد','صرح','الخارجية','says','statement','announce']],
-        ['قرار',['قرار','قرر','تمديد','إلغاء','تعليق','عقوبات','رفع','decision','lifts','removes','sanctions']],
-        ['اجتماع',['اجتماع','لقاء','مباحثات','زيارة','وفد','قمة','meeting','talks','visit','summit']],
-        ['إجراء ميداني',['انتشار','قصف','اشتباك','دورية','تعزيزات','عملية','strike','clashes','deploy']],
-        ['مؤشر اقتصادي',['سعر','الليرة','تضخم','أسعار','استثمار','price','inflation','investment']]],
- dec:['قرار','اتفاق','توقيع','انسحاب','تمديد','تعليق','إلغاء','مهلة','جدول زمني','عقوبات','شرط','استثناء','رفع']
+ q:['Syria','Syria sourcelang:arabic'],
+ kw:{'f-north':['انسحاب','وقف إطلاق','قسد','شرق الفرات','منبج','عين العرب','تل رفعت','الحسكة','القامشلي','الحدود',
+      'sdf','ceasefire','northern syria','withdraw','manbij','kobani','hasakah','border','euphrates'],
+     'f-track':['أنقرة','تركيا','التركي','مباحثات','لقاء','وساطة','تطبيع','وفد','محادثات',
+      'turkey','turkish','ankara','talks','meeting','normalization','delegation','summit','erdogan'],
+     'f-econ':['عقوبات','قيصر','استثناء','تحويلات','إعادة الإعمار','الليرة','مصرف','استثمار','اقتصاد','الإرهاب','تصنيف',
+      'sanctions','caesar','investment','economy','bank','reconstruction','terrorism','designation','delist',
+      'state sponsor','currency','trade','imf','world bank'],
+     'f-energy':['كهرباء','نفط','غاز','مشتقات','معبر','شاحنات','طاقة',
+      'energy','electricity','power','oil','gas','fuel','crossing','pipeline','grid'],
+     'f-gen':['سوريا','سورية','السوري','دمشق','syria','syrian','damascus']},
+ ent:{'تركيا':['تركيا','التركية','أنقرة','turkey','turkish','ankara','erdogan'],
+      'سوريا':['سوريا','السورية','دمشق','syria','syrian','damascus'],
+      'الولايات المتحدة':['الولايات المتحدة','الأمريكية','واشنطن','united states','u.s.','us ','washington','american','pentagon','state department'],
+      'روسيا':['روسيا','الروسية','موسكو','russia','russian','moscow'],
+      'قسد':['قسد','قوات سوريا الديمقراطية','الإدارة الذاتية','sdf','syrian democratic forces'],
+      'إيران':['إيران','الإيرانية','طهران','iran','iranian','tehran'],
+      'الاتحاد الأوروبي':['الاتحاد الأوروبي','بروكسل','european union','eu ','brussels'],
+      'إسرائيل':['إسرائيل','الإسرائيلية','israel','israeli'],
+      'الأمم المتحدة':['الأمم المتحدة','مجلس الأمن','united nations','security council','un ']},
+ pl:[['دمشق',33.51,36.29,'SY',['دمشق','damascus']],['حلب',36.20,37.16,'SY',['حلب','aleppo']],
+     ['حمص',34.73,36.72,'SY',['حمص','homs']],['اللاذقية',35.52,35.79,'SY',['اللاذقية','latakia']],
+     ['إدلب',35.93,36.63,'SY',['إدلب','idlib']],['درعا',32.62,36.10,'SY',['درعا','daraa']],
+     ['السويداء',32.71,36.57,'SY',['السويداء','sweida']],['دير الزور',35.33,40.15,'SY',['دير الزور','deir ez']],
+     ['الحسكة',36.50,40.75,'SY',['الحسكة','hasakah']],['القامشلي',37.05,41.22,'SY',['القامشلي','qamishli']],
+     ['الرقة',35.95,39.01,'SY',['الرقة','raqqa']],['منبج',36.53,37.95,'SY',['منبج','manbij']],
+     ['عين العرب',36.89,38.35,'SY',['عين العرب','كوباني','kobani']],['أنقرة',39.93,32.85,'TR',['أنقرة','ankara']],
+     ['إسطنبول',41.01,28.98,'TR',['إسطنبول','istanbul']],['غازي عنتاب',37.07,37.38,'TR',['عنتاب','gaziantep']],
+     ['بغداد',33.31,44.36,'IQ',['بغداد','baghdad']],['أربيل',36.19,44.01,'IQ',['أربيل','erbil']],
+     ['بيروت',33.89,35.50,'LB',['بيروت','beirut']],['موسكو',55.75,37.62,'RU',['موسكو','moscow']],
+     ['واشنطن',38.90,-77.04,'US',['واشنطن','washington']],['بروكسل',50.85,4.35,'BE',['بروكسل','brussels']],
+     ['طهران',35.69,51.39,'IR',['طهران','tehran']],['عمّان',31.95,35.93,'JO',['عمّان','amman']],
+     ['الدوحة',25.29,51.53,'QA',['الدوحة','doha']],['جنيف',46.20,6.14,'CH',['جنيف','geneva']]],
+ kinds:[['قرار',['قرار','قرر','تمديد','إلغاء','تعليق','عقوبات','رفع تصنيف','decision','lifts','removes','repeal','delist','sanctions','approves']],
+        ['تصريح رسمي',['تصريح','بيان','أعلن','أكد','صرح','الخارجية','says','said','statement','announces','warns','urges']],
+        ['اجتماع',['اجتماع','لقاء','مباحثات','زيارة','وفد','قمة','meeting','talks','visit','summit','discuss']],
+        ['إجراء ميداني',['انتشار','قصف','اشتباك','دورية','تعزيزات','عملية','strike','clashes','deploy','withdraw','raid','patrol']],
+        ['مؤشر اقتصادي',['سعر','الليرة','تضخم','أسعار','استثمار','price','inflation','investment','currency']]],
+ dec:['قرار','اتفاق','توقيع','انسحاب','تمديد','تعليق','إلغاء','مهلة','جدول زمني','عقوبات','شرط','استثناء','رفع','decision','agreement','withdraw','lifts','removes','repeal','deadline','sanctions','delist','condition']
 };
 const norm=t=>t.replace(/[^\w\u0600-\u06FF]+/g,' ').trim().toLowerCase();
 function fpr(t){let h=0;const n=norm(t);for(let i=0;i<n.length;i++){h=(h*31+n.charCodeAt(i))>>>0;}return h.toString(36);}
-function pick(txt,table){for(const [name,words] of table){if(words.some(w=>txt.includes(w)))return name;}return 'خبر';}
+function pick(txt,table){const t=txt.toLowerCase();for(const [name,words] of table){if(words.some(w=>t.includes(w.toLowerCase())))return name;}return 'خبر';}
 
 /* ثلاث طرق للاتصال، تُجرَّب بالتتابع، وكل محاولة تُسجَّل ليظهر سببها للمستخدم */
 const DIAG={lines:[]};
@@ -1121,13 +1129,15 @@ async function fetchReal(){
    const title=(a.title||'').trim(); if(title.length<15)continue;
    const f=fpr(title);
    if(seen[f]){ if(a.domain&&!seen[f].src.includes(a.domain))seen[f].src.push(a.domain); continue; }
-   const txt=title;
+   const txt=title.toLowerCase();
    let fid=null,best=0;
-   for(const k in RT.kw){const n=RT.kw[k].filter(w=>txt.includes(w)).length; if(n>best){best=n;fid=k;}}
-   if(!fid)continue;
-   const ent=Object.keys(RT.ent).filter(k=>RT.ent[k].some(w=>txt.includes(w)));
-   const pl=RT.pl.find(p=>p[4].some(w=>txt.includes(w)));
-   const dec=RT.dec.filter(w=>txt.includes(w)).length;
+   for(const k in RT.kw){ if(k==='f-gen')continue;
+     const n=RT.kw[k].filter(w=>txt.includes(w.toLowerCase())).length; if(n>best){best=n;fid=k;}}
+   if(!fid){ /* لا يطابق ملفاً محدداً: يذهب إلى الملف العام إن كان يخص سوريا */
+     if(RT.kw['f-gen'].some(w=>txt.includes(w.toLowerCase())))fid='f-gen'; else continue; }
+   const ent=Object.keys(RT.ent).filter(k=>RT.ent[k].some(w=>txt.includes(w.toLowerCase())));
+   const pl=RT.pl.find(p=>p[4].some(w=>txt.includes(w.toLowerCase())));
+   const dec=RT.dec.filter(w=>txt.includes(w.toLowerCase())).length;
    const dt=(a.seendate||'').replace(/[TZ]/g,'');
    const ev={id:'R-'+f.slice(0,6), f:fid,
      d:dt?`${dt.slice(0,4)}-${dt.slice(4,6)}-${dt.slice(6,8)}`:new Date().toISOString().slice(0,10),

@@ -202,9 +202,10 @@ def parse_date(s):
 
 # --------------------------------------------------- التصنيف والإسناد والأهمية
 def match_entities(text, entities):
+    text = text.lower()
     found = []
     for name, aliases in entities.items():
-        if any(a in text for a in aliases):
+        if any(a.lower() in text for a in aliases):
             found.append(name)
     return found
 
@@ -212,9 +213,10 @@ def match_entities(text, entities):
 def match_place(text, places):
     """ترميز جغرافي بالمطابقة النصية: يُفضَّل المرادف الأطول لتفادي المطابقات العامة."""
     best = None
+    text = text.lower()
     for p in places or []:
         for a in p.get("alias", [p["n"]]):
-            if a in text and (best is None or len(a) > best[0]):
+            if a.lower() in text and (best is None or len(a) > best[0]):
                 best = (len(a), p)
     if not best:
         return {"n": "غير محدد"}
@@ -223,24 +225,31 @@ def match_place(text, places):
 
 
 def assign_file(text, files):
+    text = text.lower()
     best, score = None, 0
     for f in files:
-        s = sum(1 for k in f["keywords"] if k in text)
+        s = sum(1 for k in f["keywords"] if k.lower() in text)
         if s > score:
             best, score = f["id"], s
     return best, score
 
 
-KINDS = [("تصريح رسمي", ["صرح", "تصريح", "بيان", "أعلن", "أكد", "قال وزير", "الخارجية", "الناطق"]),
-         ("قرار", ["قرر", "قرار", "مرسوم", "تمديد", "إلغاء", "تعليق", "عقوبات", "استثناء"]),
-         ("اجتماع", ["اجتماع", "لقاء", "مباحثات", "زيارة", "وفد", "جولة", "محادثات"]),
-         ("إجراء ميداني", ["انتشار", "قصف", "اشتباك", "دورية", "انسحاب", "تعزيزات", "معبر", "قافلة"]),
-         ("مؤشر اقتصادي", ["سعر", "الليرة", "تضخم", "أسعار", "صادرات", "واردات", "عمولة"])]
+KINDS = [("قرار", ["قرر", "قرار", "مرسوم", "تمديد", "إلغاء", "تعليق", "عقوبات", "استثناء", "رفع تصنيف",
+                   "removes", "lifts", "repeal", "decision", "sanctions", "delist", "order", "approves"]),
+         ("تصريح رسمي", ["صرح", "تصريح", "بيان", "أعلن", "أكد", "الخارجية", "الناطق",
+                         "says", "said", "statement", "announces", "declares", "warns", "urges"]),
+         ("اجتماع", ["اجتماع", "لقاء", "مباحثات", "زيارة", "وفد", "جولة", "محادثات",
+                     "talks", "meeting", "visit", "summit", "delegation", "discuss"]),
+         ("إجراء ميداني", ["انتشار", "قصف", "اشتباك", "دورية", "انسحاب", "تعزيزات", "معبر", "قافلة",
+                           "strike", "clashes", "deploy", "withdraw", "patrol", "attack", "raid"]),
+         ("مؤشر اقتصادي", ["سعر", "الليرة", "تضخم", "أسعار", "صادرات", "واردات", "عمولة",
+                           "price", "inflation", "currency", "exports", "imports", "investment"])]
 
 
 def guess_kind(text):
+    text = text.lower()
     for name, words in KINDS:
-        if any(w in text for w in words):
+        if any(w.lower() in text for w in words):
             return name
     return "خبر"
 
