@@ -78,6 +78,7 @@ def main():
         "sheets": {e["id"]: sheets[e["id"]] for e in site_events if e["id"] in sheets},
         "health": new.get("source_health", {}),
         "sources_total": len(cfg.get("sources", [])),
+        "telegram": (cfg.get("telegram") or {}).get("channels", []),
         "archive_total": len(events),
         "added_this_cycle": added,
         "next_in": None,

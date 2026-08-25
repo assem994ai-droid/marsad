@@ -916,6 +916,14 @@ function viewSources(){
   <div><b>5 · الأهمية</b><span>درجة مقترحة تراعي عدد المصادر المستقلة ونوع الحدث وأثره.</span></div>
   <div><b>6 · الإحاطة</b><span>إعادة صياغة الاستنتاجات مع تثبيت أدلتها القابلة للفتح.</span></div>
  </div>
+ <div class="rule"></div><h3 class="sec">قنوات تلجرام</h3>
+ ${LIVE.tg.length?`<div class="hlist">${LIVE.tg.map(c=>{
+    const st=LIVE.health['telegram:'+c];
+    const cls=!st?'':(String(st).indexOf('ok')===0?'ok':'bad');
+    return `<div class="hitem ${cls}"><a class="src-name" style="font-size:13px" href="https://t.me/s/${esc(c)}" target="_blank" rel="noopener">${esc(c)} ↗</a>
+      <span>${st?esc(String(st)):'لم تُفحص بعد'}</span></div>`;}).join('')}</div>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:10px">تُقرأ من صفحة المعاينة العامة بلا حساب ولا بوت. لإضافة قناة: عدّل قسم telegram في ملف sources.json، ثم شغّل دورة واحدة.</p>`
+  :`<div class="empty">لا قنوات مسجّلة بعد. أضف أسماءها (بلا @) في قسم <span class="ep">telegram</span> داخل ملف <span class="ep">sources.json</span>، ثم شغّل دورة جمع — وستظهر هنا بحالتها.</div>`}
  ${Object.keys(LIVE.health).length?`<div class="rule"></div><h3 class="sec">صحة المصادر — من آخر دورة فعلية</h3>
  <div class="hbar">${(()=>{const v=Object.values(LIVE.health);
    const ok=v.filter(x=>String(x).indexOf('ok')===0).length, need=v.filter(x=>String(x).indexOf('يحتاج')===0).length;
@@ -1196,7 +1204,7 @@ const REAL={on:false};
 /* ============================================================
    طبقة البيانات الحية — تقرأ من الخادم إن وُجد، وإلا تبقى تجريبية
    ============================================================ */
-const LIVE={on:false,src:null, health:{}, sheets:{}, generated:null, log:[], sourcesTotal:0, error:null};
+const LIVE={on:false,src:null,tg:[], health:{}, sheets:{}, generated:null, log:[], sourcesTotal:0, error:null};
 function api(p,opt){return fetch(p,opt).then(r=>r.ok?r.json():Promise.reject(r.status));}
 
 function adopt(p){
@@ -1210,7 +1218,7 @@ function adopt(p){
    ent:e.entities||[], src:e.sources||[],
    indep:e.independent_confirmations||0, review:!!e.needs_review, isNew:false}));
  LIVE.on=true; LIVE.sheets=p.sheets||{}; LIVE.health=p.health||{}; LIVE.generated=p.generated;
- LIVE.log=p.log||[]; LIVE.sourcesTotal=p.sources_total||0; LIVE.error=p.error||null;
+ LIVE.log=p.log||[]; LIVE.sourcesTotal=p.sources_total||0; LIVE.tg=p.telegram||[]; LIVE.error=p.error||null;
  PATHS=PATHS; mapv.init=false;   /* إعادة ضبط إطار الخريطة على البيانات الجديدة */
  const tag=$('#modeTag'); if(tag){tag.className='mode live'; tag.textContent='بيانات مباشرة';}
  if(p.next_in!=null)secs=p.next_in;
