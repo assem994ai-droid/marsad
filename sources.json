@@ -953,7 +953,7 @@
   },
   {
    "n": "أضنة",
-   "lat": 37.0,
+   "lat": 37,
    "lng": 35.32,
    "co": "TR",
    "alias": [
@@ -1070,7 +1070,8 @@
    "sanaagency",
    "enabbaladi",
    "syriatv",
-   "npasyria"
+   "npasyria",
+   "GeoPWatch"
   ]
  }
 }
