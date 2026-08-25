@@ -35,6 +35,7 @@ jobs:
         run: |
           git config user.name "marsad-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add -A data collector.state.json || true
+                    git add -A data || true
+          git add collector.state.json sources.verified.json || true
           git diff --staged --quiet || git commit -m "auto update"
           git push
