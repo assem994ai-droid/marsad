@@ -1,0 +1,952 @@
+{
+ "meta": {
+  "version": "1.0",
+  "updated": "2026-08-25",
+  "note": "مسارات التغذية مرشحة، والجامع يتحقق منها فعلياً ويثبّت ما ينجح في sources.verified.json. الوزن من 1 إلى 5 ويعبر عن الاعتماد التحريري، وparty=true يعني أن المصدر طرف في القضية فلا يُحتسب تأكيداً مستقلاً.",
+  "places_note": "ترميز جغرافي بالمطابقة النصية على المرادفات. الحدث بلا موقع مطابق يبقى في الأرشيف ولا يظهر على الخريطة."
+ },
+ "files": [
+  {
+   "id": "f-north",
+   "name": "شمال سوريا — الترتيبات الأمنية",
+   "keywords": [
+    "انسحاب",
+    "وقف إطلاق النار",
+    "خط التماس",
+    "انتشار",
+    "المنطقة الآمنة",
+    "قسد",
+    "شرق الفرات",
+    "منبج",
+    "عين العرب",
+    "تل رفعت"
+   ]
+  },
+  {
+   "id": "f-track",
+   "name": "مسار التطبيع التركي السوري",
+   "keywords": [
+    "تطبيع",
+    "لقاء",
+    "اجتماع",
+    "وساطة",
+    "نواب الوزراء",
+    "أنقرة",
+    "دمشق",
+    "مباحثات",
+    "جولة"
+   ]
+  },
+  {
+   "id": "f-econ",
+   "name": "العقوبات والاقتصاد",
+   "keywords": [
+    "عقوبات",
+    "استثناء",
+    "قيصر",
+    "تحويلات",
+    "إعادة الإعمار",
+    "الليرة",
+    "المصرف",
+    "OFAC",
+    "تمويل"
+   ]
+  },
+  {
+   "id": "f-energy",
+   "name": "الطاقة وخطوط النقل",
+   "keywords": [
+    "كهرباء",
+    "مشتقات",
+    "نفط",
+    "غاز",
+    "معبر",
+    "شاحنات",
+    "خط التغذية",
+    "محروقات"
+   ]
+  }
+ ],
+ "entities": {
+  "تركيا": [
+   "تركيا",
+   "التركية",
+   "التركي",
+   "أنقرة",
+   "أردوغان",
+   "الخارجية التركية",
+   "وزارة الدفاع التركية"
+  ],
+  "سوريا": [
+   "سوريا",
+   "السورية",
+   "السوري",
+   "دمشق",
+   "الخارجية السورية"
+  ],
+  "الولايات المتحدة": [
+   "الولايات المتحدة",
+   "الأمريكية",
+   "واشنطن",
+   "البنتاغون",
+   "المركزية الأمريكية"
+  ],
+  "روسيا": [
+   "روسيا",
+   "الروسية",
+   "موسكو"
+  ],
+  "قسد": [
+   "قسد",
+   "قوات سوريا الديمقراطية",
+   "الإدارة الذاتية"
+  ],
+  "الاتحاد الأوروبي": [
+   "الاتحاد الأوروبي",
+   "بروكسل",
+   "المفوضية الأوروبية"
+  ],
+  "إيران": [
+   "إيران",
+   "الإيرانية",
+   "طهران"
+  ],
+  "الأمم المتحدة": [
+   "الأمم المتحدة",
+   "المبعوث الأممي",
+   "مجلس الأمن",
+   "أوتشا"
+  ]
+ },
+ "sources": [
+  {
+   "id": "aa-ar",
+   "name": "وكالة الأناضول — العربية",
+   "org": "Anadolu Agency",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.aa.com.tr/ar",
+   "feeds": [
+    "https://www.aa.com.tr/ar/rss/default?cat=guncel",
+    "https://www.aa.com.tr/ar/rss/default?cat=turkiye"
+   ]
+  },
+  {
+   "id": "trt-ar",
+   "name": "تي آر تي عربي",
+   "org": "TRT",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 3,
+   "party": true,
+   "site": "https://www.trtarabi.com/",
+   "feeds": [
+    "https://www.trtarabi.com/rss"
+   ]
+  },
+  {
+   "id": "sana",
+   "name": "سانا",
+   "org": "الوكالة العربية السورية للأنباء",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 3,
+   "party": true,
+   "site": "https://sana.sy/",
+   "feeds": [
+    "https://sana.sy/?feed=rss2",
+    "https://sana.sy/feed/"
+   ]
+  },
+  {
+   "id": "bbc-ar",
+   "name": "بي بي سي عربي",
+   "org": "BBC",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.bbc.com/arabic",
+   "feeds": [
+    "https://feeds.bbci.co.uk/arabic/rss.xml",
+    "https://feeds.bbci.co.uk/arabic/middleeast/rss.xml"
+   ]
+  },
+  {
+   "id": "aljazeera",
+   "name": "الجزيرة",
+   "org": "Al Jazeera",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.aljazeera.net/",
+   "feeds": [
+    "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9"
+   ]
+  },
+  {
+   "id": "reuters-me",
+   "name": "رويترز — الشرق الأوسط",
+   "org": "Reuters",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.reuters.com/world/middle-east/",
+   "feeds": []
+  },
+  {
+   "id": "ap-me",
+   "name": "أسوشيتد برس — الشرق الأوسط",
+   "org": "AP",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://apnews.com/hub/middle-east",
+   "feeds": []
+  },
+  {
+   "id": "state-dept",
+   "name": "الخارجية الأمريكية — بيانات",
+   "org": "U.S. Department of State",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.state.gov/press-releases/",
+   "feeds": [
+    "https://www.state.gov/rss-feed/press-releases/feed/"
+   ]
+  },
+  {
+   "id": "centcom",
+   "name": "القيادة المركزية الأمريكية",
+   "org": "CENTCOM",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://www.centcom.mil/MEDIA/PRESS-RELEASES/",
+   "feeds": []
+  },
+  {
+   "id": "mfa-tr",
+   "name": "وزارة الخارجية التركية",
+   "org": "MFA Türkiye",
+   "cat": "وكالات ورسمي",
+   "lang": "tr",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.mfa.gov.tr/",
+   "feeds": []
+  },
+  {
+   "id": "msb-tr",
+   "name": "وزارة الدفاع التركية",
+   "org": "MSB",
+   "cat": "وكالات ورسمي",
+   "lang": "tr",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.msb.gov.tr/",
+   "feeds": []
+  },
+  {
+   "id": "mid-ru",
+   "name": "الخارجية الروسية",
+   "org": "MID",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://mid.ru/en/",
+   "feeds": []
+  },
+  {
+   "id": "unpress",
+   "name": "الأمم المتحدة — البيانات الصحفية",
+   "org": "UN Press",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://press.un.org/",
+   "feeds": [
+    "https://press.un.org/en/rss.xml"
+   ]
+  },
+  {
+   "id": "enab",
+   "name": "عنب بلدي",
+   "org": "Enab Baladi",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.enabbaladi.net/",
+   "feeds": [
+    "https://www.enabbaladi.net/feed",
+    "https://www.enabbaladi.net/archives/feed"
+   ]
+  },
+  {
+   "id": "syriadirect",
+   "name": "سوريا على طول",
+   "org": "Syria Direct",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://syriadirect.org/",
+   "feeds": [
+    "https://syriadirect.org/feed/"
+   ]
+  },
+  {
+   "id": "npa",
+   "name": "نورث برس",
+   "org": "North Press Agency",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 3,
+   "party": false,
+   "site": "https://npasyria.com/",
+   "feeds": [
+    "https://npasyria.com/feed/"
+   ]
+  },
+  {
+   "id": "anha",
+   "name": "وكالة هاوار",
+   "org": "ANHA",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 2,
+   "party": true,
+   "site": "https://hawarnews.com/",
+   "feeds": [
+    "https://hawarnews.com/feed/"
+   ]
+  },
+  {
+   "id": "rudaw",
+   "name": "رووداو",
+   "org": "Rudaw",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.rudaw.net/arabic",
+   "feeds": [
+    "https://www.rudaw.net/rss/arabic"
+   ]
+  },
+  {
+   "id": "syriatv",
+   "name": "تلفزيون سوريا",
+   "org": "Syria TV",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.syria.tv/",
+   "feeds": [
+    "https://www.syria.tv/rss.xml",
+    "https://www.syria.tv/feed"
+   ]
+  },
+  {
+   "id": "sohr",
+   "name": "المرصد السوري لحقوق الإنسان",
+   "org": "SOHR",
+   "cat": "مراصد",
+   "lang": "ar",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.syriahr.com/",
+   "feeds": [
+    "https://www.syriahr.com/feed/"
+   ]
+  },
+  {
+   "id": "snhr",
+   "name": "الشبكة السورية لحقوق الإنسان",
+   "org": "SNHR",
+   "cat": "مراصد",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://snhr.org/",
+   "feeds": [
+    "https://snhr.org/feed/"
+   ]
+  },
+  {
+   "id": "bellingcat",
+   "name": "Bellingcat",
+   "org": "Bellingcat",
+   "cat": "مراصد",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.bellingcat.com/",
+   "feeds": [
+    "https://www.bellingcat.com/feed/"
+   ]
+  },
+  {
+   "id": "gdelt",
+   "name": "GDELT 2.0 — واجهة الوثائق",
+   "org": "GDELT Project",
+   "cat": "تجميع",
+   "lang": "multi",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.gdeltproject.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=75&format=json&timespan={timespan}",
+    "params": {
+     "query": "(Syria OR Syrian) (Turkey OR Turkish)",
+     "timespan": "2h"
+    },
+    "path": "articles"
+   }
+  },
+  {
+   "id": "reliefweb",
+   "name": "ReliefWeb API v2",
+   "org": "UN OCHA",
+   "cat": "أممي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://reliefweb.int/",
+   "api": {
+    "type": "json",
+    "auth": "appname",
+    "url": "https://api.reliefweb.int/v2/reports?appname={appname}&filter[field]=country&filter[value]=Syria&sort[]=date:desc&limit=50&fields[include][]=title&fields[include][]=date&fields[include][]=source&fields[include][]=url",
+    "params": {
+     "appname": "CHANGE-ME"
+    },
+    "path": "data",
+    "note": "يلزم appname معتمد مسبقاً منذ 1 نوفمبر 2025 — بحد 1000 استدعاء يومياً."
+   }
+  },
+  {
+   "id": "fedreg",
+   "name": "Federal Register API",
+   "org": "US GPO",
+   "cat": "عقوبات وقانون",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.federalregister.gov/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[term]=Syria&order=newest&per_page=50",
+    "path": "results"
+   }
+  },
+  {
+   "id": "ofac-sdn",
+   "name": "قائمة OFAC (SDN)",
+   "org": "U.S. Treasury",
+   "cat": "عقوبات وقانون",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://sanctionslist.ofac.treas.gov/",
+   "api": {
+    "type": "csv",
+    "auth": "none",
+    "url": "https://www.treasury.gov/ofac/downloads/sdn.csv",
+    "mode": "diff",
+    "note": "يُقارن الملف بنسخة الدورة السابقة ويُستخرج الفرق فقط."
+   }
+  },
+  {
+   "id": "hdx",
+   "name": "Humanitarian Data Exchange",
+   "org": "OCHA HDX",
+   "cat": "أممي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://data.humdata.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://data.humdata.org/api/3/action/package_search?q=syria&rows=50",
+    "path": "result.results"
+   }
+  },
+  {
+   "id": "firms",
+   "name": "NASA FIRMS — بؤر حرارية",
+   "org": "NASA LANCE",
+   "cat": "استشعار",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://firms.modaps.eosdis.nasa.gov/",
+   "api": {
+    "type": "csv",
+    "auth": "key",
+    "url": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{key}/VIIRS_NOAA20_NRT/35,32,43,38/1",
+    "params": {
+     "key": "MAP_KEY"
+    },
+    "note": "مربع الإحداثيات غرب،جنوب،شرق،شمال. الحد 5000 عملية لكل 10 دقائق."
+   }
+  },
+  {
+   "id": "opensky",
+   "name": "OpenSky Network",
+   "org": "OpenSky",
+   "cat": "حركة",
+   "lang": "en",
+   "weight": 3,
+   "party": false,
+   "site": "https://opensky-network.org/",
+   "api": {
+    "type": "json",
+    "auth": "oauth2",
+    "url": "https://opensky-network.org/api/states/all?lamin=32&lomin=35&lamax=38&lomax=43",
+    "token_url": "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token",
+    "note": "المصادقة بكلمة المرور أُلغيت في 18 مارس 2026 — OAuth2 حصراً، والوصول المجهول محدود."
+   }
+  },
+  {
+   "id": "worldbank",
+   "name": "بيانات البنك الدولي",
+   "org": "World Bank",
+   "cat": "اقتصاد",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://data.worldbank.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://api.worldbank.org/v2/country/SYR/indicator/NY.GDP.MKTP.CD?format=json"
+   }
+  },
+  {
+   "id": "overpass",
+   "name": "Overpass API — OpenStreetMap",
+   "org": "OSM",
+   "cat": "خرائط",
+   "lang": "multi",
+   "weight": 4,
+   "party": false,
+   "site": "https://overpass-api.de/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://overpass-api.de/api/interpreter?data=[out:json];node[\"barrier\"=\"border_control\"](32,35,38,43);out;"
+   }
+  },
+  {
+   "id": "wayback",
+   "name": "Wayback Availability API",
+   "org": "Internet Archive",
+   "cat": "تجميع",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://archive.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://archive.org/wayback/available?url={url}",
+    "params": {
+     "url": "mfa.gov.tr"
+    },
+    "note": "يُستخدم لتثبيت نص البيان قبل أي تعديل لاحق."
+   }
+  }
+ ],
+ "places": [
+  {
+   "n": "دمشق",
+   "lat": 33.51,
+   "lng": 36.29,
+   "co": "SY",
+   "alias": [
+    "دمشق",
+    "العاصمة السورية",
+    "ريف دمشق"
+   ]
+  },
+  {
+   "n": "حلب",
+   "lat": 36.2,
+   "lng": 37.16,
+   "co": "SY",
+   "alias": [
+    "حلب"
+   ]
+  },
+  {
+   "n": "حمص",
+   "lat": 34.73,
+   "lng": 36.72,
+   "co": "SY",
+   "alias": [
+    "حمص"
+   ]
+  },
+  {
+   "n": "حماة",
+   "lat": 35.13,
+   "lng": 36.75,
+   "co": "SY",
+   "alias": [
+    "حماة"
+   ]
+  },
+  {
+   "n": "اللاذقية",
+   "lat": 35.52,
+   "lng": 35.79,
+   "co": "SY",
+   "alias": [
+    "اللاذقية"
+   ]
+  },
+  {
+   "n": "طرطوس",
+   "lat": 34.89,
+   "lng": 35.89,
+   "co": "SY",
+   "alias": [
+    "طرطوس"
+   ]
+  },
+  {
+   "n": "إدلب",
+   "lat": 35.93,
+   "lng": 36.63,
+   "co": "SY",
+   "alias": [
+    "إدلب",
+    "ادلب"
+   ]
+  },
+  {
+   "n": "درعا",
+   "lat": 32.62,
+   "lng": 36.1,
+   "co": "SY",
+   "alias": [
+    "درعا"
+   ]
+  },
+  {
+   "n": "السويداء",
+   "lat": 32.71,
+   "lng": 36.57,
+   "co": "SY",
+   "alias": [
+    "السويداء"
+   ]
+  },
+  {
+   "n": "دير الزور",
+   "lat": 35.33,
+   "lng": 40.15,
+   "co": "SY",
+   "alias": [
+    "دير الزور"
+   ]
+  },
+  {
+   "n": "الحسكة",
+   "lat": 36.5,
+   "lng": 40.75,
+   "co": "SY",
+   "alias": [
+    "الحسكة"
+   ]
+  },
+  {
+   "n": "القامشلي",
+   "lat": 37.05,
+   "lng": 41.22,
+   "co": "SY",
+   "alias": [
+    "القامشلي"
+   ]
+  },
+  {
+   "n": "الرقة",
+   "lat": 35.95,
+   "lng": 39.01,
+   "co": "SY",
+   "alias": [
+    "الرقة"
+   ]
+  },
+  {
+   "n": "منبج",
+   "lat": 36.53,
+   "lng": 37.95,
+   "co": "SY",
+   "alias": [
+    "منبج"
+   ]
+  },
+  {
+   "n": "عين العرب",
+   "lat": 36.89,
+   "lng": 38.35,
+   "co": "SY",
+   "alias": [
+    "عين العرب",
+    "كوباني"
+   ]
+  },
+  {
+   "n": "تل أبيض",
+   "lat": 36.7,
+   "lng": 38.95,
+   "co": "SY",
+   "alias": [
+    "تل أبيض"
+   ]
+  },
+  {
+   "n": "رأس العين",
+   "lat": 36.85,
+   "lng": 40.07,
+   "co": "SY",
+   "alias": [
+    "رأس العين",
+    "سري كانيه"
+   ]
+  },
+  {
+   "n": "عفرين",
+   "lat": 36.51,
+   "lng": 36.87,
+   "co": "SY",
+   "alias": [
+    "عفرين"
+   ]
+  },
+  {
+   "n": "أعزاز",
+   "lat": 36.59,
+   "lng": 37.05,
+   "co": "SY",
+   "alias": [
+    "أعزاز",
+    "اعزاز"
+   ]
+  },
+  {
+   "n": "تل رفعت",
+   "lat": 36.47,
+   "lng": 37.09,
+   "co": "SY",
+   "alias": [
+    "تل رفعت"
+   ]
+  },
+  {
+   "n": "البوكمال",
+   "lat": 34.45,
+   "lng": 40.92,
+   "co": "SY",
+   "alias": [
+    "البوكمال"
+   ]
+  },
+  {
+   "n": "التنف",
+   "lat": 33.49,
+   "lng": 38.62,
+   "co": "SY",
+   "alias": [
+    "التنف"
+   ]
+  },
+  {
+   "n": "باب الهوى",
+   "lat": 36.23,
+   "lng": 36.68,
+   "co": "SY",
+   "alias": [
+    "باب الهوى"
+   ]
+  },
+  {
+   "n": "أنقرة",
+   "lat": 39.93,
+   "lng": 32.85,
+   "co": "TR",
+   "alias": [
+    "أنقرة",
+    "انقرة"
+   ]
+  },
+  {
+   "n": "إسطنبول",
+   "lat": 41.01,
+   "lng": 28.98,
+   "co": "TR",
+   "alias": [
+    "إسطنبول",
+    "اسطنبول"
+   ]
+  },
+  {
+   "n": "غازي عنتاب",
+   "lat": 37.07,
+   "lng": 37.38,
+   "co": "TR",
+   "alias": [
+    "غازي عنتاب",
+    "عنتاب"
+   ]
+  },
+  {
+   "n": "شانلي أورفا",
+   "lat": 37.16,
+   "lng": 38.79,
+   "co": "TR",
+   "alias": [
+    "شانلي أورفا",
+    "أورفا"
+   ]
+  },
+  {
+   "n": "هطاي",
+   "lat": 36.2,
+   "lng": 36.16,
+   "co": "TR",
+   "alias": [
+    "هطاي",
+    "لواء اسكندرون"
+   ]
+  },
+  {
+   "n": "ديار بكر",
+   "lat": 37.91,
+   "lng": 40.24,
+   "co": "TR",
+   "alias": [
+    "ديار بكر"
+   ]
+  },
+  {
+   "n": "أضنة",
+   "lat": 37.0,
+   "lng": 35.32,
+   "co": "TR",
+   "alias": [
+    "أضنة",
+    "إنجرليك"
+   ]
+  },
+  {
+   "n": "بغداد",
+   "lat": 33.31,
+   "lng": 44.36,
+   "co": "IQ",
+   "alias": [
+    "بغداد"
+   ]
+  },
+  {
+   "n": "أربيل",
+   "lat": 36.19,
+   "lng": 44.01,
+   "co": "IQ",
+   "alias": [
+    "أربيل",
+    "اربيل"
+   ]
+  },
+  {
+   "n": "بيروت",
+   "lat": 33.89,
+   "lng": 35.5,
+   "co": "LB",
+   "alias": [
+    "بيروت"
+   ]
+  },
+  {
+   "n": "عمّان",
+   "lat": 31.95,
+   "lng": 35.93,
+   "co": "JO",
+   "alias": [
+    "عمّان",
+    "عمان الأردنية"
+   ]
+  },
+  {
+   "n": "موسكو",
+   "lat": 55.75,
+   "lng": 37.62,
+   "co": "RU",
+   "alias": [
+    "موسكو"
+   ]
+  },
+  {
+   "n": "واشنطن",
+   "lat": 38.9,
+   "lng": -77.04,
+   "co": "US",
+   "alias": [
+    "واشنطن"
+   ]
+  },
+  {
+   "n": "بروكسل",
+   "lat": 50.85,
+   "lng": 4.35,
+   "co": "BE",
+   "alias": [
+    "بروكسل"
+   ]
+  },
+  {
+   "n": "طهران",
+   "lat": 35.69,
+   "lng": 51.39,
+   "co": "IR",
+   "alias": [
+    "طهران"
+   ]
+  },
+  {
+   "n": "جنيف",
+   "lat": 46.2,
+   "lng": 6.14,
+   "co": "CH",
+   "alias": [
+    "جنيف"
+   ]
+  },
+  {
+   "n": "الدوحة",
+   "lat": 25.29,
+   "lng": 51.53,
+   "co": "QA",
+   "alias": [
+    "الدوحة"
+   ]
+  }
+ ]
+}
