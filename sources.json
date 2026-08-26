@@ -1,1077 +1,238 @@
 {
  "meta": {
-  "version": "1.0",
+  "version": "2.0-US",
   "updated": "2026-08-25",
-  "note": "مسارات التغذية مرشحة، والجامع يتحقق منها فعلياً ويثبّت ما ينجح في sources.verified.json. الوزن من 1 إلى 5 ويعبر عن الاعتماد التحريري، وparty=true يعني أن المصدر طرف في القضية فلا يُحتسب تأكيداً مستقلاً.",
-  "places_note": "ترميز جغرافي بالمطابقة النصية على المرادفات. الحدث بلا موقع مطابق يبقى في الأرشيف ولا يظهر على الخريطة."
+  "purpose": "رصد الحياة السياسية الأمريكية لخدمة قرار سوري يسعى إلى اختراق دبلوماسي في واشنطن.",
+  "note": "مسارات التغذية مرشحة، والجامع يتحقق منها ويثبّت ما ينجح. party=true يعني أن المصدر طرف أو ذو خط تحريري معلن فلا يُحتسب تأكيداً مستقلاً."
  },
+
  "files": [
-  {
-   "id": "f-north",
-   "name": "شمال سوريا — الترتيبات الأمنية",
-   "keywords": [
-    "انسحاب",
-    "وقف إطلاق النار",
-    "خط التماس",
-    "انتشار",
-    "المنطقة الآمنة",
-    "قسد",
-    "شرق الفرات",
-    "منبج",
-    "عين العرب",
-    "تل رفعت",
-    "SDF",
-    "ceasefire",
-    "northern syria",
-    "withdrawal",
-    "manbij",
-    "kobani",
-    "hasakah",
-    "border",
-    "east euphrates",
-    "نقطتين",
-    "تفاهم"
-   ]
-  },
-  {
-   "id": "f-track",
-   "name": "مسار التطبيع التركي السوري",
-   "keywords": [
-    "تطبيع",
-    "لقاء",
-    "اجتماع",
-    "وساطة",
-    "نواب الوزراء",
-    "أنقرة",
-    "دمشق",
-    "مباحثات",
-    "جولة",
-    "turkey",
-    "turkish",
-    "ankara",
-    "talks",
-    "normalization",
-    "delegation",
-    "meeting",
-    "summit",
-    "damascus talks"
-   ]
-  },
-  {
-   "id": "f-econ",
-   "name": "العقوبات والاقتصاد",
-   "keywords": [
-    "عقوبات",
-    "استثناء",
-    "قيصر",
-    "تحويلات",
-    "إعادة الإعمار",
-    "الليرة",
-    "المصرف",
-    "OFAC",
-    "تمويل",
-    "sanctions",
-    "caesar",
-    "investment",
-    "economy",
-    "bank",
-    "banking",
-    "reconstruction",
-    "terrorism list",
-    "state sponsor",
-    "designation",
-    "delisting",
-    "currency",
-    "imf",
-    "world bank",
-    "الإرهاب",
-    "تصنيف",
-    "رفع التصنيف",
-    "قائمة الدول",
-    "الخزانة",
-    "تجميد",
-    "أصول"
-   ]
-  },
-  {
-   "id": "f-energy",
-   "name": "الطاقة وخطوط النقل",
-   "keywords": [
-    "كهرباء",
-    "مشتقات",
-    "نفط",
-    "غاز",
-    "معبر",
-    "شاحنات",
-    "خط التغذية",
-    "محروقات",
-    "energy",
-    "electricity",
-    "power",
-    "oil",
-    "gas",
-    "fuel",
-    "crossing",
-    "trucks",
-    "pipeline",
-    "grid"
-   ]
-  },
-  {
-   "id": "f-gen",
-   "name": "عام — الشأن السوري",
-   "keywords": [
-    "سوريا",
-    "سورية",
-    "السوري",
-    "دمشق",
-    "syria",
-    "syrian",
-    "damascus"
-   ],
-   "region": "عام"
-  }
+  {"id":"f-wh","name":"البيت الأبيض والسلطة التنفيذية","region":"واشنطن",
+   "keywords":["البيت الأبيض","الرئيس","أمر تنفيذي","إدارة","white house","president","executive order","potus","national security council","nsc","memorandum","proclamation","waiver","determination"]},
+
+  {"id":"f-cong","name":"الكونغرس والتشريع","region":"الكابيتول",
+   "keywords":["الكونغرس","مجلس الشيوخ","النواب","مشروع قانون","تصويت","جلسة استماع","لجنة","congress","senate","house","bill","vote","hearing","markup","committee","amendment","ndaa","resolution","cosponsor","filibuster","appropriations"]},
+
+  {"id":"f-treas","name":"الخزانة والعقوبات",
+   "region":"واشنطن",
+   "keywords":["الخزانة","عقوبات","قيصر","استثناء","ترخيص عام","تجميد","قائمة","treasury","ofac","sanctions","designation","delisting","general license","specially designated","caesar","fincen","export control","bis","entity list"]},
+
+  {"id":"f-state","name":"الخارجية والدبلوماسية",
+   "region":"واشنطن",
+   "keywords":["الخارجية","المبعوث","سفير","إحاطة","زيارة","state department","secretary of state","envoy","ambassador","briefing","bilateral","normalization","diplomatic","embassy","visit","talks"]},
+
+  {"id":"f-lobby","name":"اللوبيات وسجلات النفوذ","region":"واشنطن",
+   "keywords":["لوبي","ضغط","تمويل حملة","تسجيل","fara","lobbying","lobbyist","registrant","foreign agent","pac","campaign contribution","disclosure","opensecrets","influence","retainer"]},
+
+  {"id":"f-think","name":"مراكز الفكر وصنّاع الأجندة","region":"واشنطن",
+   "keywords":["مركز أبحاث","تقرير","توصية","ورقة سياسات","think tank","report","policy brief","testimony","recommendation","csis","brookings","atlantic council","carnegie","washington institute","middle east institute","quincy","heritage","aei","council on foreign relations"]},
+
+  {"id":"f-dom","name":"السياسة الداخلية ونوافذ التوقيت","region":"الولايات المتحدة",
+   "keywords":["انتخابات","استطلاع","حملة","موازنة","إغلاق حكومي","عطلة تشريعية","election","midterm","poll","primary","campaign","budget","shutdown","recess","fiscal year","approval rating","caucus"]},
+
+  {"id":"f-gen","name":"عام — الملف السوري في واشنطن","region":"عام",
+   "keywords":["سوريا","السوري","دمشق","syria","syrian","damascus","al-sharaa","levant"]}
  ],
+
  "entities": {
-  "تركيا": [
-   "تركيا",
-   "التركية",
-   "التركي",
-   "أنقرة",
-   "أردوغان",
-   "الخارجية التركية",
-   "وزارة الدفاع التركية",
-   "turkey",
-   "turkish",
-   "ankara",
-   "erdogan"
-  ],
-  "سوريا": [
-   "سوريا",
-   "السورية",
-   "السوري",
-   "دمشق",
-   "الخارجية السورية",
-   "syria",
-   "syrian",
-   "damascus"
-  ],
-  "الولايات المتحدة": [
-   "الولايات المتحدة",
-   "الأمريكية",
-   "واشنطن",
-   "البنتاغون",
-   "المركزية الأمريكية",
-   "united states",
-   "washington",
-   "american",
-   "u.s.",
-   "pentagon",
-   "state department"
-  ],
-  "روسيا": [
-   "روسيا",
-   "الروسية",
-   "موسكو",
-   "russia",
-   "russian",
-   "moscow"
-  ],
-  "قسد": [
-   "قسد",
-   "قوات سوريا الديمقراطية",
-   "الإدارة الذاتية",
-   "sdf",
-   "syrian democratic forces"
-  ],
-  "الاتحاد الأوروبي": [
-   "الاتحاد الأوروبي",
-   "بروكسل",
-   "المفوضية الأوروبية",
-   "european union",
-   "brussels"
-  ],
-  "إيران": [
-   "إيران",
-   "الإيرانية",
-   "طهران",
-   "iran",
-   "iranian",
-   "tehran"
-  ],
-  "الأمم المتحدة": [
-   "الأمم المتحدة",
-   "المبعوث الأممي",
-   "مجلس الأمن",
-   "أوتشا",
-   "united nations",
-   "security council"
+  "البيت الأبيض": ["البيت الأبيض","الرئيس الأمريكي","white house","potus","oval office","national security adviser"],
+  "وزارة الخارجية": ["الخارجية الأمريكية","state department","secretary of state","foggy bottom","special envoy"],
+  "وزارة الخزانة": ["الخزانة الأمريكية","treasury","ofac","fincen","under secretary for terrorism"],
+  "البنتاغون": ["البنتاغون","وزارة الدفاع الأمريكية","pentagon","department of defense","centcom","joint chiefs"],
+  "مجلس الشيوخ": ["مجلس الشيوخ","senate","senator","foreign relations committee","senate banking"],
+  "مجلس النواب": ["مجلس النواب","house of representatives","congressman","congresswoman","foreign affairs committee"],
+  "الحزب الجمهوري": ["الجمهوري","الجمهوريون","republican","gop"],
+  "الحزب الديمقراطي": ["الديمقراطي","الديمقراطيون","democrat","democratic party"],
+  "مراكز الفكر": ["مركز أبحاث","think tank","csis","brookings","atlantic council","carnegie","washington institute","quincy institute","heritage foundation"],
+  "اللوبيات": ["لوبي","ضغط سياسي","lobby","lobbying firm","foreign agent","aipac","registrant"],
+  "سوريا": ["سوريا","السورية","دمشق","syria","syrian","damascus"],
+  "إسرائيل": ["إسرائيل","الإسرائيلية","israel","israeli"],
+  "تركيا": ["تركيا","التركية","أنقرة","turkey","turkish","ankara"],
+  "دول الخليج": ["السعودية","الإمارات","قطر","الخليج","saudi","uae","qatar","gulf states"],
+  "روسيا": ["روسيا","موسكو","russia","moscow"],
+  "الصين": ["الصين","بكين","china","beijing"],
+  "إيران": ["إيران","طهران","iran","tehran"]
+ },
+
+ "places": [
+  {"n":"واشنطن","lat":38.90,"lng":-77.04,"co":"US","alias":["واشنطن","washington","white house","capitol hill","state department","pentagon","treasury"]},
+  {"n":"نيويورك","lat":40.71,"lng":-74.01,"co":"US","alias":["نيويورك","new york","united nations headquarters","turtle bay"]},
+  {"n":"لانغلي","lat":38.95,"lng":-77.15,"co":"US","alias":["لانغلي","langley","cia headquarters"]},
+  {"n":"تامبا","lat":27.95,"lng":-82.46,"co":"US","alias":["تامبا","tampa","macdill"]},
+  {"n":"دمشق","lat":33.51,"lng":36.29,"co":"SY","alias":["دمشق","damascus"]},
+  {"n":"أنقرة","lat":39.93,"lng":32.85,"co":"TR","alias":["أنقرة","ankara"]},
+  {"n":"الرياض","lat":24.71,"lng":46.68,"co":"SA","alias":["الرياض","riyadh"]},
+  {"n":"أبوظبي","lat":24.45,"lng":54.38,"co":"AE","alias":["أبوظبي","abu dhabi"]},
+  {"n":"الدوحة","lat":25.29,"lng":51.53,"co":"QA","alias":["الدوحة","doha"]},
+  {"n":"القدس","lat":31.78,"lng":35.22,"co":"IL","alias":["القدس","jerusalem"]},
+  {"n":"بروكسل","lat":50.85,"lng":4.35,"co":"BE","alias":["بروكسل","brussels","nato headquarters"]},
+  {"n":"موسكو","lat":55.75,"lng":37.62,"co":"RU","alias":["موسكو","moscow"]},
+  {"n":"بكين","lat":39.90,"lng":116.41,"co":"CN","alias":["بكين","beijing"]},
+  {"n":"طهران","lat":35.69,"lng":51.39,"co":"IR","alias":["طهران","tehran"]},
+  {"n":"جنيف","lat":46.20,"lng":6.14,"co":"CH","alias":["جنيف","geneva"]}
+ ],
+
+ "windows": {
+  "note": "نوافذ القرار — العمود الفقري للتوقيت. راجع التواريخ سنوياً وعدّلها؛ المنصة تحسب المتبقي تلقائياً.",
+  "items": [
+   {"t":"عودة الكونغرس من العطلة التشريعية","d":"2026-09-08","w":"تنتهي عطلة أغسطس ويعود جدول الجلسات — أول نافذة لطلب اجتماعات أو إدراج بند."},
+   {"t":"مداولات مشروع الدفاع الوطني NDAA","d":"2026-09-15","w":"البند المتعلق بسوريا يُصاغ في اللجان قبل هذا التاريخ؛ بعده يصير التعديل شبه مستحيل."},
+   {"t":"بدء السنة المالية والاعتمادات","d":"2026-10-01","w":"أي تمويل أو شرط يُربط بقوانين الاعتمادات يُحسم هنا."},
+   {"t":"انتخابات التجديد النصفي","d":"2026-11-03","w":"قبلها بستة أسابيع يتوقف أي انفتاح مثير للجدل؛ وبعدها تتغير تركيبة اللجان."},
+   {"t":"تقرير الشهادة نصف السنوي إلى الكونغرس","d":"2026-12-18","w":"التقرير الرئاسي المرتبط بإلغاء قانون قيصر — موعد تقييم مجدول يجب تجهيز ملفه سلفاً."}
   ]
  },
- "sources": [
-  {
-   "id": "aa-ar",
-   "name": "وكالة الأناضول — العربية",
-   "org": "Anadolu Agency",
-   "cat": "وكالات ورسمي",
-   "lang": "ar",
-   "weight": 4,
-   "party": false,
-   "site": "https://www.aa.com.tr/ar",
-   "feeds": [
-    "https://www.aa.com.tr/ar/rss/default?cat=guncel",
-    "https://www.aa.com.tr/ar/rss/default?cat=turkiye"
-   ]
-  },
-  {
-   "id": "trt-ar",
-   "name": "تي آر تي عربي",
-   "org": "TRT",
-   "cat": "وكالات ورسمي",
-   "lang": "ar",
-   "weight": 3,
-   "party": true,
-   "site": "https://www.trtarabi.com/",
-   "feeds": [
-    "https://www.trtarabi.com/rss"
-   ]
-  },
-  {
-   "id": "sana",
-   "name": "سانا",
-   "org": "الوكالة العربية السورية للأنباء",
-   "cat": "وكالات ورسمي",
-   "lang": "ar",
-   "weight": 3,
-   "party": true,
-   "site": "https://sana.sy/",
-   "feeds": [
-    "https://sana.sy/?feed=rss2",
-    "https://sana.sy/feed/"
-   ]
-  },
-  {
-   "id": "bbc-ar",
-   "name": "بي بي سي عربي",
-   "org": "BBC",
-   "cat": "وكالات ورسمي",
-   "lang": "ar",
-   "weight": 5,
-   "party": false,
-   "site": "https://www.bbc.com/arabic",
-   "feeds": [
-    "https://feeds.bbci.co.uk/arabic/rss.xml",
-    "https://feeds.bbci.co.uk/arabic/middleeast/rss.xml"
-   ]
-  },
-  {
-   "id": "aljazeera",
-   "name": "الجزيرة",
-   "org": "Al Jazeera",
-   "cat": "وكالات ورسمي",
-   "lang": "ar",
-   "weight": 4,
-   "party": false,
-   "site": "https://www.aljazeera.net/",
-   "feeds": [
-    "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9"
-   ]
-  },
-  {
-   "id": "reuters-me",
-   "name": "رويترز — الشرق الأوسط",
-   "org": "Reuters",
-   "cat": "وكالات ورسمي",
-   "lang": "en",
-   "weight": 5,
-   "party": false,
-   "site": "https://www.reuters.com/world/middle-east/",
-   "feeds": []
-  },
-  {
-   "id": "ap-me",
-   "name": "أسوشيتد برس — الشرق الأوسط",
-   "org": "AP",
-   "cat": "وكالات ورسمي",
-   "lang": "en",
-   "weight": 5,
-   "party": false,
-   "site": "https://apnews.com/hub/middle-east",
-   "feeds": []
-  },
-  {
-   "id": "state-dept",
-   "name": "الخارجية الأمريكية — بيانات",
-   "org": "U.S. Department of State",
-   "cat": "وكالات ورسمي",
-   "lang": "en",
-   "weight": 5,
-   "party": true,
-   "site": "https://www.state.gov/press-releases/",
-   "feeds": [
-    "https://www.state.gov/rss-feed/press-releases/feed/"
-   ]
-  },
-  {
-   "id": "centcom",
-   "name": "القيادة المركزية الأمريكية",
-   "org": "CENTCOM",
-   "cat": "وكالات ورسمي",
-   "lang": "en",
-   "weight": 4,
-   "party": true,
-   "site": "https://www.centcom.mil/MEDIA/PRESS-RELEASES/",
-   "feeds": []
-  },
-  {
-   "id": "mfa-tr",
-   "name": "وزارة الخارجية التركية",
-   "org": "MFA Türkiye",
-   "cat": "وكالات ورسمي",
-   "lang": "tr",
-   "weight": 5,
-   "party": true,
-   "site": "https://www.mfa.gov.tr/",
-   "feeds": []
-  },
-  {
-   "id": "msb-tr",
-   "name": "وزارة الدفاع التركية",
-   "org": "MSB",
-   "cat": "وكالات ورسمي",
-   "lang": "tr",
-   "weight": 5,
-   "party": true,
-   "site": "https://www.msb.gov.tr/",
-   "feeds": []
-  },
-  {
-   "id": "mid-ru",
-   "name": "الخارجية الروسية",
-   "org": "MID",
-   "cat": "وكالات ورسمي",
-   "lang": "en",
-   "weight": 4,
-   "party": true,
-   "site": "https://mid.ru/en/",
-   "feeds": []
-  },
-  {
-   "id": "unpress",
-   "name": "الأمم المتحدة — البيانات الصحفية",
-   "org": "UN Press",
-   "cat": "وكالات ورسمي",
-   "lang": "en",
-   "weight": 5,
-   "party": false,
-   "site": "https://press.un.org/",
-   "feeds": [
-    "https://press.un.org/en/rss.xml"
-   ]
-  },
-  {
-   "id": "enab",
-   "name": "عنب بلدي",
-   "org": "Enab Baladi",
-   "cat": "محلي",
-   "lang": "ar",
-   "weight": 4,
-   "party": false,
-   "site": "https://www.enabbaladi.net/",
-   "feeds": [
-    "https://www.enabbaladi.net/feed",
-    "https://www.enabbaladi.net/archives/feed"
-   ]
-  },
-  {
-   "id": "syriadirect",
-   "name": "سوريا على طول",
-   "org": "Syria Direct",
-   "cat": "محلي",
-   "lang": "ar",
-   "weight": 4,
-   "party": false,
-   "site": "https://syriadirect.org/",
-   "feeds": [
-    "https://syriadirect.org/feed/"
-   ]
-  },
-  {
-   "id": "npa",
-   "name": "نورث برس",
-   "org": "North Press Agency",
-   "cat": "محلي",
-   "lang": "ar",
-   "weight": 3,
-   "party": false,
-   "site": "https://npasyria.com/",
-   "feeds": [
-    "https://npasyria.com/feed/"
-   ]
-  },
-  {
-   "id": "anha",
-   "name": "وكالة هاوار",
-   "org": "ANHA",
-   "cat": "محلي",
-   "lang": "ar",
-   "weight": 2,
-   "party": true,
-   "site": "https://hawarnews.com/",
-   "feeds": [
-    "https://hawarnews.com/feed/"
-   ]
-  },
-  {
-   "id": "rudaw",
-   "name": "رووداو",
-   "org": "Rudaw",
-   "cat": "محلي",
-   "lang": "ar",
-   "weight": 3,
-   "party": false,
-   "site": "https://www.rudaw.net/arabic",
-   "feeds": [
-    "https://www.rudaw.net/rss/arabic"
-   ]
-  },
-  {
-   "id": "syriatv",
-   "name": "تلفزيون سوريا",
-   "org": "Syria TV",
-   "cat": "محلي",
-   "lang": "ar",
-   "weight": 3,
-   "party": false,
-   "site": "https://www.syria.tv/",
-   "feeds": [
-    "https://www.syria.tv/rss.xml",
-    "https://www.syria.tv/feed"
-   ]
-  },
-  {
-   "id": "sohr",
-   "name": "المرصد السوري لحقوق الإنسان",
-   "org": "SOHR",
-   "cat": "مراصد",
-   "lang": "ar",
-   "weight": 3,
-   "party": false,
-   "site": "https://www.syriahr.com/",
-   "feeds": [
-    "https://www.syriahr.com/feed/"
-   ]
-  },
-  {
-   "id": "snhr",
-   "name": "الشبكة السورية لحقوق الإنسان",
-   "org": "SNHR",
-   "cat": "مراصد",
-   "lang": "ar",
-   "weight": 4,
-   "party": false,
-   "site": "https://snhr.org/",
-   "feeds": [
-    "https://snhr.org/feed/"
-   ]
-  },
-  {
-   "id": "bellingcat",
-   "name": "Bellingcat",
-   "org": "Bellingcat",
-   "cat": "مراصد",
-   "lang": "en",
-   "weight": 4,
-   "party": false,
-   "site": "https://www.bellingcat.com/",
-   "feeds": [
-    "https://www.bellingcat.com/feed/"
-   ]
-  },
-  {
-   "id": "gdelt",
-   "name": "GDELT 2.0 — واجهة الوثائق",
-   "org": "GDELT Project",
-   "cat": "تجميع",
-   "lang": "multi",
-   "weight": 3,
-   "party": false,
-   "site": "https://www.gdeltproject.org/",
-   "api": {
-    "type": "json",
-    "auth": "none",
-    "url": "https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=250&format=json&timespan={timespan}",
-    "params": {
-     "query": "Syria",
-     "timespan": "6h"
-    },
-    "path": "articles"
-   }
-  },
-  {
-   "id": "reliefweb",
-   "name": "ReliefWeb API v2",
-   "org": "UN OCHA",
-   "cat": "أممي",
-   "lang": "en",
-   "weight": 5,
-   "party": false,
-   "site": "https://reliefweb.int/",
-   "api": {
-    "type": "json",
-    "auth": "appname",
-    "url": "https://api.reliefweb.int/v2/reports?appname={appname}&filter[field]=country&filter[value]=Syria&sort[]=date:desc&limit=50&fields[include][]=title&fields[include][]=date&fields[include][]=source&fields[include][]=url",
-    "params": {
-     "appname": "CHANGE-ME"
-    },
-    "path": "data",
-    "note": "يلزم appname معتمد مسبقاً منذ 1 نوفمبر 2025 — بحد 1000 استدعاء يومياً."
-   }
-  },
-  {
-   "id": "fedreg",
-   "name": "Federal Register API",
-   "org": "US GPO",
-   "cat": "عقوبات وقانون",
-   "lang": "en",
-   "weight": 5,
-   "party": true,
-   "site": "https://www.federalregister.gov/",
-   "api": {
-    "type": "json",
-    "auth": "none",
-    "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[term]=Syria&order=newest&per_page=50",
-    "path": "results"
-   }
-  },
-  {
-   "id": "ofac-sdn",
-   "name": "قائمة OFAC (SDN)",
-   "org": "U.S. Treasury",
-   "cat": "عقوبات وقانون",
-   "lang": "en",
-   "weight": 5,
-   "party": true,
-   "site": "https://sanctionslist.ofac.treas.gov/",
-   "api": {
-    "type": "csv",
-    "auth": "none",
-    "url": "https://www.treasury.gov/ofac/downloads/sdn.csv",
-    "mode": "diff",
-    "note": "يُقارن الملف بنسخة الدورة السابقة ويُستخرج الفرق فقط."
-   }
-  },
-  {
-   "id": "hdx",
-   "name": "Humanitarian Data Exchange",
-   "org": "OCHA HDX",
-   "cat": "أممي",
-   "lang": "en",
-   "weight": 4,
-   "party": false,
-   "site": "https://data.humdata.org/",
-   "api": {
-    "type": "json",
-    "auth": "none",
-    "url": "https://data.humdata.org/api/3/action/package_search?q=syria&rows=50",
-    "path": "result.results"
-   }
-  },
-  {
-   "id": "firms",
-   "name": "NASA FIRMS — بؤر حرارية",
-   "org": "NASA LANCE",
-   "cat": "استشعار",
-   "lang": "en",
-   "weight": 4,
-   "party": false,
-   "site": "https://firms.modaps.eosdis.nasa.gov/",
-   "api": {
-    "type": "csv",
-    "auth": "key",
-    "url": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{key}/VIIRS_NOAA20_NRT/35,32,43,38/1",
-    "params": {
-     "key": "MAP_KEY"
-    },
-    "note": "مربع الإحداثيات غرب،جنوب،شرق،شمال. الحد 5000 عملية لكل 10 دقائق."
-   }
-  },
-  {
-   "id": "opensky",
-   "name": "OpenSky Network",
-   "org": "OpenSky",
-   "cat": "حركة",
-   "lang": "en",
-   "weight": 3,
-   "party": false,
-   "site": "https://opensky-network.org/",
-   "api": {
-    "type": "json",
-    "auth": "oauth2",
-    "url": "https://opensky-network.org/api/states/all?lamin=32&lomin=35&lamax=38&lomax=43",
-    "token_url": "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token",
-    "note": "المصادقة بكلمة المرور أُلغيت في 18 مارس 2026 — OAuth2 حصراً، والوصول المجهول محدود."
-   }
-  },
-  {
-   "id": "worldbank",
-   "name": "بيانات البنك الدولي",
-   "org": "World Bank",
-   "cat": "اقتصاد",
-   "lang": "en",
-   "weight": 4,
-   "party": false,
-   "site": "https://data.worldbank.org/",
-   "api": {
-    "type": "json",
-    "auth": "none",
-    "url": "https://api.worldbank.org/v2/country/SYR/indicator/NY.GDP.MKTP.CD?format=json"
-   }
-  },
-  {
-   "id": "overpass",
-   "name": "Overpass API — OpenStreetMap",
-   "org": "OSM",
-   "cat": "خرائط",
-   "lang": "multi",
-   "weight": 4,
-   "party": false,
-   "site": "https://overpass-api.de/",
-   "api": {
-    "type": "json",
-    "auth": "none",
-    "url": "https://overpass-api.de/api/interpreter?data=[out:json];node[\"barrier\"=\"border_control\"](32,35,38,43);out;"
-   }
-  },
-  {
-   "id": "wayback",
-   "name": "Wayback Availability API",
-   "org": "Internet Archive",
-   "cat": "تجميع",
-   "lang": "en",
-   "weight": 4,
-   "party": false,
-   "site": "https://archive.org/",
-   "api": {
-    "type": "json",
-    "auth": "none",
-    "url": "https://archive.org/wayback/available?url={url}",
-    "params": {
-     "url": "mfa.gov.tr"
-    },
-    "note": "يُستخدم لتثبيت نص البيان قبل أي تعديل لاحق."
-   }
-  }
- ],
- "places": [
-  {
-   "n": "دمشق",
-   "lat": 33.51,
-   "lng": 36.29,
-   "co": "SY",
-   "alias": [
-    "دمشق",
-    "العاصمة السورية",
-    "ريف دمشق",
-    "damascus"
-   ]
-  },
-  {
-   "n": "حلب",
-   "lat": 36.2,
-   "lng": 37.16,
-   "co": "SY",
-   "alias": [
-    "حلب",
-    "aleppo"
-   ]
-  },
-  {
-   "n": "حمص",
-   "lat": 34.73,
-   "lng": 36.72,
-   "co": "SY",
-   "alias": [
-    "حمص",
-    "homs"
-   ]
-  },
-  {
-   "n": "حماة",
-   "lat": 35.13,
-   "lng": 36.75,
-   "co": "SY",
-   "alias": [
-    "حماة"
-   ]
-  },
-  {
-   "n": "اللاذقية",
-   "lat": 35.52,
-   "lng": 35.79,
-   "co": "SY",
-   "alias": [
-    "اللاذقية",
-    "latakia"
-   ]
-  },
-  {
-   "n": "طرطوس",
-   "lat": 34.89,
-   "lng": 35.89,
-   "co": "SY",
-   "alias": [
-    "طرطوس"
-   ]
-  },
-  {
-   "n": "إدلب",
-   "lat": 35.93,
-   "lng": 36.63,
-   "co": "SY",
-   "alias": [
-    "إدلب",
-    "ادلب",
-    "idlib"
-   ]
-  },
-  {
-   "n": "درعا",
-   "lat": 32.62,
-   "lng": 36.1,
-   "co": "SY",
-   "alias": [
-    "درعا",
-    "daraa"
-   ]
-  },
-  {
-   "n": "السويداء",
-   "lat": 32.71,
-   "lng": 36.57,
-   "co": "SY",
-   "alias": [
-    "السويداء"
-   ]
-  },
-  {
-   "n": "دير الزور",
-   "lat": 35.33,
-   "lng": 40.15,
-   "co": "SY",
-   "alias": [
-    "دير الزور",
-    "deir ez-zor"
-   ]
-  },
-  {
-   "n": "الحسكة",
-   "lat": 36.5,
-   "lng": 40.75,
-   "co": "SY",
-   "alias": [
-    "الحسكة",
-    "hasakah"
-   ]
-  },
-  {
-   "n": "القامشلي",
-   "lat": 37.05,
-   "lng": 41.22,
-   "co": "SY",
-   "alias": [
-    "القامشلي",
-    "qamishli"
-   ]
-  },
-  {
-   "n": "الرقة",
-   "lat": 35.95,
-   "lng": 39.01,
-   "co": "SY",
-   "alias": [
-    "الرقة",
-    "raqqa"
-   ]
-  },
-  {
-   "n": "منبج",
-   "lat": 36.53,
-   "lng": 37.95,
-   "co": "SY",
-   "alias": [
-    "منبج",
-    "manbij"
-   ]
-  },
-  {
-   "n": "عين العرب",
-   "lat": 36.89,
-   "lng": 38.35,
-   "co": "SY",
-   "alias": [
-    "عين العرب",
-    "كوباني",
-    "kobani"
-   ]
-  },
-  {
-   "n": "تل أبيض",
-   "lat": 36.7,
-   "lng": 38.95,
-   "co": "SY",
-   "alias": [
-    "تل أبيض"
-   ]
-  },
-  {
-   "n": "رأس العين",
-   "lat": 36.85,
-   "lng": 40.07,
-   "co": "SY",
-   "alias": [
-    "رأس العين",
-    "سري كانيه"
-   ]
-  },
-  {
-   "n": "عفرين",
-   "lat": 36.51,
-   "lng": 36.87,
-   "co": "SY",
-   "alias": [
-    "عفرين"
-   ]
-  },
-  {
-   "n": "أعزاز",
-   "lat": 36.59,
-   "lng": 37.05,
-   "co": "SY",
-   "alias": [
-    "أعزاز",
-    "اعزاز"
-   ]
-  },
-  {
-   "n": "تل رفعت",
-   "lat": 36.47,
-   "lng": 37.09,
-   "co": "SY",
-   "alias": [
-    "تل رفعت"
-   ]
-  },
-  {
-   "n": "البوكمال",
-   "lat": 34.45,
-   "lng": 40.92,
-   "co": "SY",
-   "alias": [
-    "البوكمال"
-   ]
-  },
-  {
-   "n": "التنف",
-   "lat": 33.49,
-   "lng": 38.62,
-   "co": "SY",
-   "alias": [
-    "التنف"
-   ]
-  },
-  {
-   "n": "باب الهوى",
-   "lat": 36.23,
-   "lng": 36.68,
-   "co": "SY",
-   "alias": [
-    "باب الهوى"
-   ]
-  },
-  {
-   "n": "أنقرة",
-   "lat": 39.93,
-   "lng": 32.85,
-   "co": "TR",
-   "alias": [
-    "أنقرة",
-    "انقرة",
-    "ankara"
-   ]
-  },
-  {
-   "n": "إسطنبول",
-   "lat": 41.01,
-   "lng": 28.98,
-   "co": "TR",
-   "alias": [
-    "إسطنبول",
-    "اسطنبول",
-    "istanbul"
-   ]
-  },
-  {
-   "n": "غازي عنتاب",
-   "lat": 37.07,
-   "lng": 37.38,
-   "co": "TR",
-   "alias": [
-    "غازي عنتاب",
-    "عنتاب",
-    "gaziantep"
-   ]
-  },
-  {
-   "n": "شانلي أورفا",
-   "lat": 37.16,
-   "lng": 38.79,
-   "co": "TR",
-   "alias": [
-    "شانلي أورفا",
-    "أورفا"
-   ]
-  },
-  {
-   "n": "هطاي",
-   "lat": 36.2,
-   "lng": 36.16,
-   "co": "TR",
-   "alias": [
-    "هطاي",
-    "لواء اسكندرون"
-   ]
-  },
-  {
-   "n": "ديار بكر",
-   "lat": 37.91,
-   "lng": 40.24,
-   "co": "TR",
-   "alias": [
-    "ديار بكر"
-   ]
-  },
-  {
-   "n": "أضنة",
-   "lat": 37,
-   "lng": 35.32,
-   "co": "TR",
-   "alias": [
-    "أضنة",
-    "إنجرليك"
-   ]
-  },
-  {
-   "n": "بغداد",
-   "lat": 33.31,
-   "lng": 44.36,
-   "co": "IQ",
-   "alias": [
-    "بغداد",
-    "baghdad"
-   ]
-  },
-  {
-   "n": "أربيل",
-   "lat": 36.19,
-   "lng": 44.01,
-   "co": "IQ",
-   "alias": [
-    "أربيل",
-    "اربيل",
-    "erbil"
-   ]
-  },
-  {
-   "n": "بيروت",
-   "lat": 33.89,
-   "lng": 35.5,
-   "co": "LB",
-   "alias": [
-    "بيروت",
-    "beirut"
-   ]
-  },
-  {
-   "n": "عمّان",
-   "lat": 31.95,
-   "lng": 35.93,
-   "co": "JO",
-   "alias": [
-    "عمّان",
-    "عمان الأردنية",
-    "amman"
-   ]
-  },
-  {
-   "n": "موسكو",
-   "lat": 55.75,
-   "lng": 37.62,
-   "co": "RU",
-   "alias": [
-    "موسكو",
-    "moscow"
-   ]
-  },
-  {
-   "n": "واشنطن",
-   "lat": 38.9,
-   "lng": -77.04,
-   "co": "US",
-   "alias": [
-    "واشنطن",
-    "washington"
-   ]
-  },
-  {
-   "n": "بروكسل",
-   "lat": 50.85,
-   "lng": 4.35,
-   "co": "BE",
-   "alias": [
-    "بروكسل",
-    "brussels"
-   ]
-  },
-  {
-   "n": "طهران",
-   "lat": 35.69,
-   "lng": 51.39,
-   "co": "IR",
-   "alias": [
-    "طهران",
-    "tehran"
-   ]
-  },
-  {
-   "n": "جنيف",
-   "lat": 46.2,
-   "lng": 6.14,
-   "co": "CH",
-   "alias": [
-    "جنيف",
-    "geneva"
-   ]
-  },
-  {
-   "n": "الدوحة",
-   "lat": 25.29,
-   "lng": 51.53,
-   "co": "QA",
-   "alias": [
-    "الدوحة",
-    "doha"
-   ]
-  }
- ],
+
  "telegram": {
-  "note": "قنوات تلجرام العامة فقط، بلا @. تُقرأ من صفحة المعاينة t.me/s/<القناة>. شغّل verify لتعرف أيها يعمل.",
-  "channels": [
-   "sanaagency",
-   "enabbaladi",
-   "syriatv",
-   "npasyria",
-   "GeoPWatch"
-  ]
- }
+  "note": "قنوات عامة تُقرأ من t.me/s/. أضف قنوات المراسلين في واشنطن إن وُجدت.",
+  "channels": []
+ },
+
+ "sources": [
+  {"id":"federalregister","name":"السجل الفيدرالي","org":"US Government","cat":"رسمي تنفيذي","lang":"en","weight":5,"party":true,
+   "site":"https://www.federalregister.gov/","api":{"type":"json","auth":"none","path":"results",
+    "url":"https://www.federalregister.gov/api/v1/documents.json?conditions[term]=Syria&order=newest&per_page=50",
+    "note":"الأوامر التنفيذية والإخطارات فور نشرها — المصدر الأولي لا الخبر عنه."}},
+
+  {"id":"whitehouse","name":"البيت الأبيض — البيانات","org":"The White House","cat":"رسمي تنفيذي","lang":"en","weight":5,"party":true,
+   "site":"https://www.whitehouse.gov/news/","feeds":["https://www.whitehouse.gov/feed/"]},
+
+  {"id":"state-press","name":"الخارجية الأمريكية — بيانات","org":"U.S. Department of State","cat":"رسمي تنفيذي","lang":"en","weight":5,"party":true,
+   "site":"https://www.state.gov/press-releases/","feeds":["https://www.state.gov/rss-feed/press-releases/feed/"]},
+
+  {"id":"state-briefing","name":"الإحاطة الصحفية للخارجية","org":"U.S. Department of State","cat":"رسمي تنفيذي","lang":"en","weight":5,"party":true,
+   "site":"https://www.state.gov/briefings/","feeds":[],
+   "note":"نص الإحاطة اليومية — أدق مكان لرصد تغيّر الصياغة كلمة بكلمة."},
+
+  {"id":"treasury-press","name":"الخزانة — البيانات","org":"U.S. Treasury","cat":"عقوبات ومالية","lang":"en","weight":5,"party":true,
+   "site":"https://home.treasury.gov/news/press-releases","feeds":["https://home.treasury.gov/rss/press.xml"]},
+
+  {"id":"ofac-recent","name":"OFAC — التحديثات الحديثة","org":"U.S. Treasury","cat":"عقوبات ومالية","lang":"en","weight":5,"party":true,
+   "site":"https://ofac.treasury.gov/recent-actions","feeds":["https://ofac.treasury.gov/system/files/rss/recent-actions.xml"]},
+
+  {"id":"ofac-sdn","name":"قائمة OFAC (SDN)","org":"U.S. Treasury","cat":"عقوبات ومالية","lang":"en","weight":5,"party":true,
+   "site":"https://sanctionslist.ofac.treas.gov/","api":{"type":"csv","auth":"none","mode":"diff",
+    "url":"https://www.treasury.gov/ofac/downloads/sdn.csv","note":"يُقارن بنسخة الدورة السابقة ويُستخرج الفرق فقط."}},
+
+  {"id":"defense","name":"وزارة الدفاع","org":"U.S. DoD","cat":"رسمي تنفيذي","lang":"en","weight":4,"party":true,
+   "site":"https://www.defense.gov/News/","feeds":["https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=945&max=20"]},
+
+  {"id":"congress-api","name":"Congress.gov API","org":"Library of Congress","cat":"تشريع","lang":"en","weight":5,"party":false,
+   "site":"https://api.congress.gov/","api":{"type":"json","auth":"key","path":"bills",
+    "url":"https://api.congress.gov/v3/bill?api_key={key}&format=json&limit=50&sort=updateDate+desc",
+    "params":{"key":"CHANGE-ME"},"note":"مفتاح مجاني من api.data.gov — يعطي مشاريع القوانين وحركتها."}},
+
+  {"id":"govinfo","name":"GovInfo — الوثائق الرسمية","org":"GPO","cat":"تشريع","lang":"en","weight":5,"party":false,
+   "site":"https://www.govinfo.gov/","api":{"type":"json","auth":"key",
+    "url":"https://api.govinfo.gov/collections/BILLS/{date}?api_key={key}&pageSize=50",
+    "params":{"key":"CHANGE-ME","date":"2026-01-01T00:00:00Z"},"note":"السجل الكونغرسي ونصوص التشريعات."}},
+
+  {"id":"sfrc","name":"لجنة العلاقات الخارجية بالشيوخ","org":"U.S. Senate","cat":"تشريع","lang":"en","weight":5,"party":true,
+   "site":"https://www.foreign.senate.gov/","feeds":[],
+   "note":"جدول جلسات الاستماع — أهم مؤشر مبكر على ما سيُطرح."},
+
+  {"id":"hfac","name":"لجنة الشؤون الخارجية بالنواب","org":"U.S. House","cat":"تشريع","lang":"en","weight":5,"party":true,
+   "site":"https://foreignaffairs.house.gov/","feeds":[]},
+
+  {"id":"senate-banking","name":"لجنة المصارف بالشيوخ","org":"U.S. Senate","cat":"تشريع","lang":"en","weight":4,"party":true,
+   "site":"https://www.banking.senate.gov/","feeds":[],"note":"مقر تشريعات العقوبات المالية."},
+
+  {"id":"crs","name":"تقارير خدمة أبحاث الكونغرس","org":"CRS","cat":"تشريع","lang":"en","weight":5,"party":false,
+   "site":"https://crsreports.congress.gov/","feeds":[],
+   "note":"أدق ملخص محايد لما يعرفه المشرّعون فعلاً عن الملف."},
+
+  {"id":"gao","name":"مكتب المحاسبة الحكومي","org":"GAO","cat":"رقابة","lang":"en","weight":4,"party":false,
+   "site":"https://www.gao.gov/","feeds":["https://www.gao.gov/rss/reports.xml"]},
+
+  {"id":"fara","name":"سجل الوكلاء الأجانب FARA","org":"U.S. DOJ","cat":"نفوذ ولوبيات","lang":"en","weight":5,"party":false,
+   "site":"https://www.fara.gov/","feeds":[],
+   "note":"من يعمل لصالح من في واشنطن — أثمن مصدر لخريطة الوصول، ويُحدَّث بالإيداعات."},
+
+  {"id":"lda","name":"سجل الضغط بمجلس الشيوخ","org":"U.S. Senate LDA","cat":"نفوذ ولوبيات","lang":"en","weight":5,"party":false,
+   "site":"https://lda.senate.gov/","api":{"type":"json","auth":"key",
+    "url":"https://lda.senate.gov/api/v1/filings/?filing_year=2026&client_name=&page_size=50",
+    "note":"إفصاحات الضغط الفصلية بالمبالغ والقضايا — تسجيل مجاني للمفتاح."}},
+
+  {"id":"opensecrets","name":"OpenSecrets","org":"CRP","cat":"نفوذ ولوبيات","lang":"en","weight":4,"party":false,
+   "site":"https://www.opensecrets.org/","api":{"type":"json","auth":"key",
+    "url":"https://www.opensecrets.org/api/?method=getLegislators&id=NY&apikey={key}&output=json",
+    "note":"تمويل الحملات وربط المال بالمواقف."}},
+
+  {"id":"politico","name":"بوليتيكو","org":"Politico","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
+   "site":"https://www.politico.com/","feeds":["https://rss.politico.com/politics-news.xml","https://rss.politico.com/defense.xml"]},
+
+  {"id":"thehill","name":"ذا هيل","org":"The Hill","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
+   "site":"https://thehill.com/","feeds":["https://thehill.com/homenews/feed/","https://thehill.com/policy/international/feed/"]},
+
+  {"id":"axios","name":"أكسيوس","org":"Axios","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
+   "site":"https://www.axios.com/","feeds":["https://api.axios.com/feed/"]},
+
+  {"id":"reuters-us","name":"رويترز — واشنطن","org":"Reuters","cat":"إعلام سياسي","lang":"en","weight":5,"party":false,
+   "site":"https://www.reuters.com/world/us/","feeds":[]},
+
+  {"id":"ap-politics","name":"أسوشيتد برس — السياسة","org":"AP","cat":"إعلام سياسي","lang":"en","weight":5,"party":false,
+   "site":"https://apnews.com/hub/politics","feeds":[]},
+
+  {"id":"foreignpolicy","name":"فورين بوليسي","org":"Foreign Policy","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
+   "site":"https://foreignpolicy.com/","feeds":["https://foreignpolicy.com/feed/"]},
+
+  {"id":"defenseone","name":"ديفنس وان","org":"Defense One","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
+   "site":"https://www.defenseone.com/","feeds":["https://www.defenseone.com/rss/all/"]},
+
+  {"id":"almonitor","name":"المونيتور","org":"Al-Monitor","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
+   "site":"https://www.al-monitor.com/","feeds":["https://www.al-monitor.com/rss"],
+   "note":"أقرب تغطية لتقاطع واشنطن مع الشرق الأوسط."},
+
+  {"id":"jewishinsider","name":"جويش إنسايدر","org":"Jewish Insider","cat":"إعلام سياسي","lang":"en","weight":3,"party":true,
+   "site":"https://jewishinsider.com/","feeds":["https://jewishinsider.com/feed/"],
+   "note":"يرصد مواقف المشرّعين من ملفات المنطقة قبل غيره — يُقرأ بوصفه طرفاً."},
+
+  {"id":"semafor","name":"سيمافور","org":"Semafor","cat":"إعلام سياسي","lang":"en","weight":3,"party":false,
+   "site":"https://www.semafor.com/","feeds":["https://www.semafor.com/rss.xml"]},
+
+  {"id":"csis","name":"مركز الدراسات الاستراتيجية والدولية","org":"CSIS","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
+   "site":"https://www.csis.org/","feeds":["https://www.csis.org/analysis/feed"]},
+
+  {"id":"brookings","name":"بروكينغز","org":"Brookings","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
+   "site":"https://www.brookings.edu/","feeds":["https://www.brookings.edu/feed/"]},
+
+  {"id":"atlanticcouncil","name":"المجلس الأطلسي","org":"Atlantic Council","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
+   "site":"https://www.atlanticcouncil.org/","feeds":["https://www.atlanticcouncil.org/feed/"]},
+
+  {"id":"carnegie","name":"كارنيغي","org":"Carnegie Endowment","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
+   "site":"https://carnegieendowment.org/","feeds":["https://carnegieendowment.org/rss/pubs"]},
+
+  {"id":"winep","name":"معهد واشنطن","org":"WINEP","cat":"مراكز فكر","lang":"en","weight":4,"party":true,
+   "site":"https://www.washingtoninstitute.org/","feeds":["https://www.washingtoninstitute.org/feeds/policy-analysis"],
+   "note":"مؤثر في صياغة السياسة تجاه المنطقة — يُقرأ بوصفه طرفاً ذا خط معلن."},
+
+  {"id":"mei","name":"معهد الشرق الأوسط","org":"MEI","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
+   "site":"https://www.mei.edu/","feeds":["https://www.mei.edu/rss.xml"]},
+
+  {"id":"quincy","name":"معهد كوينسي","org":"Quincy Institute","cat":"مراكز فكر","lang":"en","weight":3,"party":false,
+   "site":"https://quincyinst.org/","feeds":["https://quincyinst.org/feed/"],
+   "note":"يمثل تيار ضبط النفس — مفيد لقياس حدود الطيف لا لتمثيل المركز."},
+
+  {"id":"heritage","name":"مؤسسة هيريتيج","org":"Heritage Foundation","cat":"مراكز فكر","lang":"en","weight":3,"party":true,
+   "site":"https://www.heritage.org/","feeds":["https://www.heritage.org/rss.xml"]},
+
+  {"id":"cfr","name":"مجلس العلاقات الخارجية","org":"CFR","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
+   "site":"https://www.cfr.org/","feeds":["https://www.cfr.org/rss-feeds"]},
+
+  {"id":"pew","name":"مركز بيو للأبحاث","org":"Pew Research","cat":"رأي عام","lang":"en","weight":5,"party":false,
+   "site":"https://www.pewresearch.org/","feeds":["https://www.pewresearch.org/feed/"]},
+
+  {"id":"gallup","name":"غالوب","org":"Gallup","cat":"رأي عام","lang":"en","weight":4,"party":false,
+   "site":"https://news.gallup.com/","feeds":["https://news.gallup.com/rss/rss.aspx"]},
+
+  {"id":"gdelt","name":"GDELT — واجهة الوثائق","org":"GDELT Project","cat":"تجميع","lang":"multi","weight":3,"party":false,
+   "site":"https://www.gdeltproject.org/","api":{"type":"json","auth":"none","path":"articles",
+    "url":"https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=250&format=json&timespan={timespan}",
+    "params":{"query":"Syria (Congress OR Treasury OR sanctions OR White House)","timespan":"6h"}}},
+
+  {"id":"wayback","name":"Wayback Availability API","org":"Internet Archive","cat":"تجميع","lang":"en","weight":4,"party":false,
+   "site":"https://archive.org/","api":{"type":"json","auth":"none",
+    "url":"https://archive.org/wayback/available?url={url}","params":{"url":"state.gov"},
+    "note":"إثبات نص البيان قبل تعديله — ضروري لرصد تغيّر الصياغة."}}
+ ]
 }

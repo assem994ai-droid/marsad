@@ -79,6 +79,7 @@ def main():
         "health": new.get("source_health", {}),
         "sources_total": len(cfg.get("sources", [])),
         "telegram": (cfg.get("telegram") or {}).get("channels", []),
+        "windows": (cfg.get("windows") or {}).get("items", []),
         "archive_total": len(events),
         "added_this_cycle": added,
         "next_in": None,

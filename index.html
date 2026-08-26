@@ -349,6 +349,15 @@ h5.clickable:hover{color:var(--accent); text-decoration:underline; text-underlin
 .savebar .ok{color:var(--accent); font-size:13px}
 .tok{font-family:var(--mono); font-size:11.5px; color:var(--muted)}
 
+.win{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px}
+.wcard{background:var(--surface); border:1px solid var(--line); border-inline-start:4px solid var(--gold); border-radius:9px; padding:14px 16px; box-shadow:var(--shadow)}
+.wcard b{display:block; font-family:var(--kufi); font-size:14px; margin-bottom:5px}
+.wcard .d{font-family:var(--mono); font-size:22px; color:var(--accent); line-height:1.2}
+.wcard .d small{font-size:12px; color:var(--muted)}
+.wcard p{margin:7px 0 0; font-size:12.5px; color:var(--ink-2)}
+.wcard.soon{border-inline-start-color:var(--red)} .wcard.soon .d{color:var(--red)}
+.wcard.past{opacity:.5}
+
 .toast{position:fixed; bottom:26px; left:50%; transform:translate(-50%,18px); background:var(--ink); color:var(--surface); padding:12px 22px; border-radius:9px; font-family:var(--kufi); font-size:13.5px; opacity:0; pointer-events:none; transition:.24s; z-index:80; box-shadow:var(--shadow)}
 .toast.show{opacity:1; transform:translate(-50%,0)}
 .empty{border:1px dashed var(--line); border-radius:9px; padding:34px; text-align:center; color:var(--muted); font-size:14px}
@@ -646,6 +655,26 @@ function briefHTML(fid){const secs=BRIEFS[fid]||[];
   ${secs.map((s,i)=>`<section class="brief-sec"><h4>${esc(s.h)}</h4>${s.b.map((b,j)=>blockHTML(b,fid+'|'+i+'|'+j)).join('')}</section>`).join('')}</div>`;}
 
 /* ===== العروض ===== */
+
+/* نوافذ القرار — العمود الفقري للتوقيت في واشنطن */
+const WIN_FALLBACK=[
+ {t:'عودة الكونغرس من العطلة التشريعية',d:'2026-09-08',w:'أول نافذة لطلب اجتماعات أو إدراج بند على جدول اللجان.'},
+ {t:'مداولات مشروع الدفاع الوطني NDAA',d:'2026-09-15',w:'البند المتعلق بسوريا يُصاغ في اللجان قبل هذا التاريخ؛ بعده يصير التعديل شبه مستحيل.'},
+ {t:'بدء السنة المالية والاعتمادات',d:'2026-10-01',w:'أي تمويل أو شرط يُربط بقوانين الاعتمادات يُحسم هنا.'},
+ {t:'انتخابات التجديد النصفي',d:'2026-11-03',w:'قبلها بستة أسابيع يتوقف أي انفتاح مثير للجدل؛ وبعدها تتغير تركيبة اللجان.'},
+ {t:'تقرير الشهادة نصف السنوي إلى الكونغرس',d:'2026-12-18',w:'موعد تقييم مجدول — يجب تجهيز ملفه سلفاً لا الرد عليه.'}];
+function windowsHTML(){
+ const items=(LIVE.windows&&LIVE.windows.length?LIVE.windows:WIN_FALLBACK)
+  .map(w=>({...w,days:Math.ceil((new Date(w.d)-new Date())/864e5)}))
+  .sort((a,b)=>a.days-b.days);
+ return `<h3 class="sec">نوافذ القرار</h3>
+ <p style="margin:-6px 0 14px;font-size:13px;color:var(--muted)">في واشنطن لا يصنع الاختراقَ الخبرُ بل التوقيت. هذه المواعيد تحدد متى يكون التحرك مجدياً ومتى يكون هدراً.</p>
+ <div class="win">${items.map(w=>`<div class="wcard ${w.days<0?'past':(w.days<=21?'soon':'')}">
+   <b>${esc(w.t)}</b>
+   <span class="d">${w.days<0?'مضت':w.days}${w.days>=0?' <small>يوماً</small>':''}</span>
+   <p>${esc(w.w)}</p></div>`).join('')}</div>`;
+}
+
 function viewHome(){
  const top=important(state.events)[0], list=recent(state.events).slice(0,7);
  const c=k=>state.events.filter(e=>lvlOf(e)===k).length;
@@ -661,6 +690,7 @@ function viewHome(){
    ${linked||'<p style="margin:0;font-size:13px;color:var(--muted)">لم يدخل هذا الحدث في أي استنتاج بعد — سيُدمج في الدورة التالية.</p>'}</div>
   <div class="hero-foot"><span>◈ ${esc(top.place.n)}</span><span>الكيانات: ${top.ent.join('، ')}</span><span>المصادر: ${top.src.length}</span></div></div>
  <div class="rule"></div><h3 class="sec">أحدث ما وصل</h3>${list.map(e=>evRow(e,{showFile:true})).join('')}
+ <div class="rule"></div>${windowsHTML()}
  <div class="rule"></div><h3 class="sec">توزيع الأهمية</h3>
  <div class="row" style="gap:26px;font-size:13px"><span class="lvl pivotal"><i></i>محوري — ${c('pivotal')}</span><span class="lvl important"><i></i>مهم — ${c('important')}</span><span class="lvl normal"><i></i>عادي — ${c('normal')}</span></div>`;}
 
@@ -746,7 +776,7 @@ function viewMap(){
  <p class="page-sub">اسحب للتحريك، ودوّر عجلة الفأرة للتكبير. الدول التي فيها أحداث قابلة للنقر، وحجم النقطة يعكس عدد الأحداث في الموقع.</p>
  <div class="map-layout">
   <div class="card map-wrap"><div class="mapbox" id="mapBox">
-   <div class="map-ctl"><button data-fit="world">العالم</button><button data-fit="me">الشرق الأوسط</button><button data-fit="sy">سوريا والجوار</button></div>
+   <div class="map-ctl"><button data-fit="world">العالم</button><button data-fit="me">الولايات المتحدة</button><button data-fit="sy">واشنطن ← المنطقة</button></div>
    <div class="map-zoom"><button data-zoom="in" aria-label="تكبير">+</button><button data-zoom="out" aria-label="تصغير">−</button></div>
    <span class="map-hint">حدود Natural Earth 1:110m · ${WORLD.length} دولة</span>
    <svg viewBox="0 0 ${MW} ${VH}" role="img" aria-label="خريطة العالم لتوزيع الأحداث"><g id="mapG">${cty}</g><g id="mapM">${mks}</g></svg>
@@ -758,7 +788,7 @@ function viewMap(){
 
 function initMap(){
  const box=document.getElementById('mapBox'); if(!box)return;
- if(!mapv.init){mapv.init=true; fitBox(24,28,48,43);} else applyMap();
+ if(!mapv.init){mapv.init=true; fitBox(-125,20,50,55);} else applyMap();
  const svg=box.querySelector('svg');
  svg.addEventListener('wheel',e=>{e.preventDefault();
   const r=svg.getBoundingClientRect(), sx=(e.clientX-r.left)/r.width*MW, sy=(e.clientY-r.top)/r.height*VH;
@@ -783,7 +813,7 @@ function initMap(){
  svg.addEventListener('pointerup',up); svg.addEventListener('pointercancel',up);
  box.querySelectorAll('[data-fit]').forEach(b=>b.onclick=()=>{const v=b.dataset.fit;
   if(v==='world'){mapv.k=1;mapv.tx=0;mapv.ty=-220;applyMap();}
-  else if(v==='me')fitBox(24,12,64,44); else fitBox(33,31,44,39);});
+  else if(v==='me')fitBox(-100,25,-65,48); else fitBox(-80,32,45,45);});
  box.querySelectorAll('[data-zoom]').forEach(b=>b.onclick=()=>{const f=b.dataset.zoom==='in'?1.5:1/1.5;
   const nk=Math.max(1,Math.min(500,mapv.k*f));
   mapv.tx=MW/2-(MW/2-mapv.tx)*(nk/mapv.k); mapv.ty=VH/2-(VH/2-mapv.ty)*(nk/mapv.k); mapv.k=nk; applyMap();});
@@ -1181,40 +1211,39 @@ const ANALYSIS={
    (واجهة مفتوحة بلا مفتاح). إن منعها المتصفح يبقى كل شيء كما هو.
    ============================================================ */
 const RT={
- q:['Syria','Syria sourcelang:arabic','Damascus OR Syrian government','Syria (sanctions OR reconstruction OR investment)',
-     'Syria (Turkey OR SDF OR ceasefire)'],
- kw:{'f-north':['انسحاب','وقف إطلاق','قسد','شرق الفرات','منبج','عين العرب','تل رفعت','الحسكة','القامشلي','الحدود',
-      'sdf','ceasefire','northern syria','withdraw','manbij','kobani','hasakah','border','euphrates'],
-     'f-track':['أنقرة','تركيا','التركي','مباحثات','لقاء','وساطة','تطبيع','وفد','محادثات',
-      'turkey','turkish','ankara','talks','meeting','normalization','delegation','summit','erdogan'],
-     'f-econ':['عقوبات','قيصر','استثناء','تحويلات','إعادة الإعمار','الليرة','مصرف','استثمار','اقتصاد','الإرهاب','تصنيف',
-      'sanctions','caesar','investment','economy','bank','reconstruction','terrorism','designation','delist',
-      'state sponsor','currency','trade','imf','world bank'],
-     'f-energy':['كهرباء','نفط','غاز','مشتقات','معبر','شاحنات','طاقة',
-      'energy','electricity','power','oil','gas','fuel','crossing','pipeline','grid'],
-     'f-gen':['سوريا','سورية','السوري','دمشق','syria','syrian','damascus']},
- ent:{'تركيا':['تركيا','التركية','أنقرة','turkey','turkish','ankara','erdogan'],
+ q:['Syria (Congress OR Senate OR House)','Syria (Treasury OR sanctions OR OFAC)',
+     'Syria (White House OR State Department)','Syria policy Washington','Syria (lobbying OR hearing OR testimony)'],
+ kw:{'f-wh':['البيت الأبيض','أمر تنفيذي','الرئيس الأمريكي','white house','executive order','potus','national security council','proclamation','waiver'],
+     'f-cong':['الكونغرس','مجلس الشيوخ','النواب','جلسة استماع','تصويت','مشروع قانون','congress','senate','house','hearing','bill','vote','markup','committee','amendment','ndaa','appropriations'],
+     'f-treas':['الخزانة','عقوبات','ترخيص عام','قيصر','treasury','ofac','sanctions','general license','designation','delisting','caesar','export control','entity list'],
+     'f-state':['الخارجية','المبعوث','سفير','state department','secretary of state','envoy','ambassador','briefing','diplomatic','embassy'],
+     'f-lobby':['لوبي','ضغط','fara','lobbying','lobbyist','foreign agent','pac','campaign contribution','disclosure','influence'],
+     'f-think':['مركز أبحاث','تقرير','توصية','think tank','report','policy brief','testimony','csis','brookings','atlantic council','carnegie','washington institute','quincy','heritage'],
+     'f-dom':['انتخابات','استطلاع','موازنة','إغلاق حكومي','election','midterm','poll','primary','budget','shutdown','recess','approval rating'],
+     'f-gen':['سوريا','السوري','دمشق','syria','syrian','damascus']},
+ ent:{'البيت الأبيض':['البيت الأبيض','white house','potus','oval office'],
+      'وزارة الخارجية':['الخارجية الأمريكية','state department','secretary of state','envoy'],
+      'وزارة الخزانة':['الخزانة','treasury','ofac','fincen'],
+      'البنتاغون':['البنتاغون','pentagon','department of defense','centcom'],
+      'مجلس الشيوخ':['مجلس الشيوخ','senate','senator','foreign relations committee'],
+      'مجلس النواب':['مجلس النواب','house of representatives','congressman','foreign affairs committee'],
+      'الحزب الجمهوري':['الجمهوري','republican','gop'],
+      'الحزب الديمقراطي':['الديمقراطي','democrat','democratic'],
+      'مراكز الفكر':['think tank','csis','brookings','atlantic council','carnegie','washington institute','heritage'],
+      'اللوبيات':['لوبي','lobby','lobbying','fara','foreign agent','aipac'],
       'سوريا':['سوريا','السورية','دمشق','syria','syrian','damascus'],
-      'الولايات المتحدة':['الولايات المتحدة','الأمريكية','واشنطن','united states','u.s.','us ','washington','american','pentagon','state department'],
-      'روسيا':['روسيا','الروسية','موسكو','russia','russian','moscow'],
-      'قسد':['قسد','قوات سوريا الديمقراطية','الإدارة الذاتية','sdf','syrian democratic forces'],
-      'إيران':['إيران','الإيرانية','طهران','iran','iranian','tehran'],
-      'الاتحاد الأوروبي':['الاتحاد الأوروبي','بروكسل','european union','eu ','brussels'],
-      'إسرائيل':['إسرائيل','الإسرائيلية','israel','israeli'],
-      'الأمم المتحدة':['الأمم المتحدة','مجلس الأمن','united nations','security council','un ']},
- pl:[['دمشق',33.51,36.29,'SY',['دمشق','damascus']],['حلب',36.20,37.16,'SY',['حلب','aleppo']],
-     ['حمص',34.73,36.72,'SY',['حمص','homs']],['اللاذقية',35.52,35.79,'SY',['اللاذقية','latakia']],
-     ['إدلب',35.93,36.63,'SY',['إدلب','idlib']],['درعا',32.62,36.10,'SY',['درعا','daraa']],
-     ['السويداء',32.71,36.57,'SY',['السويداء','sweida']],['دير الزور',35.33,40.15,'SY',['دير الزور','deir ez']],
-     ['الحسكة',36.50,40.75,'SY',['الحسكة','hasakah']],['القامشلي',37.05,41.22,'SY',['القامشلي','qamishli']],
-     ['الرقة',35.95,39.01,'SY',['الرقة','raqqa']],['منبج',36.53,37.95,'SY',['منبج','manbij']],
-     ['عين العرب',36.89,38.35,'SY',['عين العرب','كوباني','kobani']],['أنقرة',39.93,32.85,'TR',['أنقرة','ankara']],
-     ['إسطنبول',41.01,28.98,'TR',['إسطنبول','istanbul']],['غازي عنتاب',37.07,37.38,'TR',['عنتاب','gaziantep']],
-     ['بغداد',33.31,44.36,'IQ',['بغداد','baghdad']],['أربيل',36.19,44.01,'IQ',['أربيل','erbil']],
-     ['بيروت',33.89,35.50,'LB',['بيروت','beirut']],['موسكو',55.75,37.62,'RU',['موسكو','moscow']],
-     ['واشنطن',38.90,-77.04,'US',['واشنطن','washington']],['بروكسل',50.85,4.35,'BE',['بروكسل','brussels']],
-     ['طهران',35.69,51.39,'IR',['طهران','tehran']],['عمّان',31.95,35.93,'JO',['عمّان','amman']],
-     ['الدوحة',25.29,51.53,'QA',['الدوحة','doha']],['جنيف',46.20,6.14,'CH',['جنيف','geneva']]],
+      'إسرائيل':['إسرائيل','israel','israeli'],'تركيا':['تركيا','turkey','turkish','ankara'],
+      'دول الخليج':['السعودية','الإمارات','قطر','saudi','uae','qatar','gulf'],
+      'روسيا':['روسيا','russia','moscow'],'الصين':['الصين','china','beijing'],'إيران':['إيران','iran','tehran']},
+ pl:[['واشنطن',38.90,-77.04,'US',['واشنطن','washington','white house','capitol','state department','pentagon','treasury','congress']],
+     ['نيويورك',40.71,-74.01,'US',['نيويورك','new york','united nations']],
+     ['لانغلي',38.95,-77.15,'US',['langley','cia']],['تامبا',27.95,-82.46,'US',['tampa','macdill']],
+     ['دمشق',33.51,36.29,'SY',['دمشق','damascus']],['أنقرة',39.93,32.85,'TR',['أنقرة','ankara']],
+     ['الرياض',24.71,46.68,'SA',['الرياض','riyadh']],['أبوظبي',24.45,54.38,'AE',['أبوظبي','abu dhabi']],
+     ['الدوحة',25.29,51.53,'QA',['الدوحة','doha']],['القدس',31.78,35.22,'IL',['القدس','jerusalem']],
+     ['بروكسل',50.85,4.35,'BE',['بروكسل','brussels','nato']],['موسكو',55.75,37.62,'RU',['موسكو','moscow']],
+     ['بكين',39.90,116.41,'CN',['بكين','beijing']],['طهران',35.69,51.39,'IR',['طهران','tehran']],
+     ['جنيف',46.20,6.14,'CH',['جنيف','geneva']]],
  kinds:[['قرار',['قرار','قرر','تمديد','إلغاء','تعليق','عقوبات','رفع تصنيف','decision','lifts','removes','repeal','delist','sanctions','approves']],
         ['تصريح رسمي',['تصريح','بيان','أعلن','أكد','صرح','الخارجية','says','said','statement','announces','warns','urges']],
         ['اجتماع',['اجتماع','لقاء','مباحثات','زيارة','وفد','قمة','meeting','talks','visit','summit','discuss']],
@@ -1326,7 +1355,7 @@ const REAL={on:false};
 /* ============================================================
    طبقة البيانات الحية — تقرأ من الخادم إن وُجد، وإلا تبقى تجريبية
    ============================================================ */
-const LIVE={on:false,src:null,tg:[], health:{}, sheets:{}, generated:null, log:[], sourcesTotal:0, error:null};
+const LIVE={on:false,src:null,tg:[],windows:[], health:{}, sheets:{}, generated:null, log:[], sourcesTotal:0, error:null};
 function api(p,opt){return fetch(p,opt).then(r=>r.ok?r.json():Promise.reject(r.status));}
 
 function adopt(p){
@@ -1340,7 +1369,7 @@ function adopt(p){
    ent:e.entities||[], src:e.sources||[],
    indep:e.independent_confirmations||0, review:!!e.needs_review, isNew:false}));
  LIVE.on=true; LIVE.sheets=p.sheets||{}; LIVE.health=p.health||{}; LIVE.generated=p.generated;
- LIVE.log=p.log||[]; LIVE.sourcesTotal=p.sources_total||0; LIVE.tg=p.telegram||[]; LIVE.error=p.error||null;
+ LIVE.log=p.log||[]; LIVE.sourcesTotal=p.sources_total||0; LIVE.tg=p.telegram||[]; LIVE.windows=p.windows||[]; LIVE.error=p.error||null;
  PATHS=PATHS; mapv.init=false;   /* إعادة ضبط إطار الخريطة على البيانات الجديدة */
  const tag=$('#modeTag'); if(tag){tag.className='mode live'; tag.textContent='بيانات مباشرة';}
  if(p.next_in!=null)secs=p.next_in;
