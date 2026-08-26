@@ -2,7 +2,7 @@ name: marsad-update
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -22,8 +22,17 @@ jobs:
       - name: Install requirements
         run: pip install requests
 
+      - name: Verify sources when the list changes
+        run: |
+          if [ ! -f sources.verified.json ] || [ sources.json -nt sources.verified.json ]; then
+            echo "sources.json changed - running discovery"
+            python collector.py verify || true
+          else
+            echo "no change - skipping verify"
+          fi
+
       - name: Collect news
-        run: python collector.py run --since 2h || true
+        run: python collector.py run --since 6h || true
 
       - name: Generate analysis sheets
         run: python analyst.py || true
@@ -35,7 +44,7 @@ jobs:
         run: |
           git config user.name "marsad-bot"
           git config user.email "bot@users.noreply.github.com"
-                    git add -A data || true
+          git add -A data || true
           git add collector.state.json sources.verified.json || true
           git diff --staged --quiet || git commit -m "auto update"
           git push
