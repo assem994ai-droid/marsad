@@ -1,0 +1,932 @@
+{
+ "checked": "2026-08-26T19:13:18.995293+00:00",
+ "sources": [
+  {
+   "id": "federalregister",
+   "name": "السجل الفيدرالي",
+   "org": "US Government",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.federalregister.gov/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "path": "results",
+    "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[term]=Syria&order=newest&per_page=50",
+    "note": "الأوامر التنفيذية والإخطارات فور نشرها — المصدر الأولي لا الخبر عنه."
+   },
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.federalregister.gov/api/v1/documents.json?conditions[term]=Syria&order=newest&per_page=50",
+    "reason": "ok",
+    "items": 50
+   }
+  },
+  {
+   "id": "whitehouse",
+   "name": "البيت الأبيض — البيانات",
+   "org": "The White House",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.whitehouse.gov/news/",
+   "feeds": [
+    "https://www.whitehouse.gov/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.whitehouse.gov/news/feed",
+    "reason": "ok",
+    "items": 30
+   }
+  },
+  {
+   "id": "state-press",
+   "name": "الخارجية الأمريكية — بيانات",
+   "org": "U.S. Department of State",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.state.gov/press-releases/",
+   "feeds": [
+    "https://www.state.gov/rss-feed/press-releases/feed/"
+   ],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.state.gov/press-releases/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.state.gov/rss-feed/press-releases/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/feed → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/rss → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/rss.xml → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/?feed=rss2 → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "state-briefing",
+   "name": "الإحاطة الصحفية للخارجية",
+   "org": "U.S. Department of State",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.state.gov/briefings/",
+   "feeds": [],
+   "note": "نص الإحاطة اليومية — أدق مكان لرصد تغيّر الصياغة كلمة بكلمة.",
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.state.gov/briefings/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.state.gov/briefings/feed → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/briefings/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/briefings/rss → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/briefings/rss.xml → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/briefings/?feed=rss2 → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/briefings/atom.xml → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "treasury-press",
+   "name": "الخزانة — البيانات",
+   "org": "U.S. Treasury",
+   "cat": "عقوبات ومالية",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://home.treasury.gov/news/press-releases",
+   "feeds": [
+    "https://home.treasury.gov/rss/press.xml"
+   ],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://home.treasury.gov/news/press-releases",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://home.treasury.gov/rss/press.xml → شبكة: ReadTimeout",
+     "https://home.treasury.gov/news/press-releases/feed → شبكة: ReadTimeout",
+     "https://home.treasury.gov/news/press-releases/feed/ → شبكة: ReadTimeout",
+     "https://home.treasury.gov/news/press-releases/rss → شبكة: ReadTimeout",
+     "https://home.treasury.gov/news/press-releases/rss.xml → شبكة: ReadTimeout",
+     "https://home.treasury.gov/news/press-releases/?feed=rss2 → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "ofac-recent",
+   "name": "OFAC — التحديثات الحديثة",
+   "org": "U.S. Treasury",
+   "cat": "عقوبات ومالية",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://ofac.treasury.gov/recent-actions",
+   "feeds": [
+    "https://ofac.treasury.gov/system/files/rss/recent-actions.xml"
+   ],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://ofac.treasury.gov/recent-actions",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://ofac.treasury.gov/system/files/rss/recent-actions.xml → HTTP 404",
+     "https://ofac.treasury.gov/recent-actions/feed → HTTP 404",
+     "https://ofac.treasury.gov/recent-actions/feed/ → HTTP 404",
+     "https://ofac.treasury.gov/recent-actions/rss → HTTP 404",
+     "https://ofac.treasury.gov/recent-actions/rss.xml → HTTP 404",
+     "https://ofac.treasury.gov/recent-actions/?feed=rss2 → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "ofac-sdn",
+   "name": "قائمة OFAC (SDN)",
+   "org": "U.S. Treasury",
+   "cat": "عقوبات ومالية",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://sanctionslist.ofac.treas.gov/",
+   "api": {
+    "type": "csv",
+    "auth": "none",
+    "mode": "diff",
+    "url": "https://www.treasury.gov/ofac/downloads/sdn.csv",
+    "note": "يُقارن بنسخة الدورة السابقة ويُستخرج الفرق فقط."
+   },
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.treasury.gov/ofac/downloads/sdn.csv",
+    "reason": "ok",
+    "items": 19320
+   }
+  },
+  {
+   "id": "defense",
+   "name": "وزارة الدفاع",
+   "org": "U.S. DoD",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://www.defense.gov/News/",
+   "feeds": [
+    "https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=945&max=20"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=945&max=20",
+    "reason": "ok",
+    "items": 20
+   }
+  },
+  {
+   "id": "congress-api",
+   "name": "Congress.gov API",
+   "org": "Library of Congress",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://api.congress.gov/",
+   "api": {
+    "type": "json",
+    "auth": "key",
+    "path": "bills",
+    "url": "https://api.congress.gov/v3/bill?api_key={key}&format=json&limit=50&sort=updateDate+desc",
+    "params": {
+     "key": "CHANGE-ME"
+    },
+    "note": "مفتاح مجاني من api.data.gov — يعطي مشاريع القوانين وحركتها."
+   },
+   "verified": {
+    "status": "يحتاج اعتماد",
+    "endpoint": "https://api.congress.gov/v3/bill?api_key={key}&format=json&limit=50&sort=updateDate+desc",
+    "reason": "مفتاح مجاني من api.data.gov — يعطي مشاريع القوانين وحركتها.",
+    "items": 0
+   }
+  },
+  {
+   "id": "govinfo",
+   "name": "GovInfo — الوثائق الرسمية",
+   "org": "GPO",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.govinfo.gov/",
+   "api": {
+    "type": "json",
+    "auth": "key",
+    "url": "https://api.govinfo.gov/collections/BILLS/{date}?api_key={key}&pageSize=50",
+    "params": {
+     "key": "CHANGE-ME",
+     "date": "2026-01-01T00:00:00Z"
+    },
+    "note": "السجل الكونغرسي ونصوص التشريعات."
+   },
+   "verified": {
+    "status": "يحتاج اعتماد",
+    "endpoint": "https://api.govinfo.gov/collections/BILLS/{date}?api_key={key}&pageSize=50",
+    "reason": "السجل الكونغرسي ونصوص التشريعات.",
+    "items": 0
+   }
+  },
+  {
+   "id": "sfrc",
+   "name": "لجنة العلاقات الخارجية بالشيوخ",
+   "org": "U.S. Senate",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.foreign.senate.gov/",
+   "feeds": [],
+   "note": "جدول جلسات الاستماع — أهم مؤشر مبكر على ما سيُطرح.",
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.foreign.senate.gov/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.foreign.senate.gov/feed → HTTP 404",
+     "https://www.foreign.senate.gov/feed/ → HTTP 404",
+     "https://www.foreign.senate.gov/rss → HTTP 404",
+     "https://www.foreign.senate.gov/rss.xml → HTTP 404",
+     "https://www.foreign.senate.gov/?feed=rss2 → الرد ليس تغذية RSS/Atom",
+     "https://www.foreign.senate.gov/atom.xml → HTTP 404"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "hfac",
+   "name": "لجنة الشؤون الخارجية بالنواب",
+   "org": "U.S. House",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://foreignaffairs.house.gov/",
+   "feeds": [],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://foreignaffairs.house.gov/rss.xml",
+    "reason": "ok",
+    "items": 10
+   }
+  },
+  {
+   "id": "senate-banking",
+   "name": "لجنة المصارف بالشيوخ",
+   "org": "U.S. Senate",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://www.banking.senate.gov/",
+   "feeds": [],
+   "note": "مقر تشريعات العقوبات المالية.",
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.banking.senate.gov/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.banking.senate.gov/feed → HTTP 410",
+     "https://www.banking.senate.gov/feed/ → HTTP 410",
+     "https://www.banking.senate.gov/rss → الرد ليس تغذية RSS/Atom",
+     "https://www.banking.senate.gov/rss.xml → HTTP 410",
+     "https://www.banking.senate.gov/?feed=rss2 → الرد ليس تغذية RSS/Atom",
+     "https://www.banking.senate.gov/atom.xml → HTTP 410"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "crs",
+   "name": "تقارير خدمة أبحاث الكونغرس",
+   "org": "CRS",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://crsreports.congress.gov/",
+   "feeds": [],
+   "note": "أدق ملخص محايد لما يعرفه المشرّعون فعلاً عن الملف.",
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://crsreports.congress.gov/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://crsreports.congress.gov/feed → HTTP 403",
+     "https://crsreports.congress.gov/feed/ → HTTP 403",
+     "https://crsreports.congress.gov/rss → HTTP 403",
+     "https://crsreports.congress.gov/rss.xml → HTTP 403",
+     "https://crsreports.congress.gov/?feed=rss2 → HTTP 403",
+     "https://crsreports.congress.gov/atom.xml → HTTP 403"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "gao",
+   "name": "مكتب المحاسبة الحكومي",
+   "org": "GAO",
+   "cat": "رقابة",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.gao.gov/",
+   "feeds": [
+    "https://www.gao.gov/rss/reports.xml"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.gao.gov/rss/reports.xml",
+    "reason": "ok",
+    "items": 25
+   }
+  },
+  {
+   "id": "fara",
+   "name": "سجل الوكلاء الأجانب FARA",
+   "org": "U.S. DOJ",
+   "cat": "نفوذ ولوبيات",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.fara.gov/",
+   "feeds": [],
+   "note": "من يعمل لصالح من في واشنطن — أثمن مصدر لخريطة الوصول، ويُحدَّث بالإيداعات.",
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.fara.gov/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.fara.gov/feed → الرد ليس تغذية RSS/Atom",
+     "https://www.fara.gov/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://www.fara.gov/rss → الرد ليس تغذية RSS/Atom",
+     "https://www.fara.gov/rss.xml → الرد ليس تغذية RSS/Atom",
+     "https://www.fara.gov/?feed=rss2 → الرد ليس تغذية RSS/Atom",
+     "https://www.fara.gov/atom.xml → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "lda",
+   "name": "سجل الضغط بمجلس الشيوخ",
+   "org": "U.S. Senate LDA",
+   "cat": "نفوذ ولوبيات",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://lda.senate.gov/",
+   "api": {
+    "type": "json",
+    "auth": "key",
+    "url": "https://lda.senate.gov/api/v1/filings/?filing_year=2026&client_name=&page_size=50",
+    "note": "إفصاحات الضغط الفصلية بالمبالغ والقضايا — تسجيل مجاني للمفتاح."
+   },
+   "verified": {
+    "status": "يحتاج اعتماد",
+    "endpoint": "https://lda.senate.gov/api/v1/filings/?filing_year=2026&client_name=&page_size=50",
+    "reason": "إفصاحات الضغط الفصلية بالمبالغ والقضايا — تسجيل مجاني للمفتاح.",
+    "items": 0
+   }
+  },
+  {
+   "id": "opensecrets",
+   "name": "OpenSecrets",
+   "org": "CRP",
+   "cat": "نفوذ ولوبيات",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.opensecrets.org/",
+   "api": {
+    "type": "json",
+    "auth": "key",
+    "url": "https://www.opensecrets.org/api/?method=getLegislators&id=NY&apikey={key}&output=json",
+    "note": "تمويل الحملات وربط المال بالمواقف."
+   },
+   "verified": {
+    "status": "يحتاج اعتماد",
+    "endpoint": "https://www.opensecrets.org/api/?method=getLegislators&id=NY&apikey={key}&output=json",
+    "reason": "تمويل الحملات وربط المال بالمواقف.",
+    "items": 0
+   }
+  },
+  {
+   "id": "politico",
+   "name": "بوليتيكو",
+   "org": "Politico",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.politico.com/",
+   "feeds": [
+    "https://rss.politico.com/politics-news.xml",
+    "https://rss.politico.com/defense.xml"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://rss.politico.com/politics-news.xml",
+    "reason": "ok",
+    "items": 30
+   }
+  },
+  {
+   "id": "thehill",
+   "name": "ذا هيل",
+   "org": "The Hill",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://thehill.com/",
+   "feeds": [
+    "https://thehill.com/homenews/feed/",
+    "https://thehill.com/policy/international/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://thehill.com/homenews/feed/",
+    "reason": "ok",
+    "items": 15
+   }
+  },
+  {
+   "id": "axios",
+   "name": "أكسيوس",
+   "org": "Axios",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.axios.com/",
+   "feeds": [
+    "https://api.axios.com/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://api.axios.com/feed/",
+    "reason": "ok",
+    "items": 100
+   }
+  },
+  {
+   "id": "reuters-us",
+   "name": "رويترز — واشنطن",
+   "org": "Reuters",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.reuters.com/world/us/",
+   "feeds": [],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.reuters.com/world/us/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.reuters.com/world/us/feed → HTTP 401",
+     "https://www.reuters.com/world/us/feed/ → HTTP 401",
+     "https://www.reuters.com/world/us/rss → HTTP 401",
+     "https://www.reuters.com/world/us/rss.xml → HTTP 401",
+     "https://www.reuters.com/world/us/?feed=rss2 → HTTP 401",
+     "https://www.reuters.com/world/us/atom.xml → HTTP 401"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "ap-politics",
+   "name": "أسوشيتد برس — السياسة",
+   "org": "AP",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://apnews.com/hub/politics",
+   "feeds": [],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://apnews.com/hub/politics",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://apnews.com/hub/politics/feed → HTTP 403",
+     "https://apnews.com/hub/politics/feed/ → HTTP 403",
+     "https://apnews.com/hub/politics/rss → HTTP 403",
+     "https://apnews.com/hub/politics/rss.xml → HTTP 403",
+     "https://apnews.com/hub/politics/?feed=rss2 → HTTP 403",
+     "https://apnews.com/hub/politics/atom.xml → HTTP 403"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "foreignpolicy",
+   "name": "فورين بوليسي",
+   "org": "Foreign Policy",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://foreignpolicy.com/",
+   "feeds": [
+    "https://foreignpolicy.com/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://foreignpolicy.com/feed/",
+    "reason": "ok",
+    "items": 25
+   }
+  },
+  {
+   "id": "defenseone",
+   "name": "ديفنس وان",
+   "org": "Defense One",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.defenseone.com/",
+   "feeds": [
+    "https://www.defenseone.com/rss/all/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.defenseone.com/rss/all/",
+    "reason": "ok",
+    "items": 23
+   }
+  },
+  {
+   "id": "almonitor",
+   "name": "المونيتور",
+   "org": "Al-Monitor",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.al-monitor.com/",
+   "feeds": [
+    "https://www.al-monitor.com/rss"
+   ],
+   "note": "أقرب تغطية لتقاطع واشنطن مع الشرق الأوسط.",
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.al-monitor.com/rss",
+    "reason": "ok",
+    "items": 20
+   }
+  },
+  {
+   "id": "jewishinsider",
+   "name": "جويش إنسايدر",
+   "org": "Jewish Insider",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 3,
+   "party": true,
+   "site": "https://jewishinsider.com/",
+   "feeds": [
+    "https://jewishinsider.com/feed/"
+   ],
+   "note": "يرصد مواقف المشرّعين من ملفات المنطقة قبل غيره — يُقرأ بوصفه طرفاً.",
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://jewishinsider.com/feed/",
+    "reason": "ok",
+    "items": 43
+   }
+  },
+  {
+   "id": "semafor",
+   "name": "سيمافور",
+   "org": "Semafor",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.semafor.com/",
+   "feeds": [
+    "https://www.semafor.com/rss.xml"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.semafor.com/rss.xml",
+    "reason": "ok",
+    "items": 218
+   }
+  },
+  {
+   "id": "csis",
+   "name": "مركز الدراسات الاستراتيجية والدولية",
+   "org": "CSIS",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.csis.org/",
+   "feeds": [
+    "https://www.csis.org/analysis/feed"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.csis.org/rss.xml",
+    "reason": "ok",
+    "items": 10
+   }
+  },
+  {
+   "id": "brookings",
+   "name": "بروكينغز",
+   "org": "Brookings",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.brookings.edu/",
+   "feeds": [
+    "https://www.brookings.edu/feed/"
+   ],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.brookings.edu/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.brookings.edu/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://www.brookings.edu/comments/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://www.brookings.edu/feed → الرد ليس تغذية RSS/Atom",
+     "https://www.brookings.edu/rss → الرد ليس تغذية RSS/Atom",
+     "https://www.brookings.edu/rss.xml → HTTP 404",
+     "https://www.brookings.edu/?feed=rss2 → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "atlanticcouncil",
+   "name": "المجلس الأطلسي",
+   "org": "Atlantic Council",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.atlanticcouncil.org/",
+   "feeds": [
+    "https://www.atlanticcouncil.org/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.atlanticcouncil.org/feed/",
+    "reason": "ok",
+    "items": 100
+   }
+  },
+  {
+   "id": "carnegie",
+   "name": "كارنيغي",
+   "org": "Carnegie Endowment",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://carnegieendowment.org/",
+   "feeds": [
+    "https://carnegieendowment.org/rss/pubs"
+   ],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://carnegieendowment.org/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://carnegieendowment.org/rss/pubs → الرد ليس تغذية RSS/Atom",
+     "https://carnegieendowment.org/feed → الرد ليس تغذية RSS/Atom",
+     "https://carnegieendowment.org/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://carnegieendowment.org/rss → الرد ليس تغذية RSS/Atom",
+     "https://carnegieendowment.org/rss.xml → HTTP 404",
+     "https://carnegieendowment.org/?feed=rss2 → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "winep",
+   "name": "معهد واشنطن",
+   "org": "WINEP",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://www.washingtoninstitute.org/",
+   "feeds": [
+    "https://www.washingtoninstitute.org/feeds/policy-analysis"
+   ],
+   "note": "مؤثر في صياغة السياسة تجاه المنطقة — يُقرأ بوصفه طرفاً ذا خط معلن.",
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.washingtoninstitute.org/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.washingtoninstitute.org/feeds/policy-analysis → HTTP 404",
+     "https://www.washingtoninstitute.org/feed → HTTP 404",
+     "https://www.washingtoninstitute.org/feed/ → HTTP 404",
+     "https://www.washingtoninstitute.org/rss → HTTP 404",
+     "https://www.washingtoninstitute.org/rss.xml → HTTP 404",
+     "https://www.washingtoninstitute.org/?feed=rss2 → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "mei",
+   "name": "معهد الشرق الأوسط",
+   "org": "MEI",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.mei.edu/",
+   "feeds": [
+    "https://www.mei.edu/rss.xml"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://mei.edu/feed/",
+    "reason": "ok",
+    "items": 1
+   }
+  },
+  {
+   "id": "quincy",
+   "name": "معهد كوينسي",
+   "org": "Quincy Institute",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 3,
+   "party": false,
+   "site": "https://quincyinst.org/",
+   "feeds": [
+    "https://quincyinst.org/feed/"
+   ],
+   "note": "يمثل تيار ضبط النفس — مفيد لقياس حدود الطيف لا لتمثيل المركز.",
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://quincyinst.org/feed/",
+    "reason": "ok",
+    "items": 10
+   }
+  },
+  {
+   "id": "heritage",
+   "name": "مؤسسة هيريتيج",
+   "org": "Heritage Foundation",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 3,
+   "party": true,
+   "site": "https://www.heritage.org/",
+   "feeds": [
+    "https://www.heritage.org/rss.xml"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.heritage.org/rss",
+    "reason": "ok",
+    "items": 20
+   }
+  },
+  {
+   "id": "cfr",
+   "name": "مجلس العلاقات الخارجية",
+   "org": "CFR",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.cfr.org/",
+   "feeds": [
+    "https://www.cfr.org/rss-feeds"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.cfr.org/feed",
+    "reason": "ok",
+    "items": 24
+   }
+  },
+  {
+   "id": "pew",
+   "name": "مركز بيو للأبحاث",
+   "org": "Pew Research",
+   "cat": "رأي عام",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.pewresearch.org/",
+   "feeds": [
+    "https://www.pewresearch.org/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.pewresearch.org/feed/",
+    "reason": "ok",
+    "items": 100
+   }
+  },
+  {
+   "id": "gallup",
+   "name": "غالوب",
+   "org": "Gallup",
+   "cat": "رأي عام",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://news.gallup.com/",
+   "feeds": [
+    "https://news.gallup.com/rss/rss.aspx"
+   ],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://news.gallup.com/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://news.gallup.com/rss/rss.aspx → HTTP 404",
+     "https://news.gallup.com/sitemaps/content.rss → الرد ليس تغذية RSS/Atom",
+     "https://news.gallup.com/feed → HTTP 404",
+     "https://news.gallup.com/feed/ → HTTP 404",
+     "https://news.gallup.com/rss → HTTP 404",
+     "https://news.gallup.com/rss.xml → HTTP 404"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "gdelt",
+   "name": "GDELT — واجهة الوثائق",
+   "org": "GDELT Project",
+   "cat": "تجميع",
+   "lang": "multi",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.gdeltproject.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "path": "articles",
+    "url": "https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=250&format=json&timespan={timespan}",
+    "params": {
+     "query": "Syria (Congress OR Treasury OR sanctions OR White House)",
+     "timespan": "6h"
+    }
+   },
+   "verified": {
+    "status": "فشل",
+    "endpoint": "https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=250&format=json&timespan={timespan}",
+    "reason": "شبكة: ReadTimeout",
+    "items": 0
+   }
+  },
+  {
+   "id": "wayback",
+   "name": "Wayback Availability API",
+   "org": "Internet Archive",
+   "cat": "تجميع",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://archive.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://archive.org/wayback/available?url={url}",
+    "params": {
+     "url": "state.gov"
+    },
+    "note": "إثبات نص البيان قبل تعديله — ضروري لرصد تغيّر الصياغة."
+   },
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://archive.org/wayback/available?url={url}",
+    "reason": "ok",
+    "items": 1
+   }
+  }
+ ]
+}
