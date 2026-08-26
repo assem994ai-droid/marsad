@@ -5,234 +5,1100 @@
   "purpose": "رصد الحياة السياسية الأمريكية لخدمة قرار سوري يسعى إلى اختراق دبلوماسي في واشنطن.",
   "note": "مسارات التغذية مرشحة، والجامع يتحقق منها ويثبّت ما ينجح. party=true يعني أن المصدر طرف أو ذو خط تحريري معلن فلا يُحتسب تأكيداً مستقلاً."
  },
-
  "files": [
-  {"id":"f-wh","name":"البيت الأبيض والسلطة التنفيذية","region":"واشنطن",
-   "keywords":["البيت الأبيض","الرئيس","أمر تنفيذي","إدارة","white house","president","executive order","potus","national security council","nsc","memorandum","proclamation","waiver","determination"]},
-
-  {"id":"f-cong","name":"الكونغرس والتشريع","region":"الكابيتول",
-   "keywords":["الكونغرس","مجلس الشيوخ","النواب","مشروع قانون","تصويت","جلسة استماع","لجنة","congress","senate","house","bill","vote","hearing","markup","committee","amendment","ndaa","resolution","cosponsor","filibuster","appropriations"]},
-
-  {"id":"f-treas","name":"الخزانة والعقوبات",
-   "region":"واشنطن",
-   "keywords":["الخزانة","عقوبات","قيصر","استثناء","ترخيص عام","تجميد","قائمة","treasury","ofac","sanctions","designation","delisting","general license","specially designated","caesar","fincen","export control","bis","entity list"]},
-
-  {"id":"f-state","name":"الخارجية والدبلوماسية",
-   "region":"واشنطن",
-   "keywords":["الخارجية","المبعوث","سفير","إحاطة","زيارة","state department","secretary of state","envoy","ambassador","briefing","bilateral","normalization","diplomatic","embassy","visit","talks"]},
-
-  {"id":"f-lobby","name":"اللوبيات وسجلات النفوذ","region":"واشنطن",
-   "keywords":["لوبي","ضغط","تمويل حملة","تسجيل","fara","lobbying","lobbyist","registrant","foreign agent","pac","campaign contribution","disclosure","opensecrets","influence","retainer"]},
-
-  {"id":"f-think","name":"مراكز الفكر وصنّاع الأجندة","region":"واشنطن",
-   "keywords":["مركز أبحاث","تقرير","توصية","ورقة سياسات","think tank","report","policy brief","testimony","recommendation","csis","brookings","atlantic council","carnegie","washington institute","middle east institute","quincy","heritage","aei","council on foreign relations"]},
-
-  {"id":"f-dom","name":"السياسة الداخلية ونوافذ التوقيت","region":"الولايات المتحدة",
-   "keywords":["انتخابات","استطلاع","حملة","موازنة","إغلاق حكومي","عطلة تشريعية","election","midterm","poll","primary","campaign","budget","shutdown","recess","fiscal year","approval rating","caucus"]},
-
-  {"id":"f-gen","name":"عام — الملف السوري في واشنطن","region":"عام",
-   "keywords":["سوريا","السوري","دمشق","syria","syrian","damascus","al-sharaa","levant"]}
+  {
+   "id": "f-wh",
+   "name": "البيت الأبيض والسلطة التنفيذية",
+   "region": "واشنطن",
+   "keywords": [
+    "البيت الأبيض",
+    "الرئيس",
+    "أمر تنفيذي",
+    "إدارة",
+    "white house",
+    "president",
+    "executive order",
+    "potus",
+    "national security council",
+    "nsc",
+    "memorandum",
+    "proclamation",
+    "waiver",
+    "determination"
+   ]
+  },
+  {
+   "id": "f-cong",
+   "name": "الكونغرس والتشريع",
+   "region": "الكابيتول",
+   "keywords": [
+    "الكونغرس",
+    "مجلس الشيوخ",
+    "النواب",
+    "مشروع قانون",
+    "تصويت",
+    "جلسة استماع",
+    "لجنة",
+    "congress",
+    "senate",
+    "house",
+    "bill",
+    "vote",
+    "hearing",
+    "markup",
+    "committee",
+    "amendment",
+    "ndaa",
+    "resolution",
+    "cosponsor",
+    "filibuster",
+    "appropriations"
+   ]
+  },
+  {
+   "id": "f-treas",
+   "name": "الخزانة والعقوبات",
+   "region": "واشنطن",
+   "keywords": [
+    "الخزانة",
+    "عقوبات",
+    "قيصر",
+    "استثناء",
+    "ترخيص عام",
+    "تجميد",
+    "قائمة",
+    "treasury",
+    "ofac",
+    "sanctions",
+    "designation",
+    "delisting",
+    "general license",
+    "specially designated",
+    "caesar",
+    "fincen",
+    "export control",
+    "bis",
+    "entity list"
+   ]
+  },
+  {
+   "id": "f-state",
+   "name": "الخارجية والدبلوماسية",
+   "region": "واشنطن",
+   "keywords": [
+    "الخارجية",
+    "المبعوث",
+    "سفير",
+    "إحاطة",
+    "زيارة",
+    "state department",
+    "secretary of state",
+    "envoy",
+    "ambassador",
+    "briefing",
+    "bilateral",
+    "normalization",
+    "diplomatic",
+    "embassy",
+    "visit",
+    "talks"
+   ]
+  },
+  {
+   "id": "f-lobby",
+   "name": "اللوبيات وسجلات النفوذ",
+   "region": "واشنطن",
+   "keywords": [
+    "لوبي",
+    "ضغط",
+    "تمويل حملة",
+    "تسجيل",
+    "fara",
+    "lobbying",
+    "lobbyist",
+    "registrant",
+    "foreign agent",
+    "pac",
+    "campaign contribution",
+    "disclosure",
+    "opensecrets",
+    "influence",
+    "retainer"
+   ]
+  },
+  {
+   "id": "f-think",
+   "name": "مراكز الفكر وصنّاع الأجندة",
+   "region": "واشنطن",
+   "keywords": [
+    "مركز أبحاث",
+    "تقرير",
+    "توصية",
+    "ورقة سياسات",
+    "think tank",
+    "report",
+    "policy brief",
+    "testimony",
+    "recommendation",
+    "csis",
+    "brookings",
+    "atlantic council",
+    "carnegie",
+    "washington institute",
+    "middle east institute",
+    "quincy",
+    "heritage",
+    "aei",
+    "council on foreign relations"
+   ]
+  },
+  {
+   "id": "f-dom",
+   "name": "السياسة الداخلية ونوافذ التوقيت",
+   "region": "الولايات المتحدة",
+   "keywords": [
+    "انتخابات",
+    "استطلاع",
+    "حملة",
+    "موازنة",
+    "إغلاق حكومي",
+    "عطلة تشريعية",
+    "election",
+    "midterm",
+    "poll",
+    "primary",
+    "campaign",
+    "budget",
+    "shutdown",
+    "recess",
+    "fiscal year",
+    "approval rating",
+    "caucus"
+   ]
+  },
+  {
+   "id": "f-gen",
+   "name": "عام — الملف السوري في واشنطن",
+   "region": "عام",
+   "keywords": [
+    "سوريا",
+    "السوري",
+    "دمشق",
+    "syria",
+    "syrian",
+    "damascus",
+    "al-sharaa",
+    "levant"
+   ]
+  }
  ],
-
  "entities": {
-  "البيت الأبيض": ["البيت الأبيض","الرئيس الأمريكي","white house","potus","oval office","national security adviser"],
-  "وزارة الخارجية": ["الخارجية الأمريكية","state department","secretary of state","foggy bottom","special envoy"],
-  "وزارة الخزانة": ["الخزانة الأمريكية","treasury","ofac","fincen","under secretary for terrorism"],
-  "البنتاغون": ["البنتاغون","وزارة الدفاع الأمريكية","pentagon","department of defense","centcom","joint chiefs"],
-  "مجلس الشيوخ": ["مجلس الشيوخ","senate","senator","foreign relations committee","senate banking"],
-  "مجلس النواب": ["مجلس النواب","house of representatives","congressman","congresswoman","foreign affairs committee"],
-  "الحزب الجمهوري": ["الجمهوري","الجمهوريون","republican","gop"],
-  "الحزب الديمقراطي": ["الديمقراطي","الديمقراطيون","democrat","democratic party"],
-  "مراكز الفكر": ["مركز أبحاث","think tank","csis","brookings","atlantic council","carnegie","washington institute","quincy institute","heritage foundation"],
-  "اللوبيات": ["لوبي","ضغط سياسي","lobby","lobbying firm","foreign agent","aipac","registrant"],
-  "سوريا": ["سوريا","السورية","دمشق","syria","syrian","damascus"],
-  "إسرائيل": ["إسرائيل","الإسرائيلية","israel","israeli"],
-  "تركيا": ["تركيا","التركية","أنقرة","turkey","turkish","ankara"],
-  "دول الخليج": ["السعودية","الإمارات","قطر","الخليج","saudi","uae","qatar","gulf states"],
-  "روسيا": ["روسيا","موسكو","russia","moscow"],
-  "الصين": ["الصين","بكين","china","beijing"],
-  "إيران": ["إيران","طهران","iran","tehran"]
- },
-
- "places": [
-  {"n":"واشنطن","lat":38.90,"lng":-77.04,"co":"US","alias":["واشنطن","washington","white house","capitol hill","state department","pentagon","treasury"]},
-  {"n":"نيويورك","lat":40.71,"lng":-74.01,"co":"US","alias":["نيويورك","new york","united nations headquarters","turtle bay"]},
-  {"n":"لانغلي","lat":38.95,"lng":-77.15,"co":"US","alias":["لانغلي","langley","cia headquarters"]},
-  {"n":"تامبا","lat":27.95,"lng":-82.46,"co":"US","alias":["تامبا","tampa","macdill"]},
-  {"n":"دمشق","lat":33.51,"lng":36.29,"co":"SY","alias":["دمشق","damascus"]},
-  {"n":"أنقرة","lat":39.93,"lng":32.85,"co":"TR","alias":["أنقرة","ankara"]},
-  {"n":"الرياض","lat":24.71,"lng":46.68,"co":"SA","alias":["الرياض","riyadh"]},
-  {"n":"أبوظبي","lat":24.45,"lng":54.38,"co":"AE","alias":["أبوظبي","abu dhabi"]},
-  {"n":"الدوحة","lat":25.29,"lng":51.53,"co":"QA","alias":["الدوحة","doha"]},
-  {"n":"القدس","lat":31.78,"lng":35.22,"co":"IL","alias":["القدس","jerusalem"]},
-  {"n":"بروكسل","lat":50.85,"lng":4.35,"co":"BE","alias":["بروكسل","brussels","nato headquarters"]},
-  {"n":"موسكو","lat":55.75,"lng":37.62,"co":"RU","alias":["موسكو","moscow"]},
-  {"n":"بكين","lat":39.90,"lng":116.41,"co":"CN","alias":["بكين","beijing"]},
-  {"n":"طهران","lat":35.69,"lng":51.39,"co":"IR","alias":["طهران","tehran"]},
-  {"n":"جنيف","lat":46.20,"lng":6.14,"co":"CH","alias":["جنيف","geneva"]}
- ],
-
- "windows": {
-  "note": "نوافذ القرار — العمود الفقري للتوقيت. راجع التواريخ سنوياً وعدّلها؛ المنصة تحسب المتبقي تلقائياً.",
-  "items": [
-   {"t":"عودة الكونغرس من العطلة التشريعية","d":"2026-09-08","w":"تنتهي عطلة أغسطس ويعود جدول الجلسات — أول نافذة لطلب اجتماعات أو إدراج بند."},
-   {"t":"مداولات مشروع الدفاع الوطني NDAA","d":"2026-09-15","w":"البند المتعلق بسوريا يُصاغ في اللجان قبل هذا التاريخ؛ بعده يصير التعديل شبه مستحيل."},
-   {"t":"بدء السنة المالية والاعتمادات","d":"2026-10-01","w":"أي تمويل أو شرط يُربط بقوانين الاعتمادات يُحسم هنا."},
-   {"t":"انتخابات التجديد النصفي","d":"2026-11-03","w":"قبلها بستة أسابيع يتوقف أي انفتاح مثير للجدل؛ وبعدها تتغير تركيبة اللجان."},
-   {"t":"تقرير الشهادة نصف السنوي إلى الكونغرس","d":"2026-12-18","w":"التقرير الرئاسي المرتبط بإلغاء قانون قيصر — موعد تقييم مجدول يجب تجهيز ملفه سلفاً."}
+  "البيت الأبيض": [
+   "البيت الأبيض",
+   "الرئيس الأمريكي",
+   "white house",
+   "potus",
+   "oval office",
+   "national security adviser"
+  ],
+  "وزارة الخارجية": [
+   "الخارجية الأمريكية",
+   "state department",
+   "secretary of state",
+   "foggy bottom",
+   "special envoy"
+  ],
+  "وزارة الخزانة": [
+   "الخزانة الأمريكية",
+   "treasury",
+   "ofac",
+   "fincen",
+   "under secretary for terrorism"
+  ],
+  "البنتاغون": [
+   "البنتاغون",
+   "وزارة الدفاع الأمريكية",
+   "pentagon",
+   "department of defense",
+   "centcom",
+   "joint chiefs"
+  ],
+  "مجلس الشيوخ": [
+   "مجلس الشيوخ",
+   "senate",
+   "senator",
+   "foreign relations committee",
+   "senate banking"
+  ],
+  "مجلس النواب": [
+   "مجلس النواب",
+   "house of representatives",
+   "congressman",
+   "congresswoman",
+   "foreign affairs committee"
+  ],
+  "الحزب الجمهوري": [
+   "الجمهوري",
+   "الجمهوريون",
+   "republican",
+   "gop"
+  ],
+  "الحزب الديمقراطي": [
+   "الديمقراطي",
+   "الديمقراطيون",
+   "democrat",
+   "democratic party"
+  ],
+  "مراكز الفكر": [
+   "مركز أبحاث",
+   "think tank",
+   "csis",
+   "brookings",
+   "atlantic council",
+   "carnegie",
+   "washington institute",
+   "quincy institute",
+   "heritage foundation"
+  ],
+  "اللوبيات": [
+   "لوبي",
+   "ضغط سياسي",
+   "lobby",
+   "lobbying firm",
+   "foreign agent",
+   "aipac",
+   "registrant"
+  ],
+  "سوريا": [
+   "سوريا",
+   "السورية",
+   "دمشق",
+   "syria",
+   "syrian",
+   "damascus"
+  ],
+  "إسرائيل": [
+   "إسرائيل",
+   "الإسرائيلية",
+   "israel",
+   "israeli"
+  ],
+  "تركيا": [
+   "تركيا",
+   "التركية",
+   "أنقرة",
+   "turkey",
+   "turkish",
+   "ankara"
+  ],
+  "دول الخليج": [
+   "السعودية",
+   "الإمارات",
+   "قطر",
+   "الخليج",
+   "saudi",
+   "uae",
+   "qatar",
+   "gulf states"
+  ],
+  "روسيا": [
+   "روسيا",
+   "موسكو",
+   "russia",
+   "moscow"
+  ],
+  "الصين": [
+   "الصين",
+   "بكين",
+   "china",
+   "beijing"
+  ],
+  "إيران": [
+   "إيران",
+   "طهران",
+   "iran",
+   "tehran"
   ]
  },
-
+ "places": [
+  {
+   "n": "واشنطن",
+   "lat": 38.9,
+   "lng": -77.04,
+   "co": "US",
+   "alias": [
+    "واشنطن",
+    "washington",
+    "white house",
+    "capitol hill",
+    "state department",
+    "pentagon",
+    "treasury"
+   ]
+  },
+  {
+   "n": "نيويورك",
+   "lat": 40.71,
+   "lng": -74.01,
+   "co": "US",
+   "alias": [
+    "نيويورك",
+    "new york",
+    "united nations headquarters",
+    "turtle bay"
+   ]
+  },
+  {
+   "n": "لانغلي",
+   "lat": 38.95,
+   "lng": -77.15,
+   "co": "US",
+   "alias": [
+    "لانغلي",
+    "langley",
+    "cia headquarters"
+   ]
+  },
+  {
+   "n": "تامبا",
+   "lat": 27.95,
+   "lng": -82.46,
+   "co": "US",
+   "alias": [
+    "تامبا",
+    "tampa",
+    "macdill"
+   ]
+  },
+  {
+   "n": "دمشق",
+   "lat": 33.51,
+   "lng": 36.29,
+   "co": "SY",
+   "alias": [
+    "دمشق",
+    "damascus"
+   ]
+  },
+  {
+   "n": "أنقرة",
+   "lat": 39.93,
+   "lng": 32.85,
+   "co": "TR",
+   "alias": [
+    "أنقرة",
+    "ankara"
+   ]
+  },
+  {
+   "n": "الرياض",
+   "lat": 24.71,
+   "lng": 46.68,
+   "co": "SA",
+   "alias": [
+    "الرياض",
+    "riyadh"
+   ]
+  },
+  {
+   "n": "أبوظبي",
+   "lat": 24.45,
+   "lng": 54.38,
+   "co": "AE",
+   "alias": [
+    "أبوظبي",
+    "abu dhabi"
+   ]
+  },
+  {
+   "n": "الدوحة",
+   "lat": 25.29,
+   "lng": 51.53,
+   "co": "QA",
+   "alias": [
+    "الدوحة",
+    "doha"
+   ]
+  },
+  {
+   "n": "القدس",
+   "lat": 31.78,
+   "lng": 35.22,
+   "co": "IL",
+   "alias": [
+    "القدس",
+    "jerusalem"
+   ]
+  },
+  {
+   "n": "بروكسل",
+   "lat": 50.85,
+   "lng": 4.35,
+   "co": "BE",
+   "alias": [
+    "بروكسل",
+    "brussels",
+    "nato headquarters"
+   ]
+  },
+  {
+   "n": "موسكو",
+   "lat": 55.75,
+   "lng": 37.62,
+   "co": "RU",
+   "alias": [
+    "موسكو",
+    "moscow"
+   ]
+  },
+  {
+   "n": "بكين",
+   "lat": 39.9,
+   "lng": 116.41,
+   "co": "CN",
+   "alias": [
+    "بكين",
+    "beijing"
+   ]
+  },
+  {
+   "n": "طهران",
+   "lat": 35.69,
+   "lng": 51.39,
+   "co": "IR",
+   "alias": [
+    "طهران",
+    "tehran"
+   ]
+  },
+  {
+   "n": "جنيف",
+   "lat": 46.2,
+   "lng": 6.14,
+   "co": "CH",
+   "alias": [
+    "جنيف",
+    "geneva"
+   ]
+  }
+ ],
+ "windows": {
+  "note": "مبنية على الجدول التشريعي الرسمي لمجلس الشيوخ لعام 2026 (senate.gov) وتاريخ الانتخابات النصفية. راجعها إن أُعلن تعديل.",
+  "source": "https://www.senate.gov/legislative/2026_schedule.htm",
+  "items": [
+   {
+    "t": "عودة الكونغرس من فترة العمل بالولايات",
+    "d": "2026-09-14",
+    "w": "فترة العمل بالولايات تمتد من 10 أغسطس إلى 11 سبتمبر، والعودة الفعلية 14 سبتمبر. أول نافذة لطلب اجتماعات أو إدراج بند على جدول اللجان."
+   },
+   {
+    "t": "النافذة التشريعية الضيقة",
+    "d": "2026-10-02",
+    "w": "أسبوعان ونصف فقط بين العودة وبدء فترة الحملة. كل ما لا يُنجز هنا يؤجَّل إلى ما بعد الانتخابات."
+   },
+   {
+    "t": "انتهاء السنة المالية ومهلة الاعتمادات",
+    "d": "2026-09-30",
+    "w": "تبدأ السنة المالية الجديدة في 1 أكتوبر. أي شرط أو تمويل يُربط بقوانين الاعتمادات يُحسم قبل هذا التاريخ أو يسقط."
+   },
+   {
+    "t": "انقطاع الحملة الانتخابية",
+    "d": "2026-10-05",
+    "w": "مجلس الشيوخ خارج واشنطن من 5 أكتوبر إلى 6 نوفمبر. فترة ميتة تفاوضياً: لا تبدأ فيها مبادرة ولا تتوقع رداً."
+   },
+   {
+    "t": "انتخابات التجديد النصفي",
+    "d": "2026-11-03",
+    "w": "قبلها بستة أسابيع يتوقف أي انفتاح مثير للجدل. وبعدها تتغير تركيبة اللجان ورؤسائها — أي إعادة بناء لخريطة الوصول كاملة."
+   },
+   {
+    "t": "جلسة ما بعد الانتخابات",
+    "d": "2026-11-09",
+    "w": "من 9 نوفمبر إلى الرفع: الفترة التي يُقرّ فيها عادةً مشروع الدفاع الوطني وحزم الاعتمادات. أعلى كثافة تشريعية في السنة."
+   },
+   {
+    "t": "الرفع المستهدف للدورة",
+    "d": "2026-12-18",
+    "w": "نهاية السنة التشريعية. ما لم يُقرّ قبلها يعود إلى نقطة الصفر في الدورة التالية."
+   }
+  ]
+ },
  "telegram": {
   "note": "قنوات عامة تُقرأ من t.me/s/. أضف قنوات المراسلين في واشنطن إن وُجدت.",
   "channels": []
  },
-
  "sources": [
-  {"id":"federalregister","name":"السجل الفيدرالي","org":"US Government","cat":"رسمي تنفيذي","lang":"en","weight":5,"party":true,
-   "site":"https://www.federalregister.gov/","api":{"type":"json","auth":"none","path":"results",
-    "url":"https://www.federalregister.gov/api/v1/documents.json?conditions[term]=Syria&order=newest&per_page=50",
-    "note":"الأوامر التنفيذية والإخطارات فور نشرها — المصدر الأولي لا الخبر عنه."}},
-
-  {"id":"whitehouse","name":"البيت الأبيض — البيانات","org":"The White House","cat":"رسمي تنفيذي","lang":"en","weight":5,"party":true,
-   "site":"https://www.whitehouse.gov/news/","feeds":["https://www.whitehouse.gov/feed/"]},
-
-  {"id":"state-press","name":"الخارجية الأمريكية — بيانات","org":"U.S. Department of State","cat":"رسمي تنفيذي","lang":"en","weight":5,"party":true,
-   "site":"https://www.state.gov/press-releases/","feeds":["https://www.state.gov/rss-feed/press-releases/feed/"]},
-
-  {"id":"state-briefing","name":"الإحاطة الصحفية للخارجية","org":"U.S. Department of State","cat":"رسمي تنفيذي","lang":"en","weight":5,"party":true,
-   "site":"https://www.state.gov/briefings/","feeds":[],
-   "note":"نص الإحاطة اليومية — أدق مكان لرصد تغيّر الصياغة كلمة بكلمة."},
-
-  {"id":"treasury-press","name":"الخزانة — البيانات","org":"U.S. Treasury","cat":"عقوبات ومالية","lang":"en","weight":5,"party":true,
-   "site":"https://home.treasury.gov/news/press-releases","feeds":["https://home.treasury.gov/rss/press.xml"]},
-
-  {"id":"ofac-recent","name":"OFAC — التحديثات الحديثة","org":"U.S. Treasury","cat":"عقوبات ومالية","lang":"en","weight":5,"party":true,
-   "site":"https://ofac.treasury.gov/recent-actions","feeds":["https://ofac.treasury.gov/system/files/rss/recent-actions.xml"]},
-
-  {"id":"ofac-sdn","name":"قائمة OFAC (SDN)","org":"U.S. Treasury","cat":"عقوبات ومالية","lang":"en","weight":5,"party":true,
-   "site":"https://sanctionslist.ofac.treas.gov/","api":{"type":"csv","auth":"none","mode":"diff",
-    "url":"https://www.treasury.gov/ofac/downloads/sdn.csv","note":"يُقارن بنسخة الدورة السابقة ويُستخرج الفرق فقط."}},
-
-  {"id":"defense","name":"وزارة الدفاع","org":"U.S. DoD","cat":"رسمي تنفيذي","lang":"en","weight":4,"party":true,
-   "site":"https://www.defense.gov/News/","feeds":["https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=945&max=20"]},
-
-  {"id":"congress-api","name":"Congress.gov API","org":"Library of Congress","cat":"تشريع","lang":"en","weight":5,"party":false,
-   "site":"https://api.congress.gov/","api":{"type":"json","auth":"key","path":"bills",
-    "url":"https://api.congress.gov/v3/bill?api_key={key}&format=json&limit=50&sort=updateDate+desc",
-    "params":{"key":"CHANGE-ME"},"note":"مفتاح مجاني من api.data.gov — يعطي مشاريع القوانين وحركتها."}},
-
-  {"id":"govinfo","name":"GovInfo — الوثائق الرسمية","org":"GPO","cat":"تشريع","lang":"en","weight":5,"party":false,
-   "site":"https://www.govinfo.gov/","api":{"type":"json","auth":"key",
-    "url":"https://api.govinfo.gov/collections/BILLS/{date}?api_key={key}&pageSize=50",
-    "params":{"key":"CHANGE-ME","date":"2026-01-01T00:00:00Z"},"note":"السجل الكونغرسي ونصوص التشريعات."}},
-
-  {"id":"sfrc","name":"لجنة العلاقات الخارجية بالشيوخ","org":"U.S. Senate","cat":"تشريع","lang":"en","weight":5,"party":true,
-   "site":"https://www.foreign.senate.gov/","feeds":[],
-   "note":"جدول جلسات الاستماع — أهم مؤشر مبكر على ما سيُطرح."},
-
-  {"id":"hfac","name":"لجنة الشؤون الخارجية بالنواب","org":"U.S. House","cat":"تشريع","lang":"en","weight":5,"party":true,
-   "site":"https://foreignaffairs.house.gov/","feeds":[]},
-
-  {"id":"senate-banking","name":"لجنة المصارف بالشيوخ","org":"U.S. Senate","cat":"تشريع","lang":"en","weight":4,"party":true,
-   "site":"https://www.banking.senate.gov/","feeds":[],"note":"مقر تشريعات العقوبات المالية."},
-
-  {"id":"crs","name":"تقارير خدمة أبحاث الكونغرس","org":"CRS","cat":"تشريع","lang":"en","weight":5,"party":false,
-   "site":"https://crsreports.congress.gov/","feeds":[],
-   "note":"أدق ملخص محايد لما يعرفه المشرّعون فعلاً عن الملف."},
-
-  {"id":"gao","name":"مكتب المحاسبة الحكومي","org":"GAO","cat":"رقابة","lang":"en","weight":4,"party":false,
-   "site":"https://www.gao.gov/","feeds":["https://www.gao.gov/rss/reports.xml"]},
-
-  {"id":"fara","name":"سجل الوكلاء الأجانب FARA","org":"U.S. DOJ","cat":"نفوذ ولوبيات","lang":"en","weight":5,"party":false,
-   "site":"https://www.fara.gov/","feeds":[],
-   "note":"من يعمل لصالح من في واشنطن — أثمن مصدر لخريطة الوصول، ويُحدَّث بالإيداعات."},
-
-  {"id":"lda","name":"سجل الضغط بمجلس الشيوخ","org":"U.S. Senate LDA","cat":"نفوذ ولوبيات","lang":"en","weight":5,"party":false,
-   "site":"https://lda.senate.gov/","api":{"type":"json","auth":"key",
-    "url":"https://lda.senate.gov/api/v1/filings/?filing_year=2026&client_name=&page_size=50",
-    "note":"إفصاحات الضغط الفصلية بالمبالغ والقضايا — تسجيل مجاني للمفتاح."}},
-
-  {"id":"opensecrets","name":"OpenSecrets","org":"CRP","cat":"نفوذ ولوبيات","lang":"en","weight":4,"party":false,
-   "site":"https://www.opensecrets.org/","api":{"type":"json","auth":"key",
-    "url":"https://www.opensecrets.org/api/?method=getLegislators&id=NY&apikey={key}&output=json",
-    "note":"تمويل الحملات وربط المال بالمواقف."}},
-
-  {"id":"politico","name":"بوليتيكو","org":"Politico","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
-   "site":"https://www.politico.com/","feeds":["https://rss.politico.com/politics-news.xml","https://rss.politico.com/defense.xml"]},
-
-  {"id":"thehill","name":"ذا هيل","org":"The Hill","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
-   "site":"https://thehill.com/","feeds":["https://thehill.com/homenews/feed/","https://thehill.com/policy/international/feed/"]},
-
-  {"id":"axios","name":"أكسيوس","org":"Axios","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
-   "site":"https://www.axios.com/","feeds":["https://api.axios.com/feed/"]},
-
-  {"id":"reuters-us","name":"رويترز — واشنطن","org":"Reuters","cat":"إعلام سياسي","lang":"en","weight":5,"party":false,
-   "site":"https://www.reuters.com/world/us/","feeds":[]},
-
-  {"id":"ap-politics","name":"أسوشيتد برس — السياسة","org":"AP","cat":"إعلام سياسي","lang":"en","weight":5,"party":false,
-   "site":"https://apnews.com/hub/politics","feeds":[]},
-
-  {"id":"foreignpolicy","name":"فورين بوليسي","org":"Foreign Policy","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
-   "site":"https://foreignpolicy.com/","feeds":["https://foreignpolicy.com/feed/"]},
-
-  {"id":"defenseone","name":"ديفنس وان","org":"Defense One","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
-   "site":"https://www.defenseone.com/","feeds":["https://www.defenseone.com/rss/all/"]},
-
-  {"id":"almonitor","name":"المونيتور","org":"Al-Monitor","cat":"إعلام سياسي","lang":"en","weight":4,"party":false,
-   "site":"https://www.al-monitor.com/","feeds":["https://www.al-monitor.com/rss"],
-   "note":"أقرب تغطية لتقاطع واشنطن مع الشرق الأوسط."},
-
-  {"id":"jewishinsider","name":"جويش إنسايدر","org":"Jewish Insider","cat":"إعلام سياسي","lang":"en","weight":3,"party":true,
-   "site":"https://jewishinsider.com/","feeds":["https://jewishinsider.com/feed/"],
-   "note":"يرصد مواقف المشرّعين من ملفات المنطقة قبل غيره — يُقرأ بوصفه طرفاً."},
-
-  {"id":"semafor","name":"سيمافور","org":"Semafor","cat":"إعلام سياسي","lang":"en","weight":3,"party":false,
-   "site":"https://www.semafor.com/","feeds":["https://www.semafor.com/rss.xml"]},
-
-  {"id":"csis","name":"مركز الدراسات الاستراتيجية والدولية","org":"CSIS","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
-   "site":"https://www.csis.org/","feeds":["https://www.csis.org/analysis/feed"]},
-
-  {"id":"brookings","name":"بروكينغز","org":"Brookings","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
-   "site":"https://www.brookings.edu/","feeds":["https://www.brookings.edu/feed/"]},
-
-  {"id":"atlanticcouncil","name":"المجلس الأطلسي","org":"Atlantic Council","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
-   "site":"https://www.atlanticcouncil.org/","feeds":["https://www.atlanticcouncil.org/feed/"]},
-
-  {"id":"carnegie","name":"كارنيغي","org":"Carnegie Endowment","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
-   "site":"https://carnegieendowment.org/","feeds":["https://carnegieendowment.org/rss/pubs"]},
-
-  {"id":"winep","name":"معهد واشنطن","org":"WINEP","cat":"مراكز فكر","lang":"en","weight":4,"party":true,
-   "site":"https://www.washingtoninstitute.org/","feeds":["https://www.washingtoninstitute.org/feeds/policy-analysis"],
-   "note":"مؤثر في صياغة السياسة تجاه المنطقة — يُقرأ بوصفه طرفاً ذا خط معلن."},
-
-  {"id":"mei","name":"معهد الشرق الأوسط","org":"MEI","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
-   "site":"https://www.mei.edu/","feeds":["https://www.mei.edu/rss.xml"]},
-
-  {"id":"quincy","name":"معهد كوينسي","org":"Quincy Institute","cat":"مراكز فكر","lang":"en","weight":3,"party":false,
-   "site":"https://quincyinst.org/","feeds":["https://quincyinst.org/feed/"],
-   "note":"يمثل تيار ضبط النفس — مفيد لقياس حدود الطيف لا لتمثيل المركز."},
-
-  {"id":"heritage","name":"مؤسسة هيريتيج","org":"Heritage Foundation","cat":"مراكز فكر","lang":"en","weight":3,"party":true,
-   "site":"https://www.heritage.org/","feeds":["https://www.heritage.org/rss.xml"]},
-
-  {"id":"cfr","name":"مجلس العلاقات الخارجية","org":"CFR","cat":"مراكز فكر","lang":"en","weight":4,"party":false,
-   "site":"https://www.cfr.org/","feeds":["https://www.cfr.org/rss-feeds"]},
-
-  {"id":"pew","name":"مركز بيو للأبحاث","org":"Pew Research","cat":"رأي عام","lang":"en","weight":5,"party":false,
-   "site":"https://www.pewresearch.org/","feeds":["https://www.pewresearch.org/feed/"]},
-
-  {"id":"gallup","name":"غالوب","org":"Gallup","cat":"رأي عام","lang":"en","weight":4,"party":false,
-   "site":"https://news.gallup.com/","feeds":["https://news.gallup.com/rss/rss.aspx"]},
-
-  {"id":"gdelt","name":"GDELT — واجهة الوثائق","org":"GDELT Project","cat":"تجميع","lang":"multi","weight":3,"party":false,
-   "site":"https://www.gdeltproject.org/","api":{"type":"json","auth":"none","path":"articles",
-    "url":"https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=250&format=json&timespan={timespan}",
-    "params":{"query":"Syria (Congress OR Treasury OR sanctions OR White House)","timespan":"6h"}}},
-
-  {"id":"wayback","name":"Wayback Availability API","org":"Internet Archive","cat":"تجميع","lang":"en","weight":4,"party":false,
-   "site":"https://archive.org/","api":{"type":"json","auth":"none",
-    "url":"https://archive.org/wayback/available?url={url}","params":{"url":"state.gov"},
-    "note":"إثبات نص البيان قبل تعديله — ضروري لرصد تغيّر الصياغة."}}
- ]
+  {
+   "id": "federalregister",
+   "name": "السجل الفيدرالي",
+   "org": "US Government",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.federalregister.gov/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "path": "results",
+    "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[term]=Syria&order=newest&per_page=50",
+    "note": "الأوامر التنفيذية والإخطارات فور نشرها — المصدر الأولي لا الخبر عنه."
+   }
+  },
+  {
+   "id": "whitehouse",
+   "name": "البيت الأبيض — البيانات",
+   "org": "The White House",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.whitehouse.gov/news/",
+   "feeds": [
+    "https://www.whitehouse.gov/feed/"
+   ]
+  },
+  {
+   "id": "state-press",
+   "name": "الخارجية الأمريكية — بيانات",
+   "org": "U.S. Department of State",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.state.gov/press-releases/",
+   "feeds": [
+    "https://www.state.gov/rss-feed/press-releases/feed/"
+   ]
+  },
+  {
+   "id": "state-briefing",
+   "name": "الإحاطة الصحفية للخارجية",
+   "org": "U.S. Department of State",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.state.gov/briefings/",
+   "feeds": [],
+   "note": "نص الإحاطة اليومية — أدق مكان لرصد تغيّر الصياغة كلمة بكلمة."
+  },
+  {
+   "id": "treasury-press",
+   "name": "الخزانة — البيانات",
+   "org": "U.S. Treasury",
+   "cat": "عقوبات ومالية",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://home.treasury.gov/news/press-releases",
+   "feeds": [
+    "https://home.treasury.gov/rss/press.xml"
+   ]
+  },
+  {
+   "id": "ofac-recent",
+   "name": "OFAC — التحديثات الحديثة",
+   "org": "U.S. Treasury",
+   "cat": "عقوبات ومالية",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://ofac.treasury.gov/recent-actions",
+   "feeds": [
+    "https://ofac.treasury.gov/system/files/rss/recent-actions.xml"
+   ]
+  },
+  {
+   "id": "ofac-sdn",
+   "name": "قائمة OFAC (SDN)",
+   "org": "U.S. Treasury",
+   "cat": "عقوبات ومالية",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://sanctionslist.ofac.treas.gov/",
+   "api": {
+    "type": "csv",
+    "auth": "none",
+    "mode": "diff",
+    "url": "https://www.treasury.gov/ofac/downloads/sdn.csv",
+    "note": "يُقارن بنسخة الدورة السابقة ويُستخرج الفرق فقط."
+   }
+  },
+  {
+   "id": "defense",
+   "name": "وزارة الدفاع",
+   "org": "U.S. DoD",
+   "cat": "رسمي تنفيذي",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://www.defense.gov/News/",
+   "feeds": [
+    "https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=945&max=20"
+   ]
+  },
+  {
+   "id": "congress-api",
+   "name": "Congress.gov API",
+   "org": "Library of Congress",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://api.congress.gov/",
+   "api": {
+    "type": "json",
+    "auth": "key",
+    "path": "bills",
+    "url": "https://api.congress.gov/v3/bill?api_key={key}&format=json&limit=50&sort=updateDate+desc",
+    "params": {
+     "key": "CHANGE-ME"
+    },
+    "note": "مفتاح مجاني من api.data.gov — يعطي مشاريع القوانين وحركتها."
+   }
+  },
+  {
+   "id": "govinfo",
+   "name": "GovInfo — الوثائق الرسمية",
+   "org": "GPO",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.govinfo.gov/",
+   "api": {
+    "type": "json",
+    "auth": "key",
+    "url": "https://api.govinfo.gov/collections/BILLS/{date}?api_key={key}&pageSize=50",
+    "params": {
+     "key": "CHANGE-ME",
+     "date": "2026-01-01T00:00:00Z"
+    },
+    "note": "السجل الكونغرسي ونصوص التشريعات."
+   }
+  },
+  {
+   "id": "sfrc",
+   "name": "لجنة العلاقات الخارجية بالشيوخ",
+   "org": "U.S. Senate",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.foreign.senate.gov/",
+   "feeds": [],
+   "note": "جدول جلسات الاستماع — أهم مؤشر مبكر على ما سيُطرح."
+  },
+  {
+   "id": "hfac",
+   "name": "لجنة الشؤون الخارجية بالنواب",
+   "org": "U.S. House",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://foreignaffairs.house.gov/",
+   "feeds": []
+  },
+  {
+   "id": "senate-banking",
+   "name": "لجنة المصارف بالشيوخ",
+   "org": "U.S. Senate",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://www.banking.senate.gov/",
+   "feeds": [],
+   "note": "مقر تشريعات العقوبات المالية."
+  },
+  {
+   "id": "crs",
+   "name": "تقارير خدمة أبحاث الكونغرس",
+   "org": "CRS",
+   "cat": "تشريع",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://crsreports.congress.gov/",
+   "feeds": [],
+   "note": "أدق ملخص محايد لما يعرفه المشرّعون فعلاً عن الملف."
+  },
+  {
+   "id": "gao",
+   "name": "مكتب المحاسبة الحكومي",
+   "org": "GAO",
+   "cat": "رقابة",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.gao.gov/",
+   "feeds": [
+    "https://www.gao.gov/rss/reports.xml"
+   ]
+  },
+  {
+   "id": "fara",
+   "name": "سجل الوكلاء الأجانب FARA",
+   "org": "U.S. DOJ",
+   "cat": "نفوذ ولوبيات",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.fara.gov/",
+   "feeds": [],
+   "note": "من يعمل لصالح من في واشنطن — أثمن مصدر لخريطة الوصول، ويُحدَّث بالإيداعات."
+  },
+  {
+   "id": "lda",
+   "name": "سجل الضغط بمجلس الشيوخ",
+   "org": "U.S. Senate LDA",
+   "cat": "نفوذ ولوبيات",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://lda.senate.gov/",
+   "api": {
+    "type": "json",
+    "auth": "key",
+    "url": "https://lda.senate.gov/api/v1/filings/?filing_year=2026&client_name=&page_size=50",
+    "note": "إفصاحات الضغط الفصلية بالمبالغ والقضايا — تسجيل مجاني للمفتاح."
+   }
+  },
+  {
+   "id": "opensecrets",
+   "name": "OpenSecrets",
+   "org": "CRP",
+   "cat": "نفوذ ولوبيات",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.opensecrets.org/",
+   "api": {
+    "type": "json",
+    "auth": "key",
+    "url": "https://www.opensecrets.org/api/?method=getLegislators&id=NY&apikey={key}&output=json",
+    "note": "تمويل الحملات وربط المال بالمواقف."
+   }
+  },
+  {
+   "id": "politico",
+   "name": "بوليتيكو",
+   "org": "Politico",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.politico.com/",
+   "feeds": [
+    "https://rss.politico.com/politics-news.xml",
+    "https://rss.politico.com/defense.xml"
+   ]
+  },
+  {
+   "id": "thehill",
+   "name": "ذا هيل",
+   "org": "The Hill",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://thehill.com/",
+   "feeds": [
+    "https://thehill.com/homenews/feed/",
+    "https://thehill.com/policy/international/feed/"
+   ]
+  },
+  {
+   "id": "axios",
+   "name": "أكسيوس",
+   "org": "Axios",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.axios.com/",
+   "feeds": [
+    "https://api.axios.com/feed/"
+   ]
+  },
+  {
+   "id": "reuters-us",
+   "name": "رويترز — واشنطن",
+   "org": "Reuters",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.reuters.com/world/us/",
+   "feeds": []
+  },
+  {
+   "id": "ap-politics",
+   "name": "أسوشيتد برس — السياسة",
+   "org": "AP",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://apnews.com/hub/politics",
+   "feeds": []
+  },
+  {
+   "id": "foreignpolicy",
+   "name": "فورين بوليسي",
+   "org": "Foreign Policy",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://foreignpolicy.com/",
+   "feeds": [
+    "https://foreignpolicy.com/feed/"
+   ]
+  },
+  {
+   "id": "defenseone",
+   "name": "ديفنس وان",
+   "org": "Defense One",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.defenseone.com/",
+   "feeds": [
+    "https://www.defenseone.com/rss/all/"
+   ]
+  },
+  {
+   "id": "almonitor",
+   "name": "المونيتور",
+   "org": "Al-Monitor",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.al-monitor.com/",
+   "feeds": [
+    "https://www.al-monitor.com/rss"
+   ],
+   "note": "أقرب تغطية لتقاطع واشنطن مع الشرق الأوسط."
+  },
+  {
+   "id": "jewishinsider",
+   "name": "جويش إنسايدر",
+   "org": "Jewish Insider",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 3,
+   "party": true,
+   "site": "https://jewishinsider.com/",
+   "feeds": [
+    "https://jewishinsider.com/feed/"
+   ],
+   "note": "يرصد مواقف المشرّعين من ملفات المنطقة قبل غيره — يُقرأ بوصفه طرفاً."
+  },
+  {
+   "id": "semafor",
+   "name": "سيمافور",
+   "org": "Semafor",
+   "cat": "إعلام سياسي",
+   "lang": "en",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.semafor.com/",
+   "feeds": [
+    "https://www.semafor.com/rss.xml"
+   ]
+  },
+  {
+   "id": "csis",
+   "name": "مركز الدراسات الاستراتيجية والدولية",
+   "org": "CSIS",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.csis.org/",
+   "feeds": [
+    "https://www.csis.org/analysis/feed"
+   ]
+  },
+  {
+   "id": "brookings",
+   "name": "بروكينغز",
+   "org": "Brookings",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.brookings.edu/",
+   "feeds": [
+    "https://www.brookings.edu/feed/"
+   ]
+  },
+  {
+   "id": "atlanticcouncil",
+   "name": "المجلس الأطلسي",
+   "org": "Atlantic Council",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.atlanticcouncil.org/",
+   "feeds": [
+    "https://www.atlanticcouncil.org/feed/"
+   ]
+  },
+  {
+   "id": "carnegie",
+   "name": "كارنيغي",
+   "org": "Carnegie Endowment",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://carnegieendowment.org/",
+   "feeds": [
+    "https://carnegieendowment.org/rss/pubs"
+   ]
+  },
+  {
+   "id": "winep",
+   "name": "معهد واشنطن",
+   "org": "WINEP",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://www.washingtoninstitute.org/",
+   "feeds": [
+    "https://www.washingtoninstitute.org/feeds/policy-analysis"
+   ],
+   "note": "مؤثر في صياغة السياسة تجاه المنطقة — يُقرأ بوصفه طرفاً ذا خط معلن."
+  },
+  {
+   "id": "mei",
+   "name": "معهد الشرق الأوسط",
+   "org": "MEI",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.mei.edu/",
+   "feeds": [
+    "https://www.mei.edu/rss.xml"
+   ]
+  },
+  {
+   "id": "quincy",
+   "name": "معهد كوينسي",
+   "org": "Quincy Institute",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 3,
+   "party": false,
+   "site": "https://quincyinst.org/",
+   "feeds": [
+    "https://quincyinst.org/feed/"
+   ],
+   "note": "يمثل تيار ضبط النفس — مفيد لقياس حدود الطيف لا لتمثيل المركز."
+  },
+  {
+   "id": "heritage",
+   "name": "مؤسسة هيريتيج",
+   "org": "Heritage Foundation",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 3,
+   "party": true,
+   "site": "https://www.heritage.org/",
+   "feeds": [
+    "https://www.heritage.org/rss.xml"
+   ]
+  },
+  {
+   "id": "cfr",
+   "name": "مجلس العلاقات الخارجية",
+   "org": "CFR",
+   "cat": "مراكز فكر",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.cfr.org/",
+   "feeds": [
+    "https://www.cfr.org/rss-feeds"
+   ]
+  },
+  {
+   "id": "pew",
+   "name": "مركز بيو للأبحاث",
+   "org": "Pew Research",
+   "cat": "رأي عام",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.pewresearch.org/",
+   "feeds": [
+    "https://www.pewresearch.org/feed/"
+   ]
+  },
+  {
+   "id": "gallup",
+   "name": "غالوب",
+   "org": "Gallup",
+   "cat": "رأي عام",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://news.gallup.com/",
+   "feeds": [
+    "https://news.gallup.com/rss/rss.aspx"
+   ]
+  },
+  {
+   "id": "gdelt",
+   "name": "GDELT — واجهة الوثائق",
+   "org": "GDELT Project",
+   "cat": "تجميع",
+   "lang": "multi",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.gdeltproject.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "path": "articles",
+    "url": "https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=250&format=json&timespan={timespan}",
+    "params": {
+     "query": "Syria (Congress OR Treasury OR sanctions OR White House)",
+     "timespan": "6h"
+    }
+   }
+  },
+  {
+   "id": "wayback",
+   "name": "Wayback Availability API",
+   "org": "Internet Archive",
+   "cat": "تجميع",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://archive.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://archive.org/wayback/available?url={url}",
+    "params": {
+     "url": "state.gov"
+    },
+    "note": "إثبات نص البيان قبل تعديله — ضروري لرصد تغيّر الصياغة."
+   }
+  }
+ ],
+ "states": {
+  "note": "مواقف الولايات. تُعدَّل من الخريطة داخل المنصة مباشرة أو هنا. v: with مؤيد، against متحفظ، none لم يصوّت."
+ }
 }
