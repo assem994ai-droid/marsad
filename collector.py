@@ -248,6 +248,131 @@ def fetch_telegram(channel, since):
                     "dt": d, "source": f"تلجرام/{ch}", "weight": 3, "party": False})
     return out, "ok"
 
+
+# ------------------------------------------- الكونغرس: التشريعات والتصويتات
+# يتطلب CONGRESS_API_KEY في بيئة التشغيل (سر المستودع).
+CONG_BASE = "https://api.congress.gov/v3"
+STATE_AR = {"AL":"ألاباما","AK":"ألاسكا","AZ":"أريزونا","AR":"أركنساس","CA":"كاليفورنيا","CO":"كولورادو",
+ "CT":"كونيتيكت","DE":"ديلاوير","DC":"واشنطن العاصمة","FL":"فلوريدا","GA":"جورجيا","HI":"هاواي","ID":"أيداهو",
+ "IL":"إلينوي","IN":"إنديانا","IA":"آيوا","KS":"كانساس","KY":"كنتاكي","LA":"لويزيانا","ME":"مين","MD":"ماريلاند",
+ "MA":"ماساتشوستس","MI":"ميشيغان","MN":"مينيسوتا","MS":"ميسيسيبي","MO":"ميزوري","MT":"مونتانا","NE":"نبراسكا",
+ "NV":"نيفادا","NH":"نيوهامبشير","NJ":"نيوجيرسي","NM":"نيومكسيكو","NY":"نيويورك","NC":"كارولاينا الشمالية",
+ "ND":"داكوتا الشمالية","OH":"أوهايو","OK":"أوكلاهوما","OR":"أوريغون","PA":"بنسلفانيا","RI":"رود آيلاند",
+ "SC":"كارولاينا الجنوبية","SD":"داكوتا الجنوبية","TN":"تينيسي","TX":"تكساس","UT":"يوتا","VT":"فيرمونت",
+ "VA":"فرجينيا","WA":"واشنطن (ولاية)","WV":"فرجينيا الغربية","WI":"ويسكونسن","WY":"وايومنغ"}
+
+
+def cong_key():
+    return os.environ.get("CONGRESS_API_KEY", "").strip()
+
+
+def cong_get(path, **params):
+    key = cong_key()
+    if not key:
+        return None, "لا يوجد CONGRESS_API_KEY"
+    params.update({"api_key": key, "format": "json"})
+    try:
+        r = get(f"{CONG_BASE}/{path}", params=params, timeout=25)
+    except Exception as e:
+        return None, f"شبكة: {type(e).__name__}"
+    if r.status_code == 403:
+        return None, "المفتاح مرفوض (403)"
+    if r.status_code != 200:
+        return None, f"HTTP {r.status_code}"
+    try:
+        return r.json(), "ok"
+    except Exception:
+        return None, "رد غير صالح"
+
+
+def fetch_congress_bills(since, query="Syria"):
+    """مشاريع القوانين التي تذكر سوريا، مرتبة بآخر حركة."""
+    data, why = cong_get("bill", limit=100, sort="updateDate+desc")
+    if not data:
+        return [], why
+    out = []
+    for b in data.get("bills", []):
+        title = b.get("title", "")
+        if query.lower() not in title.lower():
+            continue
+        d = parse_date(b.get("updateDate", ""))
+        if d < since:
+            continue
+        num = f"{b.get('type','')}{b.get('number','')}"
+        out.append({"title": f"[تشريع {num}] {title}",
+                    "link": b.get("url", "https://www.congress.gov/"),
+                    "summary": f"آخر حركة: {b.get('latestAction',{}).get('text','—')}",
+                    "date": b.get("updateDate", ""), "dt": d,
+                    "source": "Congress.gov", "weight": 5, "party": False})
+    return out, "ok"
+
+
+def fetch_congress_hearings(since):
+    """جلسات الاستماع المجدولة — أبكر إشارة على ما سيُطرح."""
+    data, why = cong_get("committee-meeting", limit=60)
+    if not data:
+        return [], why
+    out = []
+    for m in data.get("committeeMeetings", []):
+        d = parse_date(m.get("updateDate", ""))
+        if d < since:
+            continue
+        out.append({"title": f"[جلسة لجنة] {m.get('chamber','')} — {m.get('title') or 'اجتماع لجنة'}",
+                    "link": m.get("url", ""), "summary": "اجتماع لجنة مجدول في الكونغرس.",
+                    "date": m.get("updateDate", ""), "dt": d,
+                    "source": "Congress.gov/Hearings", "weight": 5, "party": False})
+    return out, "ok"
+
+
+def fetch_state_votes(congress=119, chamber="senate", session=2, limit=12):
+    """
+    التصويتات الاسمية الأخيرة، مجمّعة على مستوى الولاية.
+    يعيد {"AL": {"yes":n,"no":n,"none":n,"stance":"y|n|m|a"}, ...} مع سجل المصادر.
+    """
+    key = cong_key()
+    if not key:
+        return {}, "لا يوجد CONGRESS_API_KEY"
+    data, why = cong_get(f"{chamber}-vote/{congress}/{session}", limit=limit)
+    if not data:
+        return {}, why
+    votes = data.get("senateRollCallVotes") or data.get("houseRollCallVotes") or []
+    agg, refs = {}, []
+    for v in votes:
+        title = (v.get("voteQuestionText", "") + " " + str(v.get("legislationNumber", "")) + " " +
+                 v.get("voteResult", ""))
+        detail, dwhy = cong_get(f"{chamber}-vote/{congress}/{session}/{v.get('rollCallNumber')}/members")
+        if not detail:
+            continue
+        members = (detail.get("senateRollCallVoteMemberVotes") or
+                   detail.get("houseRollCallVoteMemberVotes") or {}).get("results", [])
+        touched = False
+        for m in members:
+            st = (m.get("state") or "")[:2].upper()
+            if not st:
+                continue
+            cast = (m.get("voteCast") or "").lower()
+            a = agg.setdefault(st, {"yes": 0, "no": 0, "none": 0})
+            if "yea" in cast or "yes" in cast:
+                a["yes"] += 1; touched = True
+            elif "nay" in cast or "no" in cast:
+                a["no"] += 1; touched = True
+            else:
+                a["none"] += 1
+        if touched:
+            refs.append({"n": v.get("rollCallNumber"), "q": v.get("voteQuestionText", "")[:120],
+                         "d": v.get("startDate", ""), "url": v.get("url", "")})
+    for st, a in agg.items():
+        if a["yes"] == 0 and a["no"] == 0:
+            a["stance"] = "a"
+        elif a["yes"] > a["no"]:
+            a["stance"] = "y"
+        elif a["no"] > a["yes"]:
+            a["stance"] = "n"
+        else:
+            a["stance"] = "m"
+        a["name"] = STATE_AR.get(st, st)
+    return {"states": agg, "votes": refs}, "ok"
+
 # --------------------------------------------------- التصنيف والإسناد والأهمية
 def match_entities(text, entities):
     text = text.lower()
@@ -332,6 +457,25 @@ def cmd_verify(cfg):
         verified.append(rec)
         report.append((res["status"], s["name"], res.get("endpoint", ""), res.get("reason", "")))
         log(f"  {res['status']:12s} {s['name']}  ({res.get('reason','')})")
+    if cong_key():
+        for fn, label in ((fetch_congress_bills, "congress:bills"), (fetch_congress_hearings, "congress:hearings")):
+            try:
+                items, why = fn(since)
+            except Exception as e:
+                items, why = [], f"خطأ: {type(e).__name__}"
+            health[label] = f"{why} · {len(items)} عنصراً"
+            pool.extend(items)
+        try:
+            sv, why = fetch_state_votes()
+            health["congress:votes"] = f"{why} · {len(sv.get('states', {})) if sv else 0} ولاية"
+            if sv:
+                json.dump(sv, open(os.path.join(HERE, "state_votes.json"), "w", encoding="utf-8"),
+                          ensure_ascii=False, indent=1)
+        except Exception as e:
+            health["congress:votes"] = f"خطأ: {type(e).__name__}"
+    else:
+        health["congress"] = "لا يوجد مفتاح — أضف CONGRESS_API_KEY"
+
     for ch in (cfg.get("telegram") or {}).get("channels", []):
         items, why = fetch_telegram(ch, datetime.now(timezone.utc) - timedelta(days=3))
         log(f"  {('يعمل' if why=='ok' else 'متعذر'):12s} تلجرام/{ch}  ({why} · {len(items)} رسالة)")
@@ -389,6 +533,25 @@ def cmd_run(cfg, since_hours):
     if os.path.exists(vf):
         src_list = json.load(open(vf, encoding="utf-8"))["sources"]
         log("استُخدم sources.verified.json")
+
+    if cong_key():
+        for fn, label in ((fetch_congress_bills, "congress:bills"), (fetch_congress_hearings, "congress:hearings")):
+            try:
+                items, why = fn(since)
+            except Exception as e:
+                items, why = [], f"خطأ: {type(e).__name__}"
+            health[label] = f"{why} · {len(items)} عنصراً"
+            pool.extend(items)
+        try:
+            sv, why = fetch_state_votes()
+            health["congress:votes"] = f"{why} · {len(sv.get('states', {})) if sv else 0} ولاية"
+            if sv:
+                json.dump(sv, open(os.path.join(HERE, "state_votes.json"), "w", encoding="utf-8"),
+                          ensure_ascii=False, indent=1)
+        except Exception as e:
+            health["congress:votes"] = f"خطأ: {type(e).__name__}"
+    else:
+        health["congress"] = "لا يوجد مفتاح — أضف CONGRESS_API_KEY"
 
     for ch in (cfg.get("telegram") or {}).get("channels", []):
         items, why = fetch_telegram(ch, since)

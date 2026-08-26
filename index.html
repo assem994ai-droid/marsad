@@ -374,6 +374,44 @@ h5.clickable:hover{color:var(--accent); text-decoration:underline; text-underlin
 .stbox .set button{border:1px solid var(--line); background:var(--surface); border-radius:7px; padding:4px 10px; font-size:12px}
 .stbox .set button.on{color:#fff; border-color:transparent}
 
+/* ===== غرفة التوقيت ===== */
+.cdhero{position:relative; overflow:hidden; background:linear-gradient(135deg,var(--nav) 0%,var(--nav-2) 100%);
+  border-radius:14px; padding:26px 28px; color:#fff; box-shadow:0 14px 40px -22px rgba(10,74,50,.9); margin-bottom:22px}
+.cdhero:before{content:""; position:absolute; inset:0 auto 0 0; width:5px; background:var(--gold)}
+.cdhero .lbl{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; color:var(--gold); margin:0 0 8px}
+.cdhero h3{font-family:var(--kufi); font-size:21px; font-weight:700; margin:0 0 6px; color:#fff; line-height:1.5}
+.cdhero p{margin:0; font-size:13.5px; color:#BCD6C8; max-width:70ch}
+.cdnums{display:flex; gap:10px; margin:18px 0 0; flex-wrap:wrap}
+.cdunit{background:rgba(255,255,255,.07); border:1px solid rgba(198,160,74,.35); border-radius:10px; padding:10px 0; min-width:82px; text-align:center}
+.cdunit b{display:block; font-family:var(--mono); font-size:30px; font-weight:500; line-height:1.1; color:#fff; font-variant-numeric:tabular-nums}
+.cdunit span{font-family:var(--kufi); font-size:11px; color:#9FBFAD}
+.cdhero.urgent .cdunit b{color:#FFC9C0}
+.cdhero.urgent:before{background:var(--red)}
+.cdbar{height:5px; background:rgba(255,255,255,.12); border-radius:20px; margin-top:16px; overflow:hidden}
+.cdbar i{display:block; height:100%; background:var(--gold); border-radius:20px; transition:width .6s}
+.cdhero.urgent .cdbar i{background:#E8897B}
+.cdmeta{display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; font-family:var(--mono); font-size:11.5px; color:#9FBFAD}
+
+.tline{position:relative; margin:26px 0 6px; padding-inline-start:26px}
+.tline:before{content:""; position:absolute; inset-block:6px auto; inset-inline-start:7px; width:2px; background:var(--line)}
+.tnode{position:relative; padding:0 0 20px}
+.tnode:before{content:""; position:absolute; inset-inline-start:-24px; top:5px; width:14px; height:14px; border-radius:50%;
+  background:var(--surface); border:3px solid var(--line)}
+.tnode.soon:before{border-color:var(--red)} .tnode.mid:before{border-color:var(--gold)}
+.tnode.past:before{background:var(--line); border-color:var(--line)}
+.tnode.past{opacity:.45}
+.tnode h5{font-family:var(--kufi); font-size:15px; margin:0 0 3px; font-weight:600; display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.tnode .cnt{font-family:var(--mono); font-size:12.5px; padding:2px 10px; border-radius:20px; border:1px solid var(--line); color:var(--muted); font-variant-numeric:tabular-nums}
+.tnode.soon .cnt{color:var(--red); border-color:var(--red)}
+.tnode.mid .cnt{color:var(--amber); border-color:var(--amber)}
+.tnode p{margin:4px 0 0; font-size:13px; color:var(--ink-2); max-width:78ch}
+.tnode .dt{font-family:var(--mono); font-size:11px; color:var(--muted)}
+.cdstrip{display:flex; gap:10px; overflow-x:auto; padding-bottom:6px}
+.cdchip{flex:none; background:var(--surface); border:1px solid var(--line); border-inline-start:3px solid var(--gold); border-radius:9px; padding:9px 14px; min-width:150px}
+.cdchip b{display:block; font-family:var(--mono); font-size:19px; color:var(--accent); font-variant-numeric:tabular-nums}
+.cdchip span{font-family:var(--kufi); font-size:11.5px; color:var(--ink-2)}
+.cdchip.soon{border-inline-start-color:var(--red)} .cdchip.soon b{color:var(--red)}
+
 .toast{position:fixed; bottom:26px; left:50%; transform:translate(-50%,18px); background:var(--ink); color:var(--surface); padding:12px 22px; border-radius:9px; font-family:var(--kufi); font-size:13.5px; opacity:0; pointer-events:none; transition:.24s; z-index:80; box-shadow:var(--shadow)}
 .toast.show{opacity:1; transform:translate(-50%,0)}
 .empty{border:1px dashed var(--line); border-radius:9px; padding:34px; text-align:center; color:var(--muted); font-size:14px}
@@ -421,6 +459,7 @@ h5.clickable:hover{color:var(--accent); text-decoration:underline; text-underlin
     <nav class="nav" id="nav">
       <button data-view="home"><span class="ic">◆</span> الرئيسية</button>
       <button data-view="files"><span class="ic">▤</span> الملفات</button>
+      <button data-view="time"><span class="ic">◷</span> التوقيت</button>
       <button data-view="map"><span class="ic">◎</span> الخريطة</button>
       <button data-view="sources"><span class="ic">≡</span> المصادر</button>
       <button data-view="search"><span class="ic">⌕</span> البحث</button>
@@ -681,16 +720,82 @@ const WIN_FALLBACK=[
  {t:"انتخابات التجديد النصفي",d:"2026-11-03",w:"قبلها بستة أسابيع يتوقف أي انفتاح مثير للجدل. وبعدها تتغير تركيبة اللجان ورؤسائها — أي إعادة بناء لخريطة الوصول كاملة."},
  {t:"جلسة ما بعد الانتخابات",d:"2026-11-09",w:"من 9 نوفمبر إلى الرفع: الفترة التي يُقرّ فيها عادةً مشروع الدفاع الوطني وحزم الاعتمادات. أعلى كثافة تشريعية في السنة."},
  {t:"الرفع المستهدف للدورة",d:"2026-12-18",w:"نهاية السنة التشريعية. ما لم يُقرّ قبلها يعود إلى نقطة الصفر في الدورة التالية."}];
+
+/* ===== حساب النوافذ وعدّاداتها ===== */
+function winList(){
+ return (LIVE.windows&&LIVE.windows.length?LIVE.windows:WIN_FALLBACK)
+  .map(w=>{const dt=new Date(w.d+'T09:00:00');
+    return {...w,dt,ms:dt-new Date(),days:Math.ceil((dt-new Date())/864e5)};})
+  .sort((a,b)=>a.dt-b.dt);
+}
+function cdParts(ms){
+ const s=Math.max(0,Math.floor(ms/1000));
+ return {d:Math.floor(s/86400),h:Math.floor(s%86400/3600),m:Math.floor(s%3600/60),s:s%60};
+}
+const pad=n=>String(n).padStart(2,'0');
+function tickCountdowns(){
+ document.querySelectorAll('[data-cd]').forEach(el=>{
+  const p=cdParts(new Date(el.dataset.cd)-new Date());
+  const f=el.dataset.cdfmt;
+  if(f==='units'){
+    const u=el.querySelectorAll('b');
+    if(u.length===4){u[0].textContent=p.d; u[1].textContent=pad(p.h); u[2].textContent=pad(p.m); u[3].textContent=pad(p.s);}
+  }else if(f==='short'){ el.textContent=p.d>0?`${p.d} يوماً · ${pad(p.h)}:${pad(p.m)}:${pad(p.s)}`:`${pad(p.h)}:${pad(p.m)}:${pad(p.s)}`;
+  }else{ el.textContent=p.d; }
+ });
+}
+setInterval(tickCountdowns,1000);
+
+function heroCountdown(){
+ const up=winList().filter(w=>w.ms>0);
+ if(!up.length)return '';
+ const w=up[0], p=cdParts(w.ms);
+ const prev=winList().filter(x=>x.ms<=0).slice(-1)[0];
+ const span=prev?(w.dt-prev.dt):(30*864e5);
+ const pct=Math.max(2,Math.min(100,100-(w.ms/span*100)));
+ const urgent=w.days<=14;
+ return `<div class="cdhero ${urgent?'urgent':''}">
+  <p class="lbl">نافذة القرار التالية</p>
+  <h3>${esc(w.t)}</h3>
+  <p>${esc(w.w)}</p>
+  <div class="cdnums" data-cd="${w.d}T09:00:00" data-cdfmt="units">
+   <div class="cdunit"><b>${p.d}</b><span>يوم</span></div>
+   <div class="cdunit"><b>${pad(p.h)}</b><span>ساعة</span></div>
+   <div class="cdunit"><b>${pad(p.m)}</b><span>دقيقة</span></div>
+   <div class="cdunit"><b>${pad(p.s)}</b><span>ثانية</span></div>
+  </div>
+  <div class="cdbar"><i style="width:${pct.toFixed(1)}%"></i></div>
+  <div class="cdmeta"><span>${w.d}</span><span>${up.length} نافذة قادمة</span>
+   ${urgent?'<span style="color:#FFC9C0">نافذة قريبة — الأولوية للتحرك الآن</span>':''}</div>
+ </div>`;
+}
 function windowsHTML(){
- const items=(LIVE.windows&&LIVE.windows.length?LIVE.windows:WIN_FALLBACK)
-  .map(w=>({...w,days:Math.ceil((new Date(w.d)-new Date())/864e5)}))
-  .sort((a,b)=>a.days-b.days);
- return `<h3 class="sec">نوافذ القرار</h3>
- <p style="margin:-6px 0 14px;font-size:13px;color:var(--muted)">في واشنطن لا يصنع الاختراقَ الخبرُ بل التوقيت. هذه المواعيد تحدد متى يكون التحرك مجدياً ومتى يكون هدراً.</p>
- <div class="win">${items.map(w=>`<div class="wcard ${w.days<0?'past':(w.days<=21?'soon':'')}">
-   <b>${esc(w.t)} ${w.conf?`<span class="tok" style="font-weight:400">· ${esc(w.conf)}</span>`:''}</b>
-   <span class="d">${w.days<0?'مضت':w.days}${w.days>=0?' <small>يوماً</small>':''}</span>
+ const items=winList();
+ const cls=w=>w.ms<=0?'past':(w.days<=14?'soon':(w.days<=35?'mid':''));
+ return `<h3 class="sec">خط نوافذ القرار</h3>
+ <p style="margin:-8px 0 6px;font-size:13px;color:var(--muted)">في واشنطن لا يصنع الاختراقَ الخبرُ بل التوقيت. العدّاد يعمل لحظياً.</p>
+ <div class="tline">${items.map(w=>`<div class="tnode ${cls(w)}">
+   <h5>${esc(w.t)} <span class="cnt" data-cd="${w.d}T09:00:00" data-cdfmt="short">${w.ms>0?'':'مضت'}</span></h5>
+   <span class="dt">${w.d}</span>
    <p>${esc(w.w)}</p></div>`).join('')}</div>`;
+}
+function viewTime(){
+ const items=winList(), up=items.filter(w=>w.ms>0);
+ return `<p class="eyebrow">غرفة التوقيت</p><h2 class="page">متى يكون التحرك مجدياً</h2>
+ <p class="page-sub">كل نافذة هنا تعني بابًا يُفتح ويُغلق في واشنطن. ما لا يُنجز داخل النافذة يؤجَّل دورة كاملة.</p>
+ ${heroCountdown()}
+ <div class="cdstrip">${up.slice(1).map(w=>`<div class="cdchip ${w.days<=14?'soon':''}">
+   <b data-cd="${w.d}T09:00:00" data-cdfmt="days">${w.days}</b><span>${esc(w.t)}</span></div>`).join('')}</div>
+ <div class="rule"></div><h3 class="sec">النوافذ القادمة</h3>
+ <div class="cdstrip">${winList().filter(w=>w.ms>0).slice(1,7).map(w=>`<div class="cdchip ${w.days<=14?'soon':''}">
+   <b data-cd="${w.d}T09:00:00" data-cdfmt="days">${w.days}</b><span>${esc(w.t)}</span></div>`).join('')}</div>
+ <div class="rule"></div><h3 class="sec">كيف تُقرأ النوافذ</h3>
+ <div class="pipe">
+  <div><b>الأحمر</b><span>أقل من أسبوعين — إن لم يكن ملفك جاهزاً الآن فقد فاتت.</span></div>
+  <div><b>الذهبي</b><span>من أسبوعين إلى خمسة أسابيع — وقت التجهيز والاتصالات التمهيدية.</span></div>
+  <div><b>الرمادي</b><span>أبعد من ذلك — للتخطيط لا للتحرك.</span></div>
+  <div><b>الباهت</b><span>نافذة مضت — تُبقى للمراجعة وقياس ما أُنجز فيها.</span></div>
+ </div>`;
 }
 
 function viewHome(){
@@ -708,7 +813,9 @@ function viewHome(){
    ${linked||'<p style="margin:0;font-size:13px;color:var(--muted)">لم يدخل هذا الحدث في أي استنتاج بعد — سيُدمج في الدورة التالية.</p>'}</div>
   <div class="hero-foot"><span>◈ ${esc(top.place.n)}</span><span>الكيانات: ${top.ent.join('، ')}</span><span>المصادر: ${top.src.length}</span></div></div>
  <div class="rule"></div><h3 class="sec">أحدث ما وصل</h3>${list.map(e=>evRow(e,{showFile:true})).join('')}
- <div class="rule"></div>${windowsHTML()}
+ <div class="rule"></div><h3 class="sec">النوافذ القادمة</h3>
+ <div class="cdstrip">${winList().filter(w=>w.ms>0).slice(1,7).map(w=>`<div class="cdchip ${w.days<=14?'soon':''}">
+   <b data-cd="${w.d}T09:00:00" data-cdfmt="days">${w.days}</b><span>${esc(w.t)}</span></div>`).join('')}</div>
  <div class="rule"></div><h3 class="sec">توزيع الأهمية</h3>
  <div class="row" style="gap:26px;font-size:13px"><span class="lvl pivotal"><i></i>محوري — ${c('pivotal')}</span><span class="lvl important"><i></i>مهم — ${c('important')}</span><span class="lvl normal"><i></i>عادي — ${c('normal')}</span></div>`;}
 
@@ -759,7 +866,9 @@ const LAYERS={
  party:{t:'الميل الحزبي',lg:[['#B4342A','جمهوري'],['#2C5FA8','ديمقراطي'],['#7A4FA3','متأرجحة'],['#C3CBC6','بلا تصويت']],
    f:st=>st.l==='na'?'#C3CBC6':(st.s?'#7A4FA3':(st.l==='R'?'#B4342A':'#2C5FA8'))},
  stance:{t:'الموقف من الملف السوري',lg:[['#1E7A4C','مؤيد'],['#C9902B','متحفظ أو معارض'],['#8A9691','لم يصوّت'],['#DCE5DE','غير مسجّل']],
-   f:st=>({with:'#1E7A4C',against:'#C9902B',none:'#8A9691'})[st.v]||'#DCE5DE'},
+   f:st=>{const sv=(LIVE.states||{})[st.c];
+     if(sv&&sv.stance)return ({y:'#1E7A4C',n:'#C9902B',m:'#B8912F',a:'#8A9691'})[sv.stance]||'#DCE5DE';
+     return ({with:'#1E7A4C',against:'#C9902B',none:'#8A9691'})[st.v]||'#DCE5DE';}},
  priority:{t:'أولوية التحرك',lg:[['#A32B22','عالية'],['#C6A04A','متوسطة'],['#DCE5DE','منخفضة']],
    f:st=>{const undecided=!st.v||st.v==='none';
      if(st.s&&undecided)return '#A32B22';                    /* متأرجحة وغير محسومة = أعلى مردود */
@@ -1384,7 +1493,7 @@ const REAL={on:false};
 /* ============================================================
    طبقة البيانات الحية — تقرأ من الخادم إن وُجد، وإلا تبقى تجريبية
    ============================================================ */
-const LIVE={on:false,src:null,tg:[],windows:[],states:{}, health:{}, sheets:{}, generated:null, log:[], sourcesTotal:0, error:null};
+const LIVE={on:false,src:null,tg:[],windows:[],states:{},votes:[],states:{}, health:{}, sheets:{}, generated:null, log:[], sourcesTotal:0, error:null};
 function api(p,opt){return fetch(p,opt).then(r=>r.ok?r.json():Promise.reject(r.status));}
 
 function adopt(p){
@@ -1398,7 +1507,7 @@ function adopt(p){
    ent:e.entities||[], src:e.sources||[],
    indep:e.independent_confirmations||0, review:!!e.needs_review, isNew:false}));
  LIVE.on=true; LIVE.sheets=p.sheets||{}; LIVE.health=p.health||{}; LIVE.generated=p.generated;
- LIVE.log=p.log||[]; LIVE.sourcesTotal=p.sources_total||0; LIVE.tg=p.telegram||[]; LIVE.windows=p.windows||[]; LIVE.states=p.states||{}; LIVE.error=p.error||null;
+ LIVE.log=p.log||[]; LIVE.sourcesTotal=p.sources_total||0; LIVE.tg=p.telegram||[]; LIVE.windows=p.windows||[]; LIVE.states=p.states||{}; LIVE.votes=p.votes||[]; LIVE.states=p.states||{}; LIVE.error=p.error||null;
  PATHS=PATHS; mapv.init=false;   /* إعادة ضبط إطار الخريطة على البيانات الجديدة */
  const tag=$('#modeTag'); if(tag){tag.className='mode live'; tag.textContent='بيانات مباشرة';}
  if(p.next_in!=null)secs=p.next_in;
@@ -1712,10 +1821,10 @@ function viewSheet(){
 
 /* ===== الرسم ===== */
 function render(){
- $('#view').innerHTML = state.view==='home'?viewHome():state.view==='files'?viewFiles():state.view==='file'?viewFile(state.file):state.view==='map'?viewMap():state.view==='sources'?viewSources():state.view==='sheet'?viewSheet():viewSearch();
+ $('#view').innerHTML = state.view==='home'?viewHome():state.view==='files'?viewFiles():state.view==='file'?viewFile(state.file):state.view==='time'?viewTime():state.view==='map'?viewMap():state.view==='sources'?viewSources():state.view==='sheet'?viewSheet():viewSearch();
  if(state.view==='map')initMap();
  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.view===state.view||(state.view==='file'&&b.dataset.view==='files')));
- $('#evCount').textContent=state.events.length;
+ $('#evCount').textContent=state.events.length; tickCountdowns();
  document.body.classList.toggle('focusing',!!state.focus);
  if(state.view==='search'){const i=$('#q'); if(i){i.focus(); i.setSelectionRange(i.value.length,i.value.length);}}
 }
