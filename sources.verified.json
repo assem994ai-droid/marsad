@@ -1,0 +1,706 @@
+{
+ "checked": "2026-08-26T18:56:57.099346+00:00",
+ "sources": [
+  {
+   "id": "aa-ar",
+   "name": "وكالة الأناضول — العربية",
+   "org": "Anadolu Agency",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.aa.com.tr/ar",
+   "feeds": [
+    "https://www.aa.com.tr/ar/rss/default?cat=guncel",
+    "https://www.aa.com.tr/ar/rss/default?cat=turkiye"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.aa.com.tr/ar/rss/default?cat=guncel",
+    "reason": "ok",
+    "items": 30
+   }
+  },
+  {
+   "id": "trt-ar",
+   "name": "تي آر تي عربي",
+   "org": "TRT",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 3,
+   "party": true,
+   "site": "https://www.trtarabi.com/",
+   "feeds": [
+    "https://www.trtarabi.com/rss"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.trtarabi.com/feed/rss.xml",
+    "reason": "ok",
+    "items": 100
+   }
+  },
+  {
+   "id": "sana",
+   "name": "سانا",
+   "org": "الوكالة العربية السورية للأنباء",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 3,
+   "party": true,
+   "site": "https://sana.sy/",
+   "feeds": [
+    "https://sana.sy/?feed=rss2",
+    "https://sana.sy/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://sana.sy/?feed=rss2",
+    "reason": "ok",
+    "items": 0
+   }
+  },
+  {
+   "id": "bbc-ar",
+   "name": "بي بي سي عربي",
+   "org": "BBC",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.bbc.com/arabic",
+   "feeds": [
+    "https://feeds.bbci.co.uk/arabic/rss.xml",
+    "https://feeds.bbci.co.uk/arabic/middleeast/rss.xml"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://feeds.bbci.co.uk/arabic/rss.xml",
+    "reason": "ok",
+    "items": 25
+   }
+  },
+  {
+   "id": "aljazeera",
+   "name": "الجزيرة",
+   "org": "Al Jazeera",
+   "cat": "وكالات ورسمي",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.aljazeera.net/",
+   "feeds": [
+    "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9",
+    "reason": "ok",
+    "items": 25
+   }
+  },
+  {
+   "id": "reuters-me",
+   "name": "رويترز — الشرق الأوسط",
+   "org": "Reuters",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://www.reuters.com/world/middle-east/",
+   "feeds": [],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.reuters.com/world/middle-east/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.reuters.com/world/middle-east/feed → HTTP 401",
+     "https://www.reuters.com/world/middle-east/feed/ → HTTP 401",
+     "https://www.reuters.com/world/middle-east/rss → HTTP 401",
+     "https://www.reuters.com/world/middle-east/rss.xml → HTTP 401",
+     "https://www.reuters.com/world/middle-east/?feed=rss2 → HTTP 401",
+     "https://www.reuters.com/world/middle-east/atom.xml → HTTP 401"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "ap-me",
+   "name": "أسوشيتد برس — الشرق الأوسط",
+   "org": "AP",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://apnews.com/hub/middle-east",
+   "feeds": [],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://apnews.com/hub/middle-east",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://apnews.com/hub/middle-east/feed → HTTP 403",
+     "https://apnews.com/hub/middle-east/feed/ → HTTP 403",
+     "https://apnews.com/hub/middle-east/rss → HTTP 403",
+     "https://apnews.com/hub/middle-east/rss.xml → HTTP 403",
+     "https://apnews.com/hub/middle-east/?feed=rss2 → HTTP 403",
+     "https://apnews.com/hub/middle-east/atom.xml → HTTP 403"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "state-dept",
+   "name": "الخارجية الأمريكية — بيانات",
+   "org": "U.S. Department of State",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.state.gov/press-releases/",
+   "feeds": [
+    "https://www.state.gov/rss-feed/press-releases/feed/"
+   ],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.state.gov/press-releases/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.state.gov/rss-feed/press-releases/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/feed → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/rss → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/rss.xml → الرد ليس تغذية RSS/Atom",
+     "https://www.state.gov/press-releases/?feed=rss2 → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "centcom",
+   "name": "القيادة المركزية الأمريكية",
+   "org": "CENTCOM",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://www.centcom.mil/MEDIA/PRESS-RELEASES/",
+   "feeds": [],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.centcom.mil/MEDIA/PRESS-RELEASES/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.centcom.mil/MEDIA/PRESS-RELEASES/feed → HTTP 403",
+     "https://www.centcom.mil/MEDIA/PRESS-RELEASES/feed/ → HTTP 403",
+     "https://www.centcom.mil/MEDIA/PRESS-RELEASES/rss → HTTP 403",
+     "https://www.centcom.mil/MEDIA/PRESS-RELEASES/rss.xml → HTTP 403",
+     "https://www.centcom.mil/MEDIA/PRESS-RELEASES/?feed=rss2 → HTTP 403",
+     "https://www.centcom.mil/MEDIA/PRESS-RELEASES/atom.xml → HTTP 403"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "mfa-tr",
+   "name": "وزارة الخارجية التركية",
+   "org": "MFA Türkiye",
+   "cat": "وكالات ورسمي",
+   "lang": "tr",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.mfa.gov.tr/",
+   "feeds": [],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.mfa.gov.tr/en.rss.mfa?45b45ccf-8814-4029-9224-5685e8ca3542",
+    "reason": "ok",
+    "items": 34
+   }
+  },
+  {
+   "id": "msb-tr",
+   "name": "وزارة الدفاع التركية",
+   "org": "MSB",
+   "cat": "وكالات ورسمي",
+   "lang": "tr",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.msb.gov.tr/",
+   "feeds": [],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.msb.gov.tr/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.msb.gov.tr/feed → HTTP 403",
+     "https://www.msb.gov.tr/feed/ → HTTP 403",
+     "https://www.msb.gov.tr/rss → HTTP 403",
+     "https://www.msb.gov.tr/rss.xml → HTTP 403",
+     "https://www.msb.gov.tr/?feed=rss2 → HTTP 403",
+     "https://www.msb.gov.tr/atom.xml → HTTP 403"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "mid-ru",
+   "name": "الخارجية الروسية",
+   "org": "MID",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 4,
+   "party": true,
+   "site": "https://mid.ru/en/",
+   "feeds": [],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://mid.ru/en/rss",
+    "reason": "ok",
+    "items": 10
+   }
+  },
+  {
+   "id": "unpress",
+   "name": "الأمم المتحدة — البيانات الصحفية",
+   "org": "UN Press",
+   "cat": "وكالات ورسمي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://press.un.org/",
+   "feeds": [
+    "https://press.un.org/en/rss.xml"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://press.un.org/en/rss.xml",
+    "reason": "ok",
+    "items": 10
+   }
+  },
+  {
+   "id": "enab",
+   "name": "عنب بلدي",
+   "org": "Enab Baladi",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.enabbaladi.net/",
+   "feeds": [
+    "https://www.enabbaladi.net/feed",
+    "https://www.enabbaladi.net/archives/feed"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.enabbaladi.net/feed/",
+    "reason": "ok",
+    "items": 19
+   }
+  },
+  {
+   "id": "syriadirect",
+   "name": "سوريا على طول",
+   "org": "Syria Direct",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://syriadirect.org/",
+   "feeds": [
+    "https://syriadirect.org/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://syriadirect.org/feed/",
+    "reason": "ok",
+    "items": 10
+   }
+  },
+  {
+   "id": "npa",
+   "name": "نورث برس",
+   "org": "North Press Agency",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 3,
+   "party": false,
+   "site": "https://npasyria.com/",
+   "feeds": [
+    "https://npasyria.com/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://npasyria.com/feed/",
+    "reason": "ok",
+    "items": 9
+   }
+  },
+  {
+   "id": "anha",
+   "name": "وكالة هاوار",
+   "org": "ANHA",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 2,
+   "party": true,
+   "site": "https://hawarnews.com/",
+   "feeds": [
+    "https://hawarnews.com/feed/"
+   ],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://hawarnews.com/",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://hawarnews.com/feed/ → HTTP 404",
+     "https://hawarnews.com/feed → HTTP 404",
+     "https://hawarnews.com/rss → HTTP 404",
+     "https://hawarnews.com/rss.xml → HTTP 404",
+     "https://hawarnews.com/?feed=rss2 → الرد ليس تغذية RSS/Atom",
+     "https://hawarnews.com/atom.xml → HTTP 404"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "rudaw",
+   "name": "رووداو",
+   "org": "Rudaw",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.rudaw.net/arabic",
+   "feeds": [
+    "https://www.rudaw.net/rss/arabic"
+   ],
+   "verified": {
+    "status": "بلا تغذية",
+    "endpoint": "https://www.rudaw.net/arabic",
+    "reason": "لا تغذية صالحة — يلزم كاشط مخصص أو الاعتماد على GDELT",
+    "tried": [
+     "https://www.rudaw.net/rss/arabic → الرد ليس تغذية RSS/Atom",
+     "https://www.rudaw.net/arabic/feed → الرد ليس تغذية RSS/Atom",
+     "https://www.rudaw.net/arabic/feed/ → الرد ليس تغذية RSS/Atom",
+     "https://www.rudaw.net/arabic/rss → الرد ليس تغذية RSS/Atom",
+     "https://www.rudaw.net/arabic/rss.xml → الرد ليس تغذية RSS/Atom",
+     "https://www.rudaw.net/arabic/?feed=rss2 → الرد ليس تغذية RSS/Atom"
+    ],
+    "items": 0
+   }
+  },
+  {
+   "id": "syriatv",
+   "name": "تلفزيون سوريا",
+   "org": "Syria TV",
+   "cat": "محلي",
+   "lang": "ar",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.syria.tv/",
+   "feeds": [
+    "https://www.syria.tv/rss.xml",
+    "https://www.syria.tv/feed"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.syria.tv/rss.xml",
+    "reason": "ok",
+    "items": 95
+   }
+  },
+  {
+   "id": "sohr",
+   "name": "المرصد السوري لحقوق الإنسان",
+   "org": "SOHR",
+   "cat": "مراصد",
+   "lang": "ar",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.syriahr.com/",
+   "feeds": [
+    "https://www.syriahr.com/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.syriahr.com/feed/",
+    "reason": "ok",
+    "items": 30
+   }
+  },
+  {
+   "id": "snhr",
+   "name": "الشبكة السورية لحقوق الإنسان",
+   "org": "SNHR",
+   "cat": "مراصد",
+   "lang": "ar",
+   "weight": 4,
+   "party": false,
+   "site": "https://snhr.org/",
+   "feeds": [
+    "https://snhr.org/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://snhr.org/feed/",
+    "reason": "ok",
+    "items": 12
+   }
+  },
+  {
+   "id": "bellingcat",
+   "name": "Bellingcat",
+   "org": "Bellingcat",
+   "cat": "مراصد",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://www.bellingcat.com/",
+   "feeds": [
+    "https://www.bellingcat.com/feed/"
+   ],
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.bellingcat.com/feed/",
+    "reason": "ok",
+    "items": 10
+   }
+  },
+  {
+   "id": "gdelt",
+   "name": "GDELT 2.0 — واجهة الوثائق",
+   "org": "GDELT Project",
+   "cat": "تجميع",
+   "lang": "multi",
+   "weight": 3,
+   "party": false,
+   "site": "https://www.gdeltproject.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=250&format=json&timespan={timespan}",
+    "params": {
+     "query": "Syria",
+     "timespan": "6h"
+    },
+    "path": "articles"
+   },
+   "verified": {
+    "status": "فشل",
+    "endpoint": "https://api.gdeltproject.org/api/v2/doc/doc?query={query}&mode=ArtList&maxrecords=250&format=json&timespan={timespan}",
+    "reason": "شبكة: ReadTimeout",
+    "items": 0
+   }
+  },
+  {
+   "id": "reliefweb",
+   "name": "ReliefWeb API v2",
+   "org": "UN OCHA",
+   "cat": "أممي",
+   "lang": "en",
+   "weight": 5,
+   "party": false,
+   "site": "https://reliefweb.int/",
+   "api": {
+    "type": "json",
+    "auth": "appname",
+    "url": "https://api.reliefweb.int/v2/reports?appname={appname}&filter[field]=country&filter[value]=Syria&sort[]=date:desc&limit=50&fields[include][]=title&fields[include][]=date&fields[include][]=source&fields[include][]=url",
+    "params": {
+     "appname": "CHANGE-ME"
+    },
+    "path": "data",
+    "note": "يلزم appname معتمد مسبقاً منذ 1 نوفمبر 2025 — بحد 1000 استدعاء يومياً."
+   },
+   "verified": {
+    "status": "يحتاج اعتماد",
+    "endpoint": "https://api.reliefweb.int/v2/reports?appname={appname}&filter[field]=country&filter[value]=Syria&sort[]=date:desc&limit=50&fields[include][]=title&fields[include][]=date&fields[include][]=source&fields[include][]=url",
+    "reason": "يلزم appname معتمد مسبقاً منذ 1 نوفمبر 2025 — بحد 1000 استدعاء يومياً.",
+    "items": 0
+   }
+  },
+  {
+   "id": "fedreg",
+   "name": "Federal Register API",
+   "org": "US GPO",
+   "cat": "عقوبات وقانون",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://www.federalregister.gov/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[term]=Syria&order=newest&per_page=50",
+    "path": "results"
+   },
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.federalregister.gov/api/v1/documents.json?conditions[term]=Syria&order=newest&per_page=50",
+    "reason": "ok",
+    "items": 50
+   }
+  },
+  {
+   "id": "ofac-sdn",
+   "name": "قائمة OFAC (SDN)",
+   "org": "U.S. Treasury",
+   "cat": "عقوبات وقانون",
+   "lang": "en",
+   "weight": 5,
+   "party": true,
+   "site": "https://sanctionslist.ofac.treas.gov/",
+   "api": {
+    "type": "csv",
+    "auth": "none",
+    "url": "https://www.treasury.gov/ofac/downloads/sdn.csv",
+    "mode": "diff",
+    "note": "يُقارن الملف بنسخة الدورة السابقة ويُستخرج الفرق فقط."
+   },
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://www.treasury.gov/ofac/downloads/sdn.csv",
+    "reason": "ok",
+    "items": 19320
+   }
+  },
+  {
+   "id": "hdx",
+   "name": "Humanitarian Data Exchange",
+   "org": "OCHA HDX",
+   "cat": "أممي",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://data.humdata.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://data.humdata.org/api/3/action/package_search?q=syria&rows=50",
+    "path": "result.results"
+   },
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://data.humdata.org/api/3/action/package_search?q=syria&rows=50",
+    "reason": "ok",
+    "items": 50
+   }
+  },
+  {
+   "id": "firms",
+   "name": "NASA FIRMS — بؤر حرارية",
+   "org": "NASA LANCE",
+   "cat": "استشعار",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://firms.modaps.eosdis.nasa.gov/",
+   "api": {
+    "type": "csv",
+    "auth": "key",
+    "url": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{key}/VIIRS_NOAA20_NRT/35,32,43,38/1",
+    "params": {
+     "key": "MAP_KEY"
+    },
+    "note": "مربع الإحداثيات غرب،جنوب،شرق،شمال. الحد 5000 عملية لكل 10 دقائق."
+   },
+   "verified": {
+    "status": "يحتاج اعتماد",
+    "endpoint": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{key}/VIIRS_NOAA20_NRT/35,32,43,38/1",
+    "reason": "مربع الإحداثيات غرب،جنوب،شرق،شمال. الحد 5000 عملية لكل 10 دقائق.",
+    "items": 0
+   }
+  },
+  {
+   "id": "opensky",
+   "name": "OpenSky Network",
+   "org": "OpenSky",
+   "cat": "حركة",
+   "lang": "en",
+   "weight": 3,
+   "party": false,
+   "site": "https://opensky-network.org/",
+   "api": {
+    "type": "json",
+    "auth": "oauth2",
+    "url": "https://opensky-network.org/api/states/all?lamin=32&lomin=35&lamax=38&lomax=43",
+    "token_url": "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token",
+    "note": "المصادقة بكلمة المرور أُلغيت في 18 مارس 2026 — OAuth2 حصراً، والوصول المجهول محدود."
+   },
+   "verified": {
+    "status": "يحتاج اعتماد",
+    "endpoint": "https://opensky-network.org/api/states/all?lamin=32&lomin=35&lamax=38&lomax=43",
+    "reason": "المصادقة بكلمة المرور أُلغيت في 18 مارس 2026 — OAuth2 حصراً، والوصول المجهول محدود.",
+    "items": 0
+   }
+  },
+  {
+   "id": "worldbank",
+   "name": "بيانات البنك الدولي",
+   "org": "World Bank",
+   "cat": "اقتصاد",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://data.worldbank.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://api.worldbank.org/v2/country/SYR/indicator/NY.GDP.MKTP.CD?format=json"
+   },
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://api.worldbank.org/v2/country/SYR/indicator/NY.GDP.MKTP.CD?format=json",
+    "reason": "ok",
+    "items": 2
+   }
+  },
+  {
+   "id": "overpass",
+   "name": "Overpass API — OpenStreetMap",
+   "org": "OSM",
+   "cat": "خرائط",
+   "lang": "multi",
+   "weight": 4,
+   "party": false,
+   "site": "https://overpass-api.de/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://overpass-api.de/api/interpreter?data=[out:json];node[\"barrier\"=\"border_control\"](32,35,38,43);out;"
+   },
+   "verified": {
+    "status": "فشل",
+    "endpoint": "https://overpass-api.de/api/interpreter?data=[out:json];node[\"barrier\"=\"border_control\"](32,35,38,43);out;",
+    "reason": "شبكة: ReadTimeout",
+    "items": 0
+   }
+  },
+  {
+   "id": "wayback",
+   "name": "Wayback Availability API",
+   "org": "Internet Archive",
+   "cat": "تجميع",
+   "lang": "en",
+   "weight": 4,
+   "party": false,
+   "site": "https://archive.org/",
+   "api": {
+    "type": "json",
+    "auth": "none",
+    "url": "https://archive.org/wayback/available?url={url}",
+    "params": {
+     "url": "mfa.gov.tr"
+    },
+    "note": "يُستخدم لتثبيت نص البيان قبل أي تعديل لاحق."
+   },
+   "verified": {
+    "status": "يعمل",
+    "endpoint": "https://archive.org/wayback/available?url={url}",
+    "reason": "ok",
+    "items": 1
+   }
+  }
+ ]
+}
