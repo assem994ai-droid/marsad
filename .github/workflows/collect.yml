@@ -32,6 +32,8 @@ jobs:
           fi
 
       - name: Collect news
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
         run: python collector.py run --since 6h || true
 
       - name: Generate analysis sheets
@@ -45,6 +47,6 @@ jobs:
           git config user.name "marsad-bot"
           git config user.email "bot@users.noreply.github.com"
           git add -A data || true
-          git add collector.state.json sources.verified.json || true
+          git add collector.state.json sources.verified.json state_votes.json || true
           git diff --staged --quiet || git commit -m "auto update"
           git push
